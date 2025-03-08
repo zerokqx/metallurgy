@@ -1,0 +1,26 @@
+.header{
+    background-color: #0F0F17;
+    width: 100%;
+
+    &__text{
+    color: white;
+
+        &--roboto{
+font-family: "Roboto", sans-serif;        }
+    }
+
+
+
+    &--flex{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    }
+}
+
+
+
+
