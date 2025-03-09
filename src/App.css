@@ -1,14 +1,13 @@
-  @import url("/public/fonts/Golos-Text/Golos-Text_Regular.css");
+@import url("/public/fonts/Golos-Text/Golos-Text_Regular.css");
 
+#root {
 
-  #root {
+  max-width: 100%;
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+}
 
-    max-width: 100%;
-    margin: 0 auto;
-    /* padding: 2rem; */
-    text-align: center;
-  }
-
-  body {
-    background-color: #27272E;
-  }
+body {
+  background-color: #27272E;
+}

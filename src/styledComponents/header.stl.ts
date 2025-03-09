@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import flexBox from "./flex.stl";
-import { nunito, golos } from "./font.stl";
+import { baseFont } from "./font.stl";
 
 const spaceBase = 20;
 export const toPx = (num: number) => `${num}px`
@@ -15,11 +15,9 @@ export const HeaderStyle = styled.header`
 
     .header__text{
     color: white;
-
-        &--nunito{
-            
-            ${golos({ weight: "normal" })}
-        }
+            &--golos-font{
+                ${baseFont({ weight: 400, family: "GolosTextWebRegular" })}
+            }
     }
 
 

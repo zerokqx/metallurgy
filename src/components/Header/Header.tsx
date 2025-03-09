@@ -27,8 +27,8 @@ const Header: FC<{ data: DataNav[] }> = ({ data }) => {
         <Logotype />
         {data.map((element) => (
           <a
-            href={element.link ? element.link : "/"}
-            className="header__text header__text--nunito"
+            href={element.link || ""}
+            className="header__text header__text--golos-font"
           >
             {element.text}
           </a>

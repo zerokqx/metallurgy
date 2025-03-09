@@ -1,18 +1,16 @@
 import { CSSProperties } from "react"
 import { css } from "styled-components"
 
-
-
-interface NunitoProps {
-    weight: CSSProperties["fontWeight"]
+interface BaseFontProps {
+    weight?: CSSProperties["fontWeight"]
+    family: CSSProperties["fontFamily"]
 }
 
-export const nunito = ({ weight }: NunitoProps) => css`
+export const baseFont = ({ weight, family }: BaseFontProps) => css`
     font-weight: ${weight || 400};
-    font-family:  "Nunito Sans", sans-serif;
+    font-family:  ${family}, sans-serif;
 `
 
-export const golos = ({ weight }: NunitoProps) => css`
-    font-weight: ${weight || 400};
-    font-family:  "GolosTextWebRegular",sans-serif ;
-`
+
+
+
