@@ -1,7 +1,10 @@
 @import url("/public/fonts/Golos-Text/Golos-Text_Regular.css");
 
 #root {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
   max-width: 100%;
   margin: 0 auto;
   /* padding: 2rem; */
@@ -9,5 +12,7 @@
 }
 
 body {
+  height: 100vh;
+
   background-color: #27272E;
 }

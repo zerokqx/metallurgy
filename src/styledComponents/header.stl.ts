@@ -6,7 +6,8 @@ const spaceBase = 20
 export const toPx = (num: number) => `${num}px`
 
 export const HeaderStyle = styled.header`
-    background-color: #0f0f17;
+
+    background-color: var(--dark-gray);
     border-bottom: 2px solid var(--bruze-color);
     width: 100%;
     ${flexBox({

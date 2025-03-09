@@ -1,15 +1,14 @@
 import { css } from "styled-components";
-import { CSSProperties } from "styled-components/dist/types";
+import { FlexBoxProps } from "@/Types/styleComponent/flex.types";
 
 
-export interface FlexBoxProps {
-    direction?: CSSProperties["flexDirection"];
-    x?: CSSProperties["justifyContent"];
-    y?: CSSProperties["alignItems"]
-    gap?: CSSProperties["gap"]
-
-}
-
+/**
+ * @description Стили флексбокса
+ * @param {string} [direction] Какой flex контейнер будет row или column или другие
+ * @param {string} [x] justify выравнивание для flex контейнера `(По оси X)`
+ * @param {string} [y] align выравнивание для flex контейнера `(По оси Y)`
+ * @param {string} [gap] Растояние (Пробел) между flex элементами
+ */
 const flexBox = ({ direction, x, y, gap }: FlexBoxProps) => css`
     display: flex;
     flex-direction: ${direction || "inherit"};
@@ -17,7 +16,7 @@ const flexBox = ({ direction, x, y, gap }: FlexBoxProps) => css`
     align-items: ${y || "inherit"};
     gap:${gap || "inherit"};
 
-    
+
 `
 
 export default flexBox

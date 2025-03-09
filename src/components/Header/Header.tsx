@@ -1,5 +1,5 @@
-import { FC, JSX } from 'react'
-import { DataNav } from './header.types'
+import {FC, JSX} from 'react'
+import { DataNav, DataNavScheme } from '../../Types/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 const Logotype = () => {
     return (
@@ -23,7 +23,8 @@ const Logotype = () => {
         </svg>
     )
 }
-const Header: FC<{ data: DataNav[] }> = ({ data }) => {
+const Header: ({data}: { data: DataNav }) => JSX.Element = ({ data }) => {
+    DataNavScheme.parse(data)
     return (
         <>
             <HeaderStyle className="header header--flex">
