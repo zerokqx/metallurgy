@@ -1,7 +1,8 @@
 { pkgs ? import <nixpkgs> { } }:
+
 pkgs.mkShell {
   name = "react_vite";
-  buildInputs = with pkgs; [ nodejs_22 yarn jq ];
+  buildInputs = with pkgs; [ nodejs_22 yarn  ];
 
   shellHook = let pathInit = "./.init_metolorgy";
   in ''

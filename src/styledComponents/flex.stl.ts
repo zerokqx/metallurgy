@@ -2,7 +2,7 @@ import { css } from "styled-components";
 import { CSSProperties } from "styled-components/dist/types";
 
 
-interface FlexBoxProps {
+export interface FlexBoxProps {
     direction?: CSSProperties["flexDirection"];
     x?: CSSProperties["justifyContent"];
     y?: CSSProperties["alignItems"]
