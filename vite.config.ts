@@ -8,6 +8,16 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@@": path.resolve(__dirname, "./public"),
+
+    },
+
+  },
+  server: {
+    mimeTypes: {
+      'woff': 'font/woff',
+      'woff2': 'font/woff2',
     },
   },
 })
+

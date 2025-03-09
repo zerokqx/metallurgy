@@ -1,12 +1,13 @@
-import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
+import { dataHeader } from "./dataFile/header.data";
+import { GlobalStyles } from "./styledComponents/base.stl";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Header />
+      <GlobalStyles />
+
+      <Header data={dataHeader} />
     </>
   );
 }
