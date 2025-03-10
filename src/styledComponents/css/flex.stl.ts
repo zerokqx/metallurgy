@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { FlexBoxProps } from "@/Types/styleComponent/flex.types";
+import { FlexBoxProps } from "@/Types/styledComponents/flex.types.ts";
 
 
 /**

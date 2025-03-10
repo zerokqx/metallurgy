@@ -1,5 +1,5 @@
 import { FooterStyled } from '@/styledComponents/footer.stl'
-import {ContainerFlex} from "@/styledComponents/containers.stl.ts";
+import {ContainerFlex} from "@/styledComponents/Containers.stl.ts";
 
 const Footer = () => {
     return (

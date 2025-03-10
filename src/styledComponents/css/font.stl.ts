@@ -1,5 +1,5 @@
 import { css } from "styled-components"
-import { BaseFontProps } from "@/Types/styleComponent/font.types"
+import { BaseFontProps } from "@/Types/styledComponents/font.types.ts"
 
 /**
  * @description Конструктор стилей для шрифтов

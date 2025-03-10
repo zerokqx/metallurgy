@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import flexBox from './flex.stl'
-import { baseFont } from './font.stl'
+import flexBox from './css/flex.stl.ts'
+import { baseFont } from './css/font.stl.ts'
 
 const spaceBase = 20
 export const toPx = (num: number) => `${num}px`

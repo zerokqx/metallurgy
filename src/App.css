@@ -14,5 +14,5 @@
 body {
   height: 100vh;
 
-  background-color: #27272E;
+  background-color: var(--gray);
 }

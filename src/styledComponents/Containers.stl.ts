@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ContainerFlexProps } from "@/Types/styleComponent/containers.types";
-import flexBox from "./flex.stl";
+import { ContainerFlexProps } from "@/Types/styledComponents/containers.types";
+import flexBox from "./css/flex.stl.ts";
 
 
 /**
