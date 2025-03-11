@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { baseFont } from '@/styledComponents/css/font.stl.ts'
-import { Theme } from '@/styledComponents/css/theme.stl.ts'
 
 
 export const SpanBlue = styled.span`
