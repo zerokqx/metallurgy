@@ -9,12 +9,12 @@ const Main = () => {
         <>
             <main>
                 {status && (
-                    <ContainerFlex direction={'column'} padding={"20px"} x={"center"} y={"center"} height={"100%"} width="500px">
                         <Welcome/>
-                    </ContainerFlex>
+
                 )}
             </main>
         </>
+
     );
 };
 

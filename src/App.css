@@ -1,21 +1,3 @@
 @import url("/public/fonts/Golos-Text/Golos-Text_Regular.css");
-
-#root {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  /* padding: 2rem; */
-  text-align: center;
-}
-html, body {
-  height: 100%;
-}
-
-main{
-  width: 100%;
-  height: 100%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
