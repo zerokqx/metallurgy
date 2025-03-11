@@ -5,7 +5,6 @@ const AspectRatioStyled = styled(AspectRatio).attrs({
     className: 'welcome',
 })`
     width: 50%;
-    
     height: max-content;
     .welcome__img{
         border: 3px solid var(--bruze-color);
