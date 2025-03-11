@@ -19,6 +19,8 @@ export const ContainerFlex = styled.div<ContainerFlexProps>`
     background-color: ${props => props.background || "transparent"};
     padding: ${props => props.padding || "0px"};
     margin: ${props => props.margin || "0px"};
-    max-width: ${props=> props.maxWidth || "0px"};
+    width:  ${props=> props.width || "auto"};
+    height: ${props=> props.height || "auto"};
+    
 
 `

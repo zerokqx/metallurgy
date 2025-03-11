@@ -6,6 +6,7 @@ pkgs.mkShell {
 
   shellHook = let pathInit = "./.init_metolorgy";
   in ''
+    export BROWSER=chromium
     alias rn="yarn run dev"
         push() {
             while [[ "$#" -gt 0 ]]; do

@@ -14,6 +14,7 @@ export default defineConfig({
 
   },
   server: {
+    open:true,
     mimeTypes: {
       'woff': 'font/woff',
       'woff2': 'font/woff2',

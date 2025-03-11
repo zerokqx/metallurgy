@@ -6,5 +6,7 @@ export interface ContainerFlexProps extends FlexBoxProps {
     margin?: CSSProperties["margin"]
     maxWidth?: CSSProperties["maxWidth"],
     maxHeight?: CSSProperties["maxHeight"],
+    width?: CSSProperties["width"],
+    height?: CSSProperties["height"]
 
 }
