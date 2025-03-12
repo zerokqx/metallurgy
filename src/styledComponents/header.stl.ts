@@ -1,13 +1,14 @@
 import styled from 'styled-components'
-import flexBox from './flex.stl'
-import { baseFont } from './font.stl'
+import flexBox from './css/flex.stl.ts'
+import { baseFont } from './css/font.stl.ts'
 
 const spaceBase = 20
 export const toPx = (num: number) => `${num}px`
 
 export const HeaderStyle = styled.header`
-    background-color: #0f0f17;
-    border-bottom: 2px solid var(--bruze-color);
+
+    background-color: ${props => props.theme.background.white};
+    border-bottom: 1px solid ${props => props.theme.border.borderPlatinum};
     width: 100%;
     ${flexBox({
     direction: 'row',
@@ -18,9 +19,9 @@ export const HeaderStyle = styled.header`
     padding: ${toPx(spaceBase)};
 
     .header__text {
-        color: white;
+        color: ${props => props.theme.background.textNight};
         &--golos-font {
-            ${baseFont({ weight: 400, family: 'GolosTextWebRegular' })}
+            ${baseFont({ weight: 500, family: 'Rubik' })}
         }
     }
 `

@@ -2,10 +2,11 @@
 
 pkgs.mkShell {
   name = "react_vite";
-  buildInputs = with pkgs; [ nodejs_22 yarn  ];
+  buildInputs = with pkgs; [ nodejs_22 yarn-berry  ];
 
   shellHook = let pathInit = "./.init_metolorgy";
   in ''
+    export BROWSER=chromium
     alias rn="yarn run dev"
         push() {
             while [[ "$#" -gt 0 ]]; do
