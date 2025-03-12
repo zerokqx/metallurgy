@@ -1,5 +1,5 @@
-import { createGlobalStyle, css } from "styled-components";
-import { lightTheme } from '@/styledComponents/css/theme.stl.ts'
+import { createGlobalStyle } from "styled-components";
+import { baseFont } from "./font.stl";
 
 
 
@@ -33,6 +33,18 @@ export const GlobalStyles = createGlobalStyle`
         background-color: transparent;
         width: 100%;
         height: 100%;
+    }
+
+    .text-font--rubik-300 {
+        ${baseFont({ wg: 300, fm: "Rubik", fs: "20px" })}
+    }
+
+        .text-font--rubik-400 {
+        ${baseFont({ wg: 400, fm: "Rubik", fs: "20px" })}
+    }
+
+    .text-font--rubik-500 {
+        ${baseFont({ wg: 500, fm: "Rubik", fs: "100px" })}
     }
 
 

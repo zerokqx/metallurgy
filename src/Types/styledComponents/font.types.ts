@@ -1,10 +1,7 @@
 import { CSSProperties } from "styled-components"
 
-
-
-
 export interface BaseFontProps {
-    weight: CSSProperties["fontWeight"],
-    family: CSSProperties["fontFamily"]
+    wg?: CSSProperties["fontWeight"],
+    fm?: CSSProperties["fontFamily"]
     fs?: CSSProperties["fontSize"]
 }

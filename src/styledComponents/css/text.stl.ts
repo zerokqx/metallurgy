@@ -1,21 +1,14 @@
-import styled from 'styled-components'
+import styled, { CSSProperties } from 'styled-components'
 import { baseFont } from '@/styledComponents/css/font.stl.ts'
+import { BaseFontProps } from '@/Types/styledComponents/font.types'
 
 
-export const SpanBlue = styled.span`
+interface ExtendedSpanBlueProps extends BaseFontProps {
+    color?: CSSProperties["color"],
+    height?: CSSProperties["height"]
+}
+export const SpanBlue = styled.span<ExtendedSpanBlueProps>`
     color: ${({ color }) => color};
-    ${baseFont({family:"Rubik",weight:600})}
-    font-size: ${({fontSize}) => fontSize };
+    ${({ wg, fs }) => baseFont({ fm: "Rubik", wg, fs })}
     height: max-content;
-`
-
-export const EmojiInsert = styled.span`
-    font-size: ${({fontSize}) => fontSize};
-    text-shadow:
-            0 0 30px rgba(255, 202, 40, 0.7); 
-            0 0 40px rgba(255, 202, 40, 0.5); 
-            0 0 5px #FFCA28,  
-            0 0 10px #FFCA28, 
-            0 0 20px #FFCA28, 
-         
 `

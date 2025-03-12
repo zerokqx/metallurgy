@@ -3,12 +3,13 @@ import { BaseFontProps } from "@/Types/styledComponents/font.types.ts"
 
 /**
  * @description Конструктор стилей для шрифтов
- * @param weight Жирность шрифта
- * @param family Семейство шрифта
+ * @param wg Жирность шрифта
+ * @param fm Семейство шрифта
+ * @param fs Размер шрифта
  */
-export const baseFont = ({ weight, family, fs }: BaseFontProps) => css`
-    font-weight: ${weight || 400};
-    font-family:  ${family}, sans-serif;
+export const baseFont = ({ wg, fm, fs }: BaseFontProps) => css`
+    font-weight: ${wg || 400};
+    font-family:  ${fm}, sans-serif;
     font-size: ${fs || "20px"};
 `
 
