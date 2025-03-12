@@ -6,9 +6,10 @@ import { BaseFontProps } from "@/Types/styledComponents/font.types.ts"
  * @param weight Жирность шрифта
  * @param family Семейство шрифта
  */
-export const baseFont = ({ weight, family }: BaseFontProps) => css`
+export const baseFont = ({ weight, family, fs }: BaseFontProps) => css`
     font-weight: ${weight || 400};
     font-family:  ${family}, sans-serif;
+    font-size: ${fs || "20px"};
 `
 
 
