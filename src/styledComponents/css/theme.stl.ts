@@ -1,6 +1,7 @@
 export interface Theme {
     text: {
         textNight: string;
+        textBlue:string;
     };
     background: {
         white: string;
@@ -17,10 +18,10 @@ export interface Theme {
     };
 }
 
-
 export const lightTheme:Theme = {
     text: {
-        textNight: "#0A0A0A"
+        textNight: "#0A0A0A",
+        textBlue: "#3A44FF",
     },
     background: {
         white: "#fff",
@@ -35,4 +36,4 @@ export const lightTheme:Theme = {
     border: {
         borderPlatinum: "#9a9a9a"
     }
-}
+} as const

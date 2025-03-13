@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { lightTheme } from '@/styledComponents/css/theme.stl.ts'
 
 export const FooterStyled = styled.footer`
     padding: 10px;
