@@ -20,7 +20,7 @@ const Welcome = () => {
                     y="center"
                 >
                     <RainbowText />
-                </ContainerFlex>
+                </ContainerFlex> 
             </ContainerFlex>
         </>
     )

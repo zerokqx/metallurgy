@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
         height: 100%;
         max-width: 100%;
         margin: 0 auto;
-        /* padding: 2rem; */
+            gap: 20px;
         text-align: center;
     }
     html, body {

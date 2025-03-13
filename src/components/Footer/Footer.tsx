@@ -1,12 +1,12 @@
 import { FooterStyled } from '@/styledComponents/footer.stl'
 import {ContainerFlex} from "@/styledComponents/Containers.stl.ts";
 import { Button } from '@/components/ui/button.tsx'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 const Footer = () => {
     const ButtonWrapper = styled(Button)`background: ${({theme})=> theme.background.white};
     color: ${({theme})=> theme.contrast.contrastRISD_Blue};
-        border: 1px solid ${({theme})=> theme.contrast.contrastRISD_Blue};
+        border: 2px solid ${({theme})=> theme.contrast.contrastRISD_Blue};
     `
 
     return (

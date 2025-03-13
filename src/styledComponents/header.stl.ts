@@ -8,7 +8,7 @@ export const toPx = (num: number) => `${num}px`
 export const HeaderStyle = styled.header`
 
     background-color: ${props => props.theme.background.white};
-    border-bottom: 1px solid ${props => props.theme.border.borderPlatinum};
+    border-bottom: 2px solid ${props => props.theme.contrast.contrastRISD_Blue};
     width: 100%;
     ${flexBox({
     direction: 'row',
@@ -19,9 +19,9 @@ export const HeaderStyle = styled.header`
     padding: ${toPx(spaceBase)};
 
     .header__text {
-        color: ${props => props.theme.background.textNight};
+        color: ${props => props.theme.contrast.contrastRISD_Blue};
         &--golos-font {
-            ${baseFont({ weight: 500, family: 'Rubik' })}
+            ${baseFont({ wg: 500, fm: 'Rubik' })}
         }
     }
 `
