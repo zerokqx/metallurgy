@@ -1,39 +1,61 @@
 export interface Theme {
     text: {
-        textNight: string;
-        textBlue:string;
+        primary: string; // Новый основной цвет текста
+        accent: string;  // Новый акцентный цвет текста
+        // Устаревшие поля для обратной совместимости
+        textNight?: string;
+        textBlue?: string;
     };
     background: {
         white: string;
     };
     icon: {
-        iconNight: string;
-        iconRISD_Blue: string;
+        primary: string;
+        accent: string;
+        // Устаревшие поля
+        iconNight?: string;
+        iconRISD_Blue?: string;
     };
     contrast: {
-        contrastRISD_Blue: string;
+        accent: string;
+        // Устаревшие поля
+        contrastRISD_Blue?: string;
     };
     border: {
-        borderPlatinum: string;
+        accent: string;
+        platinum: string;
+        // Устаревшие поля
+        borderPlatinum?: string;
     };
 }
 
-export const lightTheme:Theme = {
+
+const accentColor = '#5277C3'
+const primaryColor = '#0A0A0A'
+export const lightTheme: Theme = {
     text: {
-        textNight: "#0A0A0A",
-        textBlue: "#3A44FF",
+        primary: primaryColor,
+        accent: accentColor,
+        textNight: primaryColor,
+        textBlue: accentColor,
     },
     background: {
-        white: "#fff",
+        white: '#FFFFFF',
     },
     icon: {
-        iconNight: "#0A0A0A",
-        iconRISD_Blue: "#3A44FF"
+        primary: primaryColor,
+        accent: accentColor,
+        iconNight: primaryColor,
+        iconRISD_Blue: accentColor,
     },
     contrast: {
-        contrastRISD_Blue: "#3A44FF"
+        accent: accentColor,
+        contrastRISD_Blue: accentColor,
     },
+
     border: {
-        borderPlatinum: "#9a9a9a"
-    }
+        platinum: '#9A9A9A',
+        accent: accentColor,
+        borderPlatinum: '#9A9A9A',
+    },
 } as const
