@@ -4,7 +4,7 @@ const Welcome = () => {
     return (
         <>
             <ContainerFlex
-                background={'#ececec'}
+                background={'#f6f6f6'}
                 direction={'column'}
                 gap={'10px'}
                 padding={'20px'}
@@ -20,7 +20,7 @@ const Welcome = () => {
                     y="center"
                 >
                     <RainbowText />
-                </ContainerFlex>
+                </ContainerFlex> 
             </ContainerFlex>
         </>
     )
