@@ -7,7 +7,7 @@ import { size } from '@/styledComponents/css/size.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
 import IconWithText from '@/lib/components/IconWithText.tsx'
-
+import { MotionConfig } from 'motion/react'
 
 const Logotype = () => {
     const theme = useTheme() as Theme
@@ -30,29 +30,37 @@ const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
 
     return (
         <>
-            <HeaderStyle x={'center'} y={'center'} col={'100px 1fr'} colGap={'10px'} row={'1'}
-                         className="header header--flex">
-                <Logotype />
-                <ContainerFlex background={theme.background.lowWhite} padding={'20px'} style={{
-                    borderRadius: '20px',
-                    border: `3px ${theme.border.accent} solid`,
-                }} x={'center'} y={'center'} maxWidth={'max-content'}>
-                    {data.map(({ text, icon, link }, index) => (
-                        <IconWithText>
-                            {icon}
-                            <a
-                                key={index}
-                                href={link || ''}
-                                className="header__text header__text--rubik-font"
-                            >
-                                {text}
-                            </a>
-                        </IconWithText>
+            <MotionConfig transition={{ duration: 1 }}>
+                <HeaderStyle
+                    initial={{ opacity: 1, gridTemplateColumns: 'repeat(3, 1fr)' }}
+                    animate={{ opacity: 1, gridTemplateColumns: '100px 1fr' }} x={'center'} y={'center'}
+                    col={'100px 1fr'} colGap={'10px'}
+                    row={'1'}
+                    className="header header--flex"
+                >
+                    <Logotype />
+                    <ContainerFlex background={theme.background.lowWhite} padding={'20px'}
+                                   style={{
+                                       borderRadius: '20px',
+                                       border: `3px ${theme.border.accent} solid`,
+                                   }} x={'center'} y={'center'} width={'max-content'}>
+                        {data.map(({ text, icon, link }, index) => (
+                            <IconWithText>
+                                {icon}
+                                <a
+                                    key={index}
+                                    href={link || ''}
+                                    className="header__text header__text--rubik-font"
+                                >
+                                    {text}
+                                </a>
+                            </IconWithText>
 
-                    ))}
-                </ContainerFlex>
+                        ))}
+                    </ContainerFlex>
 
-            </HeaderStyle>
+                </HeaderStyle>
+            </MotionConfig>
         </>
     )
 }
