@@ -7,6 +7,7 @@ export interface Theme {
         textBlue?: string;
     };
     background: {
+        lowWhite: string;
         white: string;
     };
     icon: {
@@ -30,8 +31,8 @@ export interface Theme {
 }
 
 
-const accentColor = '#5277C3'
-const primaryColor = '#0A0A0A'
+const accentColor = '#0075F2'
+const primaryColor = '#292F36'
 export const lightTheme: Theme = {
     text: {
         primary: primaryColor,
@@ -40,6 +41,7 @@ export const lightTheme: Theme = {
         textBlue: accentColor,
     },
     background: {
+        lowWhite: '#F6F6F6',
         white: '#FFFFFF',
     },
     icon: {
