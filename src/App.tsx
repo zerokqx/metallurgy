@@ -1,8 +1,8 @@
 import './App.css'
 import Header from './components/Header/Header'
-import { dataHeader } from './dataFile/header.data'
+import { dataHeader } from './dataFile/header.data.tsx'
 import { GlobalStyles } from './styledComponents/css/base.stl.ts'
-import Footer from "@/components/Footer/Footer.tsx";
+import Footer from '@/components/Footer/Footer.tsx'
 import Main from '@/components/Main/Main.tsx'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '@/styledComponents/css/theme.stl.ts'
@@ -12,9 +12,9 @@ function App() {
         <>
             <ThemeProvider theme={lightTheme}>
                 <GlobalStyles />
-                <Header  data={dataHeader} />
-                <Main/>
-                <Footer/>
+                <Header data={dataHeader} />
+                <Main />
+                <Footer />
             </ThemeProvider>
         </>
     )

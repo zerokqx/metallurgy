@@ -1,11 +1,12 @@
 import { JSX } from 'react'
-import { DataNav, DataNavScheme } from '@/Types/header/header.types'
+import { DataNav } from '@/Types/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import styled, { useTheme } from 'styled-components'
 import logotype from '@@/Group 5.svg'
 import { size } from '@/styledComponents/css/size.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
+import IconWithText from '@/lib/components/IconWithText.tsx'
 
 
 const Logotype = () => {
@@ -24,9 +25,8 @@ const Logotype = () => {
 }
 
 
-const Header: ({ data }: { data: DataNav }) => JSX.Element = ({ data }) => {
+const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
     const theme = useTheme() as Theme
-    DataNavScheme.parse(data)
 
     return (
         <>
@@ -37,14 +37,17 @@ const Header: ({ data }: { data: DataNav }) => JSX.Element = ({ data }) => {
                     borderRadius: '20px',
                     border: `3px ${theme.border.accent} solid`,
                 }} x={'center'} y={'center'} maxWidth={'max-content'}>
-                    {data.map((element, index) => (
-                        <a
-                            key={index}
-                            href={element.link || ''}
-                            className="header__text header__text--rubik-font"
-                        >
-                            {element.text}
-                        </a>
+                    {data.map(({ text, icon, link }, index) => (
+                        <IconWithText>
+                            {icon}
+                            <a
+                                key={index}
+                                href={link || ''}
+                                className="header__text header__text--rubik-font"
+                            >
+                                {text}
+                            </a>
+                        </IconWithText>
 
                     ))}
                 </ContainerFlex>
