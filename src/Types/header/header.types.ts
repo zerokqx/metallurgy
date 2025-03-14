@@ -1,10 +1,8 @@
+import { JSX } from 'react'
 
-import { z } from "zod"
 
-
-export const DataNavScheme = z.array(z.object({
-    text: z.string().nonempty(),
-    link: z.string().optional(),
-}))
-
-export type DataNav = z.infer<typeof DataNavScheme>; 
+export interface DataNav {
+    text: string;
+    link: string;
+    icon: JSX.Element
+}
