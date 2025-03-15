@@ -3,7 +3,7 @@ import { AnimationContext } from '@/providers/animation.prv'
 import { AnimationProperties } from '@/animation/animation'
 import { useAnimate } from 'motion/react'
 import { AnimationPlaybackControls, AnimationScope } from 'motion'
-
+import '@/animation/main'
 
 /**
  * @description Хук для взаимодействия с провайдером анимаций.

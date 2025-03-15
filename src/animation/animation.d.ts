@@ -5,9 +5,9 @@ export type AnimationProperties = {
     animationStyles: TargetAndTransition;
     controls?: AnimationPlaybackControls; // Сделаем контроллер необязательным
 };
-declare module '@/animation/*.anim.ts' {
-    const animation: AnimationProperties
-    export default animation
+declare module '@/animation/*.anim' {
+    const value: AnimationProperties
+    export default value
 }
 
 

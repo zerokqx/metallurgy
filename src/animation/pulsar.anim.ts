@@ -1,12 +1,14 @@
-import { CSSProperties } from 'styled-components'
+import { AnimationProperties } from '@/animation/animation'
 
 
-const animation: [CSSProperties, CSSProperties] = [
-    {
-        scale: '2px',
-    },
-    {
+const pulsar: AnimationProperties = {
+    initialStyles: {
+        background: 'red',
+    }
+    ,
+    animationStyles: {
         scale: '2321px',
-    },
-]
-export default animation
+    }
+    ,
+}
+export default pulsar

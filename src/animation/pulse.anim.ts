@@ -1,15 +1,14 @@
 import { AnimationProperties } from '@/animation/animation'
-import { AnimationPlaybackControls } from 'motion'
 
 
-const animation: AnimationProperties = {
+const pulse: AnimationProperties = {
     initialStyles: {
-        background: 'red',
-
-    },
+        scale: '2px',
+    }
+    ,
     animationStyles: {
-        background: 'green',
-    },
-    controls: { duration: 54234 } as unknown as AnimationPlaybackControls,
+        scale: '2321px',
+    }
+    ,
 }
-export default animation
+export default pulse
