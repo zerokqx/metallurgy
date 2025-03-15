@@ -1,15 +1,29 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
   ],
-    "compilerOptions": {
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.anim.ts"
+  ],
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "module": "ESNext",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@@/*": ["./public/*"]
-
+      "@/*": [
+        "./src/*"
+      ],
+      "@@/*": [
+        "./public/*"
+      ]
     }
   }
 }

@@ -1,5 +1,5 @@
 import { JSX } from 'react'
-import { DataNav } from '@/Types/header/header.types'
+import { DataNav } from '@/types/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import styled, { useTheme } from 'styled-components'
 import logotype from '@@/Group 5.svg'
@@ -11,7 +11,7 @@ import { MotionConfig } from 'motion/react'
 
 const Logotype = () => {
     const theme = useTheme() as Theme
-    const LogotypeLocal = styled.img.attrs<{ src: string }>({ src: logotype })`
+    const LogotypeLocal = styled.img.attrs({ src: logotype })`
         ${size};
     `
     return (

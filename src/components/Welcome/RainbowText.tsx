@@ -9,7 +9,7 @@ interface RainbowMap {
 
 const rainbowMap: RainbowMap[] = [
     { text: 'Мы создаём ', bold: true },
-    { text: 'будущее металлообработки —' },
+    { text: 'будущее металлообработки — ' },
     { text: 'инновации', bold: true },
     { text: ', мастерство и качество в каждом изделии' },
 ]
@@ -18,11 +18,11 @@ const RainbowText = () => {
     const contrast = lightTheme.text.accent
     const night = lightTheme.text.primary
 
-    const SpanBlueBoldContrast = ({ children, keys }: { children: string, key: number }) => (
+    const SpanBlueBoldContrast = ({ children, keys }: { children: string, keys: number }) => (
         <SpanBlue key={keys} color={contrast}>{children} </SpanBlue>
     )
 
-    const SpanBlueUnContrast = ({ children, keys }: { children: string, key: number }) => (
+    const SpanBlueUnContrast = ({ children, keys }: { children: string, keys: number }) => (
         <SpanBlue key={keys} color={night}>
             {children}
         </SpanBlue>
@@ -46,10 +46,10 @@ const RainbowText = () => {
 
                     {rainbowMap.map((element, index) => element.bold
                         ? (
-                            <SpanBlueBoldContrast key={index}>{element.text}</SpanBlueBoldContrast>
+                            <SpanBlueBoldContrast keys={index}>{element.text}</SpanBlueBoldContrast>
                         )
                         : (
-                            <SpanBlueUnContrast key={index}>{element.text}</SpanBlueUnContrast>
+                            <SpanBlueUnContrast keys={index}>{element.text}</SpanBlueUnContrast>
                         ),
                     )}
 

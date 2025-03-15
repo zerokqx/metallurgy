@@ -1,21 +1,21 @@
-import useWelcome from '@/hooks/useWelcome.ts';
+import useWelcome from '@/hooks/useWelcome.ts'
 import Welcome from '@/components/Welcome/Welcome.tsx'
-import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 
 const Main = () => {
     /** TODO исправить костыль с 200px */
-    const [status, welcome] = useWelcome();
+        // @ts-ignore
+    const [status, welcome] = useWelcome()
     return (
         <>
             <main>
                 {status && (
-                        <Welcome/>
+                    <Welcome />
 
                 )}
             </main>
         </>
 
-    );
-};
+    )
+}
 
-export default Main;
+export default Main

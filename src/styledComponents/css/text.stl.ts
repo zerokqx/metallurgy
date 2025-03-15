@@ -1,6 +1,6 @@
 import styled, { CSSProperties } from 'styled-components'
 import { baseFont } from '@/styledComponents/css/font.stl.ts'
-import { BaseFontProps } from '@/Types/styledComponents/font.types'
+import { BaseFontProps } from '@/types/styledComponents/font.types'
 
 interface ExtendedSpanBlueProps extends BaseFontProps {
     color?: CSSProperties['color']

@@ -9,23 +9,27 @@ import { useEffect, useState } from 'react'
  * По умолчанию false
  *
  */
-const useWelcome = (auto:boolean=false,debug:boolean=false):[boolean,Function]|boolean =>{
-    const keyName = "welcome"
-    const trigger = localStorage.getItem(keyName);
-    const [status,setStatus] = useState(true)
-    useEffect(()=>{
-        if (debug) return;
-        else{
-                auto && setWelcome()
-                trigger ? setStatus(false):setStatus(true)
+
+
+export const x = 10
+const useWelcome = (auto: boolean = false, debug: boolean = false): [boolean, Function] | boolean => {
+    const keyName = 'welcome'
+    const trigger = localStorage.getItem(keyName)
+    const [status, setStatus] = useState(true)
+    useEffect(() => {
+        if (debug) return
+        else {
+            auto && setWelcome()
+            trigger ? setStatus(false) : setStatus(true)
 
 
         }
-    },[trigger])
-    const setWelcome = () =>{
-        if (!trigger) localStorage.setItem(keyName, "1")
+    }, [trigger])
+    const setWelcome = () => {
+        if (!trigger) localStorage.setItem(keyName, '1')
     }
 
-    return auto ? status : [status, setWelcome];}
+    return auto ? status : [status, setWelcome]
+}
 
 export default useWelcome

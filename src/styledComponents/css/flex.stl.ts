@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { FlexBoxProps } from "@/Types/styledComponents/flex.types.ts";
+import { css } from 'styled-components'
+import { FlexBoxProps } from '@/types/styledComponents/flex.types.ts'
 
 
 /**
@@ -11,10 +11,10 @@ import { FlexBoxProps } from "@/Types/styledComponents/flex.types.ts";
  */
 const flexBox = ({ direction, x, y, gap }: FlexBoxProps) => css`
     display: flex;
-    flex-direction: ${direction || "inherit"};
-    justify-content: ${x || "inherit"} ;
-    align-items: ${y || "inherit"};
-    gap:${gap || "inherit"};
+    flex-direction: ${direction || 'inherit'};
+    justify-content: ${x || 'inherit'} ;
+    align-items: ${y || 'inherit'};
+    gap:${gap || 'inherit'};
 
 
 `
