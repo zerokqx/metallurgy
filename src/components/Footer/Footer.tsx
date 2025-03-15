@@ -22,7 +22,6 @@ const mapFooter: FooterProps[] = [
 
 const Footer = () => {
     const theme = useTheme() as Theme
-
     console.log(theme)
     return (
         <FooterStyled className="footer">

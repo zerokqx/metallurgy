@@ -45,7 +45,7 @@ const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
                                        border: `3px ${theme.border.accent} solid`,
                                    }} x={'center'} y={'center'} width={'max-content'}>
                         {data.map(({ text, icon, link }, index) => (
-                            <IconWithText>
+                            <IconWithText key={index}>
                                 {icon}
                                 <a
                                     key={index}

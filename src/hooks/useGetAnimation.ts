@@ -1,43 +1,37 @@
-import { useCallback, useEffect, useState, useTransition } from 'react'
-import { CSSProperties } from 'styled-components'
+import { useCallback, useContext, useEffect, useState } from 'react'
+import { AnimationContext } from '@/providers/animation.prv'
+import { AnimationProperties } from '@/animation/animation'
 import { useAnimate } from 'motion/react'
 
-const useGetAnimation = (nameFile: string, lazy: boolean) => {
-    const [animation, setAnimation] = useState<[CSSProperties, CSSProperties]>([{}, {}])
-    const [error, setError] = useState<Error | null>(null)
-    const [pending, startTransition] = useTransition()
-    const [scope, startAnimation] = useAnimate()
 
-    const load = useCallback(async () => {
-        try {
-            const modules: Record<string, Function> = import.meta.glob('/src/animation/*.anim.ts')
-            console.log(modules)
-            const filePath = `/src/animation/${nameFile}.anim.ts`
-
-            if (!modules[filePath]) {
-                throw new Error(`Файл ${filePath} не найден`)
-            }
-
-            const animationImport: {
-                default: [CSSProperties, CSSProperties]
-            } = await modules[filePath]()
-            setAnimation(animationImport.default)
-        } catch (e) {
-            setError(e as Error)
+/**
+ * @description Хук для взаимодействия с провайдером анимаций.
+ * @param name Имя анимации. Например, у нас есть файл с анимацией pulse.anim.ts
+ * то `name` будет `pulse`.
+ * @returns [anim, scope, animate] Возвращать сам объект анимаций (Array из двух
+ * элементов, первый initial второй animation со стилями css), ref ссылку на
+ * которая должна повеситься на `React-Component`, авто функцию анимации,
+ * автоматически подтягивает `scope.current` и стили по индексу 2 (animation) а
+ * также ручная функция animate
+ *
+ */
+const useGetAnimation = (name: string) => {
+    const animation = useContext(AnimationContext)
+    const [anim, setAnimation] = useState<AnimationProperties>()
+    const [scope, animate] = useAnimate()
+    const autoAnimate = useCallback(() => {
+        if (animation) {
+            animate(scope.current, animation[1])
         }
-    }, [nameFile, setAnimation, setError])
-    const lazyReturn = [animation, scope, startAnimation, error, load] as const
-    const notLazyReturn = [animation, scope, startAnimation, pending, error] as const
-    if (lazy) {
-        return lazyReturn
-    } else {
-        useEffect(() => {
-            startTransition(load)
-            return () => setAnimation([{}, {}])
-        }, [load])
-    }
-
-    return notLazyReturn
+    }, [animation, animate])
+    useEffect(() => {
+        const loadAnim = async () => {
+            const animationLoad = animation && await animation[name]()
+            setAnimation(await animationLoad?.default)
+        }
+        loadAnim()
+    }, [name, animation])
+    return [anim, scope, autoAnimate, animate]
 }
 
 export default useGetAnimation

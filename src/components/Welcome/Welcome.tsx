@@ -1,17 +1,10 @@
 import useGetAnimation from '@/hooks/useGetAnimation.ts'
-import { useEffect } from 'react'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import RainbowText from '@/components/Welcome/RainbowText.tsx'
 
 const Welcome = () => {
-    const [anim, scope, start] = useGetAnimation('pulse', false)
-    useEffect(() => {
-
-        start(scope.current, anim[1])
-        if (anim) {
-            scope.current?.setAttribute('style', anim[0])
-        }
-    }, [scope, anim, start])
+    const [anim] = useGetAnimation('pulse')
+    console.log(anim)
 
     return (
         <>
@@ -23,8 +16,7 @@ const Welcome = () => {
                 x={'start'}
                 y={'start'}
                 height={'max-content'}
-                width="100%"
-                ref={scope}
+                width="d100%"
             >
                 <ContainerFlex
                     direction="row"
@@ -34,7 +26,7 @@ const Welcome = () => {
                 >
                     <RainbowText />
                 </ContainerFlex>
-            </ContainerFlex>)
+            </ContainerFlex>
         </>
     )
 }
