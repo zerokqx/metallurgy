@@ -4,22 +4,14 @@ import { CSSProperties } from 'styled-components/dist/types'
 /**
  * Интерфейс для определения свойств размеров в styled-components.
  *
- * @property {CSSProperties['height']} [height] - Высота элемента, например: "100px", "10%", "auto".
- * @property {CSSProperties['width']} [width] - Ширина элемента, например: "100px", "80%", "inherit".
- * @property {CSSProperties['maxWidth']} [maxWidth] - Максимальная ширина элемента.
- * @property {CSSProperties['minWidth']} [minWidth] - Минимальная ширина элемента.
- * @property {CSSProperties['maxHeight']} [maxHeight] - Максимальная высота элемента.
- * @property {CSSProperties['minHeight']} [minHeight] - Минимальная высота элемента.
+ * @property [height] - Высота элемента, например: "100px", "10%", "auto".
+ * @property [width] - Ширина элемента, например: "100px", "80%", "inherit".
+ * @property [maxWidth] - Максимальная ширина элемента.
+ * @property [minWidth] - Минимальная ширина элемента.
+ * @property [maxHeight] - Максимальная высота элемента.
+ * @property [minHeight] - Минимальная высота элемента.
  */
-export interface SizeProps {
-    height?: CSSProperties['height'];
-    width?: CSSProperties['width'];
-    maxWidth?: CSSProperties['maxWidth'];
-    minWidth?: CSSProperties['minWidth'];
-    maxHeight?: CSSProperties['maxHeight'];
-    minHeight?: CSSProperties['minHeight'];
-}
-
+export type SizeProps = Pick<CSSProperties, 'height' | 'width' | 'maxWidth' | 'minWidth' | 'maxHeight' | 'minHeight'>
 /**
  * Утилита для применения размеров в styled-components.
  *

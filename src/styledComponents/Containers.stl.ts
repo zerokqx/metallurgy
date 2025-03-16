@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
-import { ContainerFlexProps } from '@/Types/styledComponents/containers.types'
+import { ContainerFlexProps } from '@/types/styledComponents/containers.types'
 import flexBox from './css/flex.stl.ts'
 import { size } from '@/styledComponents/css/size.stl.ts'
 import { CSSProperties } from 'styled-components/dist/types'
-import { spacing } from '@/styledComponents/css/spaces.stl.ts'
-
+import { spacing, SpacingProps } from '@/styledComponents/css/spaces.stl.ts'
+import { motion } from 'motion/react'
 
 /**
  * @description Div контейнер с некими настройками стилей
@@ -14,11 +14,14 @@ import { spacing } from '@/styledComponents/css/spaces.stl.ts'
  * @param {string} [props.gap] Растояние (Пробел) между flex элементами
  * @param {string} [props.background] Цвет фона контейнера свойство background-color
  * @param {string} [props.padding] Внутрение пробелы
- * @param {string} [props.margin] Внейшние пробелы
+ * @param {string} [props] Внейшние пробелы
  * @component
+ * @see spacing
+ * @see size
+ * @see flexBox
  */
 
-export const ContainerFlex = styled.div<ContainerFlexProps>`
+export const ContainerFlex = styled(motion.div)<ContainerFlexProps & SpacingProps>`
     ${flexBox};
     ${size};
     ${spacing};

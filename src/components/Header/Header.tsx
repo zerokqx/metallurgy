@@ -1,8 +1,8 @@
 import { JSX } from 'react'
-import { DataNav } from '@/Types/header/header.types'
+import { DataNav } from '@/types/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import styled, { useTheme } from 'styled-components'
-import logotype from '@@/Group 5.svg'
+import logotype from '@/assets/Group 5.svg'
 import { size } from '@/styledComponents/css/size.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
@@ -11,7 +11,7 @@ import { MotionConfig } from 'motion/react'
 
 const Logotype = () => {
     const theme = useTheme() as Theme
-    const LogotypeLocal = styled.img.attrs<{ src: string }>({ src: logotype })`
+    const LogotypeLocal = styled.img.attrs({ src: logotype })`
         ${size};
     `
     return (
@@ -32,9 +32,12 @@ const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
         <>
             <MotionConfig transition={{ duration: 1 }}>
                 <HeaderStyle
-                    initial={{ opacity: 1, gridTemplateColumns: 'repeat(3, 1fr)' }}
-                    animate={{ opacity: 1, gridTemplateColumns: '100px 1fr' }} x={'center'} y={'center'}
-                    col={'100px 1fr'} colGap={'10px'}
+                    initial={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
+                    animate={{ gridTemplateColumns: '100px 1fr' }}
+                    x={'center'}
+                    y={'center'}
+                    col={'100px 1fr'}
+                    colGap={'10px'}
                     row={'1'}
                     className="header header--flex"
                 >
@@ -45,7 +48,7 @@ const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
                                        border: `3px ${theme.border.accent} solid`,
                                    }} x={'center'} y={'center'} width={'max-content'}>
                         {data.map(({ text, icon, link }, index) => (
-                            <IconWithText>
+                            <IconWithText key={index}>
                                 {icon}
                                 <a
                                     key={index}
