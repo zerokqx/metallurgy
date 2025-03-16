@@ -1,14 +1,15 @@
 import { AnimationProperties } from '@/animation/animation'
+import { lightTheme } from '@/styledComponents/css/theme.stl'
 
 
-const pulse: AnimationProperties = {
+const gradient: AnimationProperties = {
     initialStyles: {
-        scale: '2px',
+        background: 'rgba(255,255,255)',
     }
     ,
     animationStyles: {
-        scale: '2321px',
-    }
-    ,
+        background: lightTheme.background.lowWhite,
+    }, controls: { duration: 1 },
+
 }
-export default pulse
+export default gradient

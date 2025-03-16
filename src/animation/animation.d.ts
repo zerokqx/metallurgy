@@ -1,9 +1,10 @@
-import { AnimationPlaybackControls, TargetAndTransition } from 'motion/react'
+import { TargetAndTransition } from 'motion/react'
+import { AnimationOptions } from 'motion'
 
 export type AnimationProperties = {
     initialStyles: TargetAndTransition;
     animationStyles: TargetAndTransition;
-    controls?: AnimationPlaybackControls; // Сделаем контроллер необязательным
+    controls?: AnimationOptions | undefined;
 };
 declare module '@/animation/*.anim' {
     const value: AnimationProperties

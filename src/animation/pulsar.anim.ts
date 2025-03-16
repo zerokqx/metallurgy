@@ -8,7 +8,7 @@ const pulsar: AnimationProperties = {
     ,
     animationStyles: {
         scale: '2321px',
-    }
-    ,
+    },
+
 }
 export default pulsar

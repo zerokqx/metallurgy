@@ -10,7 +10,6 @@ const Main = () => {
             <main>
                 {status && (
                     <Welcome />
-
                 )}
             </main>
         </>
