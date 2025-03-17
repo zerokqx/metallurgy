@@ -21,11 +21,12 @@ import { useEffect } from 'react'
  * которые расположены по ключу `initialStyles`
  */
 const useMotionAnimation: (animationObject: AnimationProperties, effect?: boolean)
-    => [AnimationScope<any>, ()
-    => void]
+    => [()
+    => void, AnimationScope<any>,]
     = (animationObject, effect = false) => {
     const [scope, a] = useAnimate()
-    const { initialStyles, animationStyles, controls } = animationObject
+    const { animationStyles, controls } = animationObject
+
     const animate = () => {
         if (scope?.current) {
             a(scope.current, animationStyles, controls)
@@ -42,7 +43,7 @@ const useMotionAnimation: (animationObject: AnimationProperties, effect?: boolea
         }
     }, [effect])
 
-    return [scope, animate]
+    return [animate, scope]
 }
 
 export default useMotionAnimation

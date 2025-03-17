@@ -9,6 +9,7 @@ import { lightTheme } from '@/styledComponents/css/theme.stl.ts'
 import GlassEffect from '@/styledComponents/BlurPage.stl.ts'
 import { useEffect, useState } from 'react'
 import { useAnimate } from 'motion/react'
+import GlassEffectWrapper from '@/components/GlassEffectWrapper.tsx'
 
 function App() {
     const [blur, setBlur] = useState(false)
@@ -19,12 +20,12 @@ function App() {
                 backdropFilter: blur ? 'blur(5px)' : 'blur(0px)', opacity: blur ? 1 : 0,
             }, { duration: 0.2 })
         }
-
     }, [blur])
     return (
         <>
             <ThemeProvider theme={lightTheme}>
                 <GlobalStyles />
+                <GlassEffectWrapper />
                 <GlassEffect ref={scope} zIndex={99} position={'absolute'} width={'100%'}
                              height={'100%'} />
                 <Header onHoverStart={() => setBlur(true)} onHoverEnd={() => setBlur(false)} data={dataHeader} />

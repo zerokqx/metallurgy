@@ -52,7 +52,7 @@ pkgs.mkShell {
           yarn run dev
         else 
           yarn install
-          yarn run dev
+#          yarn run dev
         fi
   '';
 

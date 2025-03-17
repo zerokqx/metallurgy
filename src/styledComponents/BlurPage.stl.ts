@@ -6,7 +6,7 @@ import { size, SizeProps } from '@/styledComponents/css/size.stl'
 //     blur?: number;
 //     opacity?: number;
 // }
-type GlassEffectProps = Pick<CSSProperties, 'opacity' | 'display'>
+export type GlassEffectProps = Pick<CSSProperties, 'opacity' | 'display'>
     & PositionProps
     & SizeProps
     & {
