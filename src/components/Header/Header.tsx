@@ -1,4 +1,3 @@
-import { JSX } from 'react'
 import { DataNav } from '@/types/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import styled, { useTheme } from 'styled-components'
@@ -8,6 +7,8 @@ import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
 import IconWithText from '@/lib/components/IconWithText.tsx'
 import { MotionConfig } from 'motion/react'
+import { FC, MouseEvent } from 'react'
+import { EventInfo } from 'motion'
 
 const Logotype = () => {
     const theme = useTheme() as Theme
@@ -24,14 +25,21 @@ const Logotype = () => {
     )
 }
 
+interface HeaderProps {
+    data: DataNav[];
+    onHoverStart: (event: MouseEvent, info: EventInfo) => void;
+    onHoverEnd: (event: MouseEvent, info: EventInfo) => void;
+}
 
-const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
+const Header: FC<HeaderProps> = ({ data, onHoverStart, onHoverEnd }) => {
     const theme = useTheme() as Theme
 
     return (
         <>
             <MotionConfig transition={{ duration: 1 }}>
                 <HeaderStyle
+                    onHoverStart={onHoverStart}
+                    onHoverEnd={onHoverEnd}
                     initial={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
                     animate={{ gridTemplateColumns: '100px 1fr' }}
                     x={'center'}
@@ -58,10 +66,8 @@ const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
                                     {text}
                                 </a>
                             </IconWithText>
-
                         ))}
                     </ContainerFlex>
-
                 </HeaderStyle>
             </MotionConfig>
         </>

@@ -20,12 +20,15 @@ import { useEffect } from 'react'
  * @param effect Если true то автоматически запустить анимацию в `useEffect`
  * которые расположены по ключу `initialStyles`
  */
-const useGetAnimation: (animationObject: AnimationProperties, effect?: boolean) => [AnimationScope<any>, () => void] = (animationObject, effect = false) => {
+const useMotionAnimation: (animationObject: AnimationProperties, effect?: boolean)
+    => [AnimationScope<any>, ()
+    => void]
+    = (animationObject, effect = false) => {
     const [scope, a] = useAnimate()
-
+    const { initialStyles, animationStyles, controls } = animationObject
     const animate = () => {
         if (scope?.current) {
-            a(scope.current, animationObject.animationStyles, animationObject?.controls)
+            a(scope.current, animationStyles, controls)
         }
     }
 
@@ -37,9 +40,9 @@ const useGetAnimation: (animationObject: AnimationProperties, effect?: boolean) 
                 throw new Error('Произошла внутренняя ошибка `animate`')
             }
         }
-    }, [effect, animationObject])
+    }, [effect])
 
     return [scope, animate]
 }
 
-export default useGetAnimation
+export default useMotionAnimation

@@ -7,14 +7,14 @@ import { position, PositionProps } from '@/styledComponents/css/position.stl'
 export type LightCircleStyledProps = Pick<CSSProperties, 'backgroundColor'> & {
     blur?: number,
 }
-const LightCircleStyled = styled(motion.div)<SizeProps
+const BlurableBlock = styled(motion.div)<SizeProps
     & LightCircleStyledProps
     & PositionProps>`
     ${size};
     ${position};
     filter: blur(${props => props.blur}px);
     background-color: ${(props) => props.backgroundColor};
-
+    
 `
 
-export default LightCircleStyled
+export default BlurableBlock
