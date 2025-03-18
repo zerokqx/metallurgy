@@ -14,7 +14,7 @@ export const HeaderStyle = styled(motion.header)<ContainerGridProps>`
     background-color: transparent;
     width: 100%;
     padding: ${toPx(spaceBase)};
-
+    z-index: 100;
 
     .header__text {
         color: ${({ theme }) => (theme as Theme).text.accent};

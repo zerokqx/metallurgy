@@ -1,4 +1,3 @@
-import { JSX } from 'react'
 import { DataNav } from '@/types/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import styled, { useTheme } from 'styled-components'
@@ -8,6 +7,9 @@ import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
 import IconWithText from '@/lib/components/IconWithText.tsx'
 import { MotionConfig } from 'motion/react'
+import { FC, MouseEvent } from 'react'
+import { useDispatch } from 'react-redux'
+import { setBlurAuto } from '@/redux/slices/blurSlice.ts'
 
 const Logotype = () => {
     const theme = useTheme() as Theme
@@ -24,14 +26,20 @@ const Logotype = () => {
     )
 }
 
+interface HeaderProps {
+    data: DataNav[];
 
-const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
+}
+
+const Header: FC<HeaderProps> = ({ data }) => {
     const theme = useTheme() as Theme
-
+    const dispatch = useDispatch()
     return (
         <>
             <MotionConfig transition={{ duration: 1 }}>
                 <HeaderStyle
+                    onHoverStart={()=>{dispatch(setBlurAuto())}}
+                    onHoverEnd={()=>{dispatch(setBlurAuto())}}
                     initial={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
                     animate={{ gridTemplateColumns: '100px 1fr' }}
                     x={'center'}
@@ -58,10 +66,8 @@ const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
                                     {text}
                                 </a>
                             </IconWithText>
-
                         ))}
                     </ContainerFlex>
-
                 </HeaderStyle>
             </MotionConfig>
         </>
