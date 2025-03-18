@@ -21,15 +21,24 @@ import { RefObject, useEffect } from 'react'
  * @param effect Если true то автоматически запустить анимацию в `useEffect`
  * которые расположены по ключу `initialStyles`
  */
-const useMotionAnimation: (animationObject: AnimationProperties,customRef?:AnimationScope<any>|RefObject<never>, effect?: boolean,)
-    => [() => void, AnimationScope<any>]
-    = (animationObject,customRef, effect = false) => {
+const useMotionAnimation: (
+    animationObject: AnimationProperties,
+    customRef?: AnimationScope<any> | RefObject<never>,
+    effect?: boolean
+) => [() => void, AnimationScope<any>] = (
+    animationObject,
+    customRef,
+    effect = false
+) => {
     const [scope, a] = useAnimate()
     const { animationStyles, controls } = animationObject
-
+    // const clusterAnimations = []
     const animate = () => {
-        console.log(112)
-            a(customRef?.current ? customRef.current: scope?.current, animationStyles, controls)
+        a(
+            customRef?.current ? customRef.current : scope?.current,
+            animationStyles,
+            controls
+        )
     }
 
     useEffect(() => {

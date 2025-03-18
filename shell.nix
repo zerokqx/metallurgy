@@ -2,7 +2,7 @@
 
 pkgs.mkShell {
   name = "react_vite";
-  buildInputs = with pkgs; [ nodejs_22 yarn-berry typescript firefox-devedition  ];
+  buildInputs = with pkgs; [ nodejs_22 yarn-berry typescript  ];
 
   shellHook = let pathInit = "./.init_metolorgy";
   in ''
