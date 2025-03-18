@@ -2,7 +2,7 @@ import { AnimationProperties } from '@/animation/animation'
 import { useAnimate } from 'motion/react'
 import { AnimationScope } from 'motion'
 import '@/animation'
-import { useEffect } from 'react'
+import { RefObject, useEffect } from 'react'
 
 /**
  * @description Декларативный хук который может автоматически запустить анимацию,
@@ -17,20 +17,19 @@ import { useEffect } from 'react'
  *
  * }
  * @param animationObject Непосредственно объект анимаций.
+ * @param customRef
  * @param effect Если true то автоматически запустить анимацию в `useEffect`
  * которые расположены по ключу `initialStyles`
  */
-const useMotionAnimation: (animationObject: AnimationProperties, effect?: boolean)
-    => [()
-    => void, AnimationScope<any>,]
-    = (animationObject, effect = false) => {
+const useMotionAnimation: (animationObject: AnimationProperties,customRef?:AnimationScope<any>|RefObject<never>, effect?: boolean,)
+    => [() => void, AnimationScope<any>]
+    = (animationObject,customRef, effect = false) => {
     const [scope, a] = useAnimate()
     const { animationStyles, controls } = animationObject
 
     const animate = () => {
-        if (scope?.current) {
-            a(scope.current, animationStyles, controls)
-        }
+        console.log(112)
+            a(customRef?.current ? customRef.current: scope?.current, animationStyles, controls)
     }
 
     useEffect(() => {

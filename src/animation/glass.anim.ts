@@ -7,10 +7,13 @@ const glass: AnimationProperties & { twoState: AnimationProperties['animationSty
     }
     ,
     animationStyles: {
+        opacity:"100%",
+
         backdropFilter: 'blur(10px)',
-    }, controls: { duration: 1 },
+    }, controls: { duration: 0.2 },
     twoState: {
-        backdropFilter: 'blur(0)',
+        opacity:"0%",
+        backdropFilter: 'blur(0px)',
     },
 
 }

@@ -2,7 +2,7 @@
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import RainbowText from '@/components/Welcome/RainbowText.tsx'
 import useMotionAnimation from '@/hooks/useMotionAnimation.ts'
-import { gradient } from '@/animation'
+// import { gradient } from '@/animation'
 import { useTheme } from 'styled-components'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
 import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
@@ -20,7 +20,7 @@ import { useAnimate } from 'motion/react'
  * )
  */
 const Welcome = () => {
-    const [sc] = useMotionAnimation(gradient, true)
+    // const [sc] = useMotionAnimation(gradient, true)
     const theme = useTheme() as Theme
     const [scope, animate] = useAnimate()
     const [pos, setPos] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
@@ -54,8 +54,8 @@ const Welcome = () => {
                 y={'start'}
                 height={'max-content'}
                 width="100%"
-                ref={sc}
-                initial={gradient.initialStyles}
+                // ref={sc}
+                // initial={gradient.initialStyles}
                 style={{ overflow: 'clip', position: 'relative' }}
             >
                 <BlurableBlock
