@@ -1,4 +1,4 @@
-import { DataNav } from '@/types/header/header.types'
+import { DataNav } from '@/types/components/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import styled, { useTheme } from 'styled-components'
 import logotype from '@/assets/Group 5.svg'
@@ -7,7 +7,7 @@ import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
 import IconWithText from '@/lib/components/IconWithText.tsx'
 import { MotionConfig } from 'motion/react'
-import { FC, MouseEvent } from 'react'
+import { FC } from 'react'
 import { useDispatch } from 'react-redux'
 import { setBlurAuto } from '@/redux/slices/blurSlice.ts'
 
@@ -38,8 +38,12 @@ const Header: FC<HeaderProps> = ({ data }) => {
         <>
             <MotionConfig transition={{ duration: 1 }}>
                 <HeaderStyle
-                    onHoverStart={()=>{dispatch(setBlurAuto())}}
-                    onHoverEnd={()=>{dispatch(setBlurAuto())}}
+                    onHoverStart={() => {
+                        dispatch(setBlurAuto())
+                    }}
+                    onHoverEnd={() => {
+                        dispatch(setBlurAuto())
+                    }}
                     initial={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
                     animate={{ gridTemplateColumns: '100px 1fr' }}
                     x={'center'}

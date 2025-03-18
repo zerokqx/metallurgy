@@ -1,8 +1,7 @@
 import { useAnimate } from 'motion/react'
-import { AnimationScope } from 'motion'
 import '@/animation'
-import { RefObject, useCallback, useEffect } from 'react'
-import Animation from '@/animation/animationObj'
+import { useCallback, useEffect } from 'react'
+import FUseMotionAnimation from '@/types/hooks/useMotionAnimation.types'
 
 /**
  * @description Декларативный хук который может автоматически запустить анимацию,
@@ -20,17 +19,12 @@ import Animation from '@/animation/animationObj'
  * @param customRef
  * @param effect Если true то автоматически запустить анимацию в `useEffect`
  * которые расположены по ключу `initialStyles`
- * @version 2.0.0
+ * @version 2.0.1
  */
-type voidFN = () => void
-const useMotionAnimation: (
-    animationObject: Animation,
-    customRef?: AnimationScope<any> | RefObject<Element>,
-    effect?: boolean
-) => [voidFN, AnimationScope<any>, voidFN] = (
+const useMotionAnimation: FUseMotionAnimation = (
     animationObject,
     customRef,
-    effect = false
+    effect = false,
 ) => {
     const [scope, a] = useAnimate()
     const { animationStyles, controls } = animationObject.animationProps
@@ -38,7 +32,7 @@ const useMotionAnimation: (
         a(
             customRef?.current ? customRef.current : scope?.current,
             animationStyles,
-            controls
+            controls,
         )
     }
     const animateKeyFrames = useCallback(() => {
@@ -47,11 +41,11 @@ const useMotionAnimation: (
             keyFrame,
         ] of animationObject.roadKeyframesProps.entries()) {
             typeof keyFrame !== 'object' &&
-                console.error(`${index} элемент не является объектом`)
+            console.error(`${index} элемент не является объектом`)
             a(
                 customRef?.current ? customRef.current : scope?.current,
                 keyFrame,
-                controls
+                controls,
             )
         }
     }, [animationObject.roadKeyframesProps, a, customRef, scope])
