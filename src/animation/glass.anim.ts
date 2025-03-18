@@ -1,6 +1,9 @@
+// const glass: AnimationProperties = as AnimationProperties
+// export default glass
+import Animation from '@/animation/animationObj'
 import { AnimationProperties } from '@/animation/animation'
 
-const glass: AnimationProperties = {
+const glass = new Animation({
     initialStyles: {
         background: 'rgba(255,255,255)',
     },
@@ -14,5 +17,5 @@ const glass: AnimationProperties = {
         opacity: '0%',
         backdropFilter: 'blur(0px)',
     },
-} as AnimationProperties
+} as AnimationProperties)
 export default glass

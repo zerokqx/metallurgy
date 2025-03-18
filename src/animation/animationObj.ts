@@ -1,15 +1,8 @@
 import { AnimationProperties } from '@/animation/animation'
 
-const testAnima: AnimationProperties = {
-    initialStyles: {},
-    animationStyles: {},
-    x: { background: 'red' },
-    y: { background: 'blue' },
-}
-
 class Animation {
     private readonly animation: AnimationProperties
-    private readonly keyframes: any[]
+    private readonly keyframes: AnimationProperties['animationStyles'][]
 
     constructor(animation: AnimationProperties) {
         this.animation = animation
@@ -37,7 +30,4 @@ class Animation {
     }
 }
 
-const w = new Animation(testAnima)
-console.log(w.roadKeyframesProps)
-
-class AnimationLazy {}
+export default Animation
