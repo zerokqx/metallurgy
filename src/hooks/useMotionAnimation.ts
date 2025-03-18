@@ -1,8 +1,8 @@
-import { AnimationProperties } from '@/animation/animation'
 import { useAnimate } from 'motion/react'
 import { AnimationScope } from 'motion'
 import '@/animation'
-import { RefObject, useEffect } from 'react'
+import { RefObject, useCallback, useEffect } from 'react'
+import Animation from '@/animation/animationObj'
 
 /**
  * @description Декларативный хук который может автоматически запустить анимацию,
@@ -20,18 +20,41 @@ import { RefObject, useEffect } from 'react'
  * @param customRef
  * @param effect Если true то автоматически запустить анимацию в `useEffect`
  * которые расположены по ключу `initialStyles`
+ * @version 2.0.0
  */
-const useMotionAnimation: (animationObject: AnimationProperties,customRef?:AnimationScope<any>|RefObject<never>, effect?: boolean,)
-    => [() => void, AnimationScope<any>]
-    = (animationObject,customRef, effect = false) => {
+type voidFN = () => void
+const useMotionAnimation: (
+    animationObject: Animation,
+    customRef?: AnimationScope<any> | RefObject<Element>,
+    effect?: boolean
+) => [voidFN, AnimationScope<any>, voidFN] = (
+    animationObject,
+    customRef,
+    effect = false
+) => {
     const [scope, a] = useAnimate()
-    const { animationStyles, controls } = animationObject
-
+    const { animationStyles, controls } = animationObject.animationProps
     const animate = () => {
-        console.log(112)
-            a(customRef?.current ? customRef.current: scope?.current, animationStyles, controls)
+        a(
+            customRef?.current ? customRef.current : scope?.current,
+            animationStyles,
+            controls
+        )
     }
-
+    const animateKeyFrames = useCallback(() => {
+        for (const [
+            index,
+            keyFrame,
+        ] of animationObject.roadKeyframesProps.entries()) {
+            typeof keyFrame !== 'object' &&
+                console.error(`${index} элемент не является объектом`)
+            a(
+                customRef?.current ? customRef.current : scope?.current,
+                keyFrame,
+                controls
+            )
+        }
+    }, [animationObject.roadKeyframesProps, a, customRef, scope])
     useEffect(() => {
         if (scope?.current && effect) {
             try {
@@ -42,7 +65,7 @@ const useMotionAnimation: (animationObject: AnimationProperties,customRef?:Anima
         }
     }, [effect])
 
-    return [animate, scope]
+    return [animate, scope, animateKeyFrames]
 }
 
 export default useMotionAnimation

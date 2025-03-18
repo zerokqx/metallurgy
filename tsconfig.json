@@ -13,7 +13,7 @@
     "src/**/*.anim.ts"
   ],
   "compilerOptions": {
-    "strict": false,
+    "strict": true,
     "noImplicitAny": true,
     "module": "ESNext",
     "baseUrl": ".",
