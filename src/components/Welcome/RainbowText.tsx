@@ -9,7 +9,7 @@ interface RainbowMap {
 
 const rainbowMap: RainbowMap[] = [
     { text: 'Мы создаём ', bold: true },
-    { text: 'будущее металлообработки —' },
+    { text: 'будущее металлообработки — ' },
     { text: 'инновации', bold: true },
     { text: ', мастерство и качество в каждом изделии' },
 ]
@@ -18,41 +18,36 @@ const RainbowText = () => {
     const contrast = lightTheme.text.accent
     const night = lightTheme.text.primary
 
-    const SpanBlueBoldContrast = ({ children, keys }: { children: string, key: number }) => (
-        <SpanBlue key={keys} color={contrast}>{children} </SpanBlue>
+    // Отдельные компоненты с цветом
+    const SpanBlueBoldContrast = ({ children }: { children: string }) => (
+        <SpanBlue color={contrast}>{children}</SpanBlue>
     )
 
-    const SpanBlueUnContrast = ({ children, keys }: { children: string, key: number }) => (
-        <SpanBlue key={keys} color={night}>
-            {children}
-        </SpanBlue>
+    const SpanBlueUnContrast = ({ children }: { children: string }) => (
+        <SpanBlue color={night}>{children}</SpanBlue>
     )
-
 
     return (
         <>
             <ContainerFlex
-                direction={'column'}
-                gap={'0px'}
-                x={'center'}
-                y={'start'}
-                height={'fit-content'}
-                padding={'20px'}
+                direction="column"
+                gap="0px"
+                x="center"
+                y="start"
+                height="fit-content"
+                padding="20px"
             >
-                <SpanBlue wg={500} color={contrast} fs={'70px'}>
+                <SpanBlue wg={500} color={contrast} fs="70px">
                     Добро пожаловать
                 </SpanBlue>
                 <p>
-
-                    {rainbowMap.map((element, index) => element.bold
-                        ? (
+                    {rainbowMap.map((element, index) =>
+                        element.bold ? (
                             <SpanBlueBoldContrast key={index}>{element.text}</SpanBlueBoldContrast>
-                        )
-                        : (
+                        ) : (
                             <SpanBlueUnContrast key={index}>{element.text}</SpanBlueUnContrast>
                         ),
                     )}
-
                 </p>
             </ContainerFlex>
         </>

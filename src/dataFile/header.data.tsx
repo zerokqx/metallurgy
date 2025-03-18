@@ -1,4 +1,4 @@
-import { DataNav } from '@/Types/header/header.types'
+import { DataNav } from '@/types/header/header.types'
 import { FaClipboardList, FaUserGroup } from 'react-icons/fa6'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { FaShoppingBasket } from 'react-icons/fa'

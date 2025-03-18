@@ -1,17 +1,19 @@
-import { JSX } from 'react'
-import { DataNav } from '@/Types/header/header.types'
+import { DataNav } from '@/types/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import styled, { useTheme } from 'styled-components'
-import logotype from '@@/Group 5.svg'
+import logotype from '@/assets/Group 5.svg'
 import { size } from '@/styledComponents/css/size.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
 import IconWithText from '@/lib/components/IconWithText.tsx'
-
+import { MotionConfig } from 'motion/react'
+import { FC, MouseEvent } from 'react'
+import { useDispatch } from 'react-redux'
+import { setBlurAuto } from '@/redux/slices/blurSlice.ts'
 
 const Logotype = () => {
     const theme = useTheme() as Theme
-    const LogotypeLocal = styled.img.attrs<{ src: string }>({ src: logotype })`
+    const LogotypeLocal = styled.img.attrs({ src: logotype })`
         ${size};
     `
     return (
@@ -24,35 +26,50 @@ const Logotype = () => {
     )
 }
 
+interface HeaderProps {
+    data: DataNav[];
 
-const Header: ({ data }: { data: DataNav[] }) => JSX.Element = ({ data }) => {
+}
+
+const Header: FC<HeaderProps> = ({ data }) => {
     const theme = useTheme() as Theme
-
+    const dispatch = useDispatch()
     return (
         <>
-            <HeaderStyle x={'center'} y={'center'} col={'100px 1fr'} colGap={'10px'} row={'1'}
-                         className="header header--flex">
-                <Logotype />
-                <ContainerFlex background={theme.background.lowWhite} padding={'20px'} style={{
-                    borderRadius: '20px',
-                    border: `3px ${theme.border.accent} solid`,
-                }} x={'center'} y={'center'} maxWidth={'max-content'}>
-                    {data.map(({ text, icon, link }, index) => (
-                        <IconWithText>
-                            {icon}
-                            <a
-                                key={index}
-                                href={link || ''}
-                                className="header__text header__text--rubik-font"
-                            >
-                                {text}
-                            </a>
-                        </IconWithText>
-
-                    ))}
-                </ContainerFlex>
-
-            </HeaderStyle>
+            <MotionConfig transition={{ duration: 1 }}>
+                <HeaderStyle
+                    onHoverStart={()=>{dispatch(setBlurAuto())}}
+                    onHoverEnd={()=>{dispatch(setBlurAuto())}}
+                    initial={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
+                    animate={{ gridTemplateColumns: '100px 1fr' }}
+                    x={'center'}
+                    y={'center'}
+                    col={'100px 1fr'}
+                    colGap={'10px'}
+                    row={'1'}
+                    className="header header--flex"
+                >
+                    <Logotype />
+                    <ContainerFlex background={theme.background.lowWhite} padding={'20px'}
+                                   style={{
+                                       borderRadius: '20px',
+                                       border: `3px ${theme.border.accent} solid`,
+                                   }} x={'center'} y={'center'} width={'max-content'}>
+                        {data.map(({ text, icon, link }, index) => (
+                            <IconWithText key={index}>
+                                {icon}
+                                <a
+                                    key={index}
+                                    href={link || ''}
+                                    className="header__text header__text--rubik-font"
+                                >
+                                    {text}
+                                </a>
+                            </IconWithText>
+                        ))}
+                    </ContainerFlex>
+                </HeaderStyle>
+            </MotionConfig>
         </>
     )
 }

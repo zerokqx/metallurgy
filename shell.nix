@@ -2,7 +2,7 @@
 
 pkgs.mkShell {
   name = "react_vite";
-  buildInputs = with pkgs; [ nodejs_22 yarn-berry  ];
+  buildInputs = with pkgs; [ nodejs_22 yarn-berry typescript  ];
 
   shellHook = let pathInit = "./.init_metolorgy";
   in ''
@@ -52,8 +52,9 @@ pkgs.mkShell {
           yarn run dev
         else 
           yarn install
-          yarn run dev
+#          yarn run dev
         fi
   '';
+
 }
 
