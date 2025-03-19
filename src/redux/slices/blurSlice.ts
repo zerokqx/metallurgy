@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import BlurInitialState from '@/types/redux/blurSlice.types'
+import TBlurInitialState from '@/types/redux/blurSlice.types'
 import { RootState } from '@/redux/store'
 
-const initialState: BlurInitialState = {
+const initialState: TBlurInitialState = {
     blurState: false,
 }
 

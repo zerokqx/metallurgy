@@ -1,4 +1,4 @@
-import { AnimationProperties } from '@/animation/animation'
+import TAnimationProperties from '@/types/other/animation.types.ts'
 
 /**
  * Класс Animation
@@ -10,25 +10,25 @@ class Animation {
     /**
      * @private
      * @readonly
-     * @type {AnimationProperties}
+     * @type {TAnimationProperties}
      * @description Хранит объект анимации.
      */
-    private readonly animation: AnimationProperties
+    private readonly animation: TAnimationProperties
 
     /**
      * @private
      * @readonly
-     * @type {AnimationProperties['animationStyles'][]}
+     * @type {TAnimationProperties['animationStyles'][]}
      * @description Хранит массив дополнительных ключевых кадров.
      */
-    private readonly keyframes: AnimationProperties['animationStyles'][]
+    private readonly keyframes: TAnimationProperties['animationStyles'][]
 
     /**
      * Создаёт экземпляр Animation.
      * @constructor
-     * @param {AnimationProperties} animation - Объект с параметрами анимации.
+     * @param {TAnimationProperties} animation - Объект с параметрами анимации.
      */
-    constructor(animation: AnimationProperties) {
+    constructor(animation: TAnimationProperties) {
         this.animation = animation
         this.keyframes = []
         this.createRoadKeyframes()
@@ -37,18 +37,18 @@ class Animation {
     /**
      * @public
      * @getter
-     * @returns {AnimationProperties} Возвращает объект анимации.
+     * @returns {TAnimationProperties} Возвращает объект анимации.
      */
-    get animationProps() {
+    get animationProps(): TAnimationProperties {
         return this.animation
     }
 
     /**
      * @public
      * @getter
-     * @returns {AnimationProperties['animationStyles'][]} Возвращает массив дополнительных ключевых кадров.
+     * @returns {TAnimationProperties['animationStyles'][]} Возвращает массив дополнительных ключевых кадров.
      */
-    get roadKeyframesProps() {
+    get roadKeyframesProps(): TAnimationProperties['animationStyles'][] {
         return this.keyframes
     }
 

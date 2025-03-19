@@ -1,30 +1,28 @@
 import styled, { CSSProperties } from 'styled-components'
 import { baseFont } from '@/styledComponents/css/font.stl.ts'
-import { BaseFontProps } from '@/types/styledComponents/font.types'
+import { TBaseFont } from '@/types/styledComponents/font.types'
 
-interface ExtendedSpanBlueProps extends BaseFontProps {
+interface ExtendedSpanBlueProps extends TBaseFont {
     color?: CSSProperties['color']
     height?: CSSProperties['height']
 }
 
-
-interface CustomParagraphProps extends BaseFontProps {
+interface CustomParagraphProps extends TBaseFont {
     color: CSSProperties['color']
 }
 
-export const SpanBlue = styled.span<ExtendedSpanBlueProps>`
+export const SpanBlue = styled.span<Readonly<ExtendedSpanBlueProps>>`
     color: ${({ color }) => color};
-    ${({ wg, fs }) => baseFont({ fm: 'Rubik', wg, fs })}
-    ${({ wg, fs }) => baseFont({ fm: 'Rubik', wg, fs })}
+    ${({ fontWeight, fontSize }) =>
+        baseFont({ fontFamily: 'Rubik', fontWeight, fontSize })}
+    ${({ fontWeight, fontSize }) =>
+        baseFont({ fontFamily: 'Rubik', fontWeight, fontSize })}
     height: max-content;
 `
 
-
 export const CustomP = styled.p<CustomParagraphProps>`
     color: ${({ color }) => color};
-    ${({ wg, fs }) => baseFont({ wg, fs, fm: 'Rubik' })};
+    ${({ fontWeight, fontSize }) =>
+        baseFont({ fontWeight, fontSize, fontFamily: 'Rubik' })};
     height: max-content;
-
-
-
 `

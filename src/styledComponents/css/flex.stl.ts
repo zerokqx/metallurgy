@@ -1,22 +1,14 @@
 import { css } from 'styled-components'
-import { FlexBoxProps } from '@/types/styledComponents/flex.types.ts'
-
+import { TFlexBox } from '@/types/styledComponents/flex.types.ts'
 
 /**
- * @description Стили флексбокса
- * @param {string} [direction] Какой flex контейнер будет row или column или другие
- * @param {string} [x] justify выравнивание для flex контейнера `(По оси X)`
- * @param {string} [y] align выравнивание для flex контейнера `(По оси Y)`
- * @param {string} [gap] Растояние (Пробел) между flex элементами
+ * @description Стили FlexBox
+ * @param props
  */
-const flexBox = ({ direction, x, y, gap }: FlexBoxProps) => css`
+const flexBox = (props: Readonly<TFlexBox>) => css`
     display: flex;
-    flex-direction: ${direction || 'inherit'};
-    justify-content: ${x || 'inherit'} ;
-    align-items: ${y || 'inherit'};
-    gap:${gap || 'inherit'};
-
-
+    flex-direction: ${props.flexDirection || 'inherit'};
+    gap: ${props.gap || 'inherit'};
 `
 
 export default flexBox

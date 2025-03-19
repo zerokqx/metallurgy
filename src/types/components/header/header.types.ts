@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 
 
-export interface DataNav {
+export interface TDataNav {
     text: string;
     link: string;
     icon: JSX.Element

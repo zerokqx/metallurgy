@@ -1,3 +1,3 @@
-export default interface BlurInitialState {
+export default interface TBlurInitialState {
     blurState: boolean
 }
