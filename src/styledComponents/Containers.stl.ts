@@ -8,6 +8,7 @@ import { size } from '@/styledComponents/css/size.stl'
 import { spacing } from '@/styledComponents/css/spaces.stl'
 import { alignStyles } from '@/styledComponents/css/alignJustify.stl'
 import TContainerGrid from '@/types/styledComponents/css/grid.types'
+import TAlignProperties from '@/types/styledComponents/css/alignJustify.types'
 
 /**
  * @description Div контейнер с некими настройками стилей
@@ -25,8 +26,14 @@ import TContainerGrid from '@/types/styledComponents/css/grid.types'
  */
 
 export const ContainerFlex = styled(motion.div)<
-    Readonly<TContainerFlex & TSpacing & TFlexBox>
+    Readonly<
+        TContainerFlex &
+            TSpacing &
+            TFlexBox &
+            Pick<TAlignProperties, 'justifyContent' | 'alignItems'>
+    >
 >`
+    ${alignStyles}
     ${flexBox};
     ${size};
     ${spacing};

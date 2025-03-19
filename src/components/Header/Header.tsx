@@ -26,11 +26,10 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                     }}
                     initial={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
                     animate={{ gridTemplateColumns: '100px 1fr' }}
-                    x={'center'}
-                    y={'center'}
-                    col={'100px 1fr'}
-                    colGap={'10px'}
-                    row={'1'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                    columnGap={'100px 1fr'}
+                    gridTemplateRows={'1'}
                     className="header header--flex"
                 >
                     <Logotype />
