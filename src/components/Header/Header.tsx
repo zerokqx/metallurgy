@@ -1,4 +1,4 @@
-import { DataNav } from '@/types/components/header/header.types'
+import { TDataNav } from '@/types/components/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import styled, { useTheme } from 'styled-components'
 import logotype from '@/assets/Group 5.svg'
@@ -17,18 +17,22 @@ const Logotype = () => {
         ${size};
     `
     return (
-        <ContainerFlex background={theme.background.lowWhite} style={{
-            borderRadius: '20px',
-            border: `3px ${theme.border.accent}  solid`,
-        }} x={'center'} y={'center'}>
+        <ContainerFlex
+            background={theme.background.lowWhite}
+            style={{
+                borderRadius: '20px',
+                border: `3px ${theme.border.accent}  solid`,
+            }}
+            justifyContent={'center'}
+            alignItems={'center'}
+        >
             <LogotypeLocal width={'70px'} height={'70px'} />
         </ContainerFlex>
     )
 }
 
 interface HeaderProps {
-    data: DataNav[];
-
+    data: TDataNav[]
 }
 
 const Header: FC<HeaderProps> = ({ data }) => {
@@ -54,11 +58,17 @@ const Header: FC<HeaderProps> = ({ data }) => {
                     className="header header--flex"
                 >
                     <Logotype />
-                    <ContainerFlex background={theme.background.lowWhite} padding={'20px'}
-                                   style={{
-                                       borderRadius: '20px',
-                                       border: `3px ${theme.border.accent} solid`,
-                                   }} x={'center'} y={'center'} width={'max-content'}>
+                    <ContainerFlex
+                        background={theme.background.lowWhite}
+                        padding={'20px'}
+                        style={{
+                            borderRadius: '20px',
+                            border: `3px ${theme.border.accent} solid`,
+                        }}
+                        justifyContent={'center'}
+                        alignItems={'center'}
+                        width={'max-content'}
+                    >
                         {data.map(({ text, icon, link }, index) => (
                             <IconWithText key={index}>
                                 {icon}

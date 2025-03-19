@@ -2,13 +2,13 @@ import Animation from '@/animation/animationObj'
 import { AnimationScope } from 'motion'
 import { RefObject } from 'react'
 
-type voidFN = () => void
+type Fvoid = () => void
 
 
 type FUseMotionAnimation = (
     animationObject: Animation,
     customRef?: AnimationScope<any> | RefObject<Element>,
     effect?: boolean,
-) => [voidFN, AnimationScope<any>, voidFN]
+) => [Fvoid, AnimationScope<any>, Fvoid]
 
 export default FUseMotionAnimation

@@ -1,14 +1,12 @@
 'use client'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import RainbowText from '@/components/Welcome/RainbowText.tsx'
-import useMotionAnimation from '@/hooks/useMotionAnimation.ts'
-// import { gradient } from '@/animation'
+
 import { useTheme } from 'styled-components'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
 import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
 import { useEffect, useState } from 'react'
 import { useAnimate } from 'motion/react'
-
 
 /**
  * Компонент Welcome, который отображает приветственное сообщение с анимированным фоном и текстом.
@@ -23,9 +21,13 @@ const Welcome = () => {
     // const [sc] = useMotionAnimation(gradient, true)
     const theme = useTheme() as Theme
     const [scope, animate] = useAnimate()
-    const [pos, setPos] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
+    const [pos, setPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
     useEffect(() => {
-        animate(scope.current, { transform: `translate(${pos.x - 100}px, ${pos.y - 200}px)` }, { duration: 0.5 })
+        animate(
+            scope.current,
+            { transform: `translate(${pos.x - 100}px, ${pos.y - 200}px)` },
+            { duration: 0.5 }
+        )
     }, [pos])
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
@@ -43,19 +45,15 @@ const Welcome = () => {
     }, [])
     return (
         <>
-
-
             <ContainerFlex
-                background={theme.background.lowWhite}
                 direction={'column'}
+                background={theme.background.lowWhite}
                 gap={'10px'}
                 padding={'20px'}
-                x={'start'}
-                y={'start'}
+                justifyContent={'start'}
+                alignItems={'start'}
                 height={'max-content'}
                 width="100%"
-                // ref={sc}
-                // initial={gradient.initialStyles}
                 style={{ overflow: 'clip', position: 'relative' }}
             >
                 <BlurableBlock
@@ -71,8 +69,8 @@ const Welcome = () => {
                     style={{ overflow: 'clip' }}
                     direction="row"
                     width={'fit-content'}
-                    x="center"
-                    y="center"
+                    justifyContent="center"
+                    alignItems="center"
                 >
                     <RainbowText />
                 </ContainerFlex>

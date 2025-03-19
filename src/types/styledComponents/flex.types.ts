@@ -1,9 +1,5 @@
-import { CSSProperties } from "styled-components/dist/types";
+import { CSSProperties } from 'styled-components/dist/types'
 
-
-export interface FlexBoxProps {
-    direction?: CSSProperties["flexDirection"];
-    x?: CSSProperties["justifyContent"];
-    y?: CSSProperties["alignItems"]
-    gap?: CSSProperties["gap"]
-}
+export type TFlexBox = Partial<
+    Pick<CSSProperties, 'direction' | 'justifyContent' | 'alignItems' | 'gap'>
+>

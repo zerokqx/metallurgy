@@ -32,21 +32,25 @@ const RainbowText = () => {
             <ContainerFlex
                 direction="column"
                 gap="0px"
-                x="center"
-                y="start"
+                justifyContent="center"
+                alignItems="start"
                 height="fit-content"
                 padding="20px"
             >
-                <SpanBlue wg={500} color={contrast} fs="70px">
+                <SpanBlue fontWeight={500} color={contrast} fontSize="70px">
                     Добро пожаловать
                 </SpanBlue>
                 <p>
                     {rainbowMap.map((element, index) =>
                         element.bold ? (
-                            <SpanBlueBoldContrast key={index}>{element.text}</SpanBlueBoldContrast>
+                            <SpanBlueBoldContrast key={index}>
+                                {element.text}
+                            </SpanBlueBoldContrast>
                         ) : (
-                            <SpanBlueUnContrast key={index}>{element.text}</SpanBlueUnContrast>
-                        ),
+                            <SpanBlueUnContrast key={index}>
+                                {element.text}
+                            </SpanBlueUnContrast>
+                        )
                     )}
                 </p>
             </ContainerFlex>

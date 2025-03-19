@@ -1,26 +1,19 @@
 import styled, { CSSProperties } from 'styled-components'
-import { position, PositionProps } from '@/styledComponents/css/position.stl'
+import { position, TPositionProps } from '@/styledComponents/css/position.stl'
 import { size, SizeProps } from '@/styledComponents/css/size.stl'
 
-// interface GlassEffectProps {
-//     blur?: number;
-//     opacity?: number;
-// }
-export type GlassEffectProps = Pick<CSSProperties, 'opacity' | 'display'>
-    & PositionProps
-    & SizeProps
-    & {
-    blur?: number,
-    stateBlur?: boolean,
-}
-
+export type GlassEffectProps = Pick<CSSProperties, 'opacity' | 'display'> &
+    TPositionProps &
+    SizeProps & {
+        blur?: number
+        stateBlur?: boolean
+    }
 
 const GlassEffect = styled.div<GlassEffectProps>`
     ${position};
     ${size};
     pointer-events: none;
-        //display: ${props => props.display};
-    opacity: ${props => props.opacity || 1};
+    opacity: ${(props) => props.opacity || 1};
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 20px;
     background: rgba(255, 255, 255, 0.27);

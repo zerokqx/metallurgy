@@ -1,13 +1,10 @@
 import { AnimationOptions, TargetAndTransition } from 'motion/react'
+import TAnimationProperties from '@/types/other/animation.types.ts'
 
-export type AnimationProperties = {
-    initialStyles: TargetAndTransition;
-    animationStyles: TargetAndTransition;
-    controls?: AnimationOptions | undefined;
-} & Record<string, TargetAndTransition>;
+
 
 declare module '@/animation/*.anim' {
-    const value: AnimationProperties
+    const value: TAnimationProperties
     export default value
 }
 

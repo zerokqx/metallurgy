@@ -1,16 +1,18 @@
 import styled, { css } from 'styled-components'
-import { ContainerFlexProps } from '@/types/styledComponents/containers.types'
+import { TContainerFlex } from '@/types/styledComponents/containers.types'
 import flexBox from './css/flex.stl.ts'
 import { size } from '@/styledComponents/css/size.stl.ts'
 import { CSSProperties } from 'styled-components/dist/types'
-import { spacing, SpacingProps } from '@/styledComponents/css/spaces.stl.ts'
+import { spacing } from '@/styledComponents/css/spaces.stl.ts'
 import { motion } from 'motion/react'
+import { TFlexBox } from '@/types/styledComponents/flex.types.ts'
+import { TSpacing } from '@/types/styledComponents/css/spacing.types.ts'
 
 /**
  * @description Div контейнер с некими настройками стилей
  * @param {string} [props.direction] Какой flex контейнер будет row или column или другие
- * @param {string} [props.x] justify выравнивание для flex контейнера `(По оси X)`
- * @param {string} [props.y] align выравнивание для flex контейнера `(По оси Y)`
+ * @param {string} [props.justifyContent] justify выравнивание для flex контейнера `(По оси X)`
+ * @param {string} [props.alignItems] align выравнивание для flex контейнера `(По оси Y)`
  * @param {string} [props.gap] Растояние (Пробел) между flex элементами
  * @param {string} [props.background] Цвет фона контейнера свойство background-color
  * @param {string} [props.padding] Внутрение пробелы
@@ -21,13 +23,15 @@ import { motion } from 'motion/react'
  * @see flexBox
  */
 
-export const ContainerFlex = styled(motion.div)<ContainerFlexProps & SpacingProps>`
+export const ContainerFlex = styled(motion.div)<
+    Readonly<TContainerFlex & TSpacing & TFlexBox>
+>`
     ${flexBox};
     ${size};
     ${spacing};
-    background-color: ${props => props.background || 'transparent'};
-    padding: ${props => props.padding || '0px'};
-    margin: ${props => props.margin || '0px'};
+    background-color: ${(props) => props.background || 'transparent'};
+    padding: ${(props) => props.padding || '0px'};
+    margin: ${(props) => props.margin || '0px'};
 `
 
 /**
@@ -54,7 +58,6 @@ export interface ContainerGridProps {
     rowGap?: CSSProperties['rowGap']
     x?: CSSProperties['justifyContent']
     y?: CSSProperties['alignItems']
-
 }
 
 /**
@@ -86,4 +89,3 @@ export const gridBox = css<ContainerGridProps>`
     justify-items: ${(props) => props.x};
     align-items: ${(props) => props.y};
 `
-
