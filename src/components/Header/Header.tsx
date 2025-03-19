@@ -1,52 +1,28 @@
 import { TDataNav } from '@/types/components/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
-import styled, { useTheme } from 'styled-components'
-import logotype from '@/assets/Group 5.svg'
-import { size } from '@/styledComponents/css/size.stl.ts'
+import { useTheme } from 'styled-components'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Theme } from '@/styledComponents/css/theme.stl.ts'
-import IconWithText from '@/lib/components/IconWithText.tsx'
+import IconWithText from '@/styledComponents/IconWithText.tsx'
 import { MotionConfig } from 'motion/react'
 import { FC } from 'react'
 import { useDispatch } from 'react-redux'
-import { setBlurAuto } from '@/redux/slices/blurSlice.ts'
+import { setBlur } from '@/redux/slices/blurSlice.ts'
+import Logotype from '@/components/Header/Logotype.tsx'
 
-const Logotype = () => {
-    const theme = useTheme() as Theme
-    const LogotypeLocal = styled.img.attrs({ src: logotype })`
-        ${size};
-    `
-    return (
-        <ContainerFlex
-            background={theme.background.lowWhite}
-            style={{
-                borderRadius: '20px',
-                border: `3px ${theme.border.accent}  solid`,
-            }}
-            justifyContent={'center'}
-            alignItems={'center'}
-        >
-            <LogotypeLocal width={'70px'} height={'70px'} />
-        </ContainerFlex>
-    )
-}
-
-interface HeaderProps {
-    data: TDataNav[]
-}
-
-const Header: FC<HeaderProps> = ({ data }) => {
+const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
     const theme = useTheme() as Theme
     const dispatch = useDispatch()
+
     return (
         <>
             <MotionConfig transition={{ duration: 1 }}>
                 <HeaderStyle
                     onHoverStart={() => {
-                        dispatch(setBlurAuto())
+                        dispatch(setBlur(true))
                     }}
                     onHoverEnd={() => {
-                        dispatch(setBlurAuto())
+                        dispatch(setBlur(false))
                     }}
                     initial={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
                     animate={{ gridTemplateColumns: '100px 1fr' }}

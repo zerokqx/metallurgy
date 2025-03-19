@@ -10,7 +10,7 @@ import { CSSProperties } from 'styled-components/dist/types'
  * @property [maxHeight] - Максимальная высота элемента.
  * @property [minHeight] - Минимальная высота элемента.
  */
-export type SizeProps = Partial<
+export type TSize = Partial<
     Pick<
         CSSProperties,
         'height' | 'width' | 'maxWidth' | 'minWidth' | 'maxHeight' | 'minHeight'

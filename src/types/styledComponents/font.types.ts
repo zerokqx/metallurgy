@@ -1,5 +1,6 @@
-import { CSSProperties } from "styled-components"
+import { CSSProperties } from 'styled-components'
 
-
-
-export type TBaseFontProps = Pick<CSSProperties, "fontFamily"|"fontSize"|"fontWeight">
+export type TBaseFont = Pick<
+    CSSProperties,
+    'fontFamily' | 'fontSize' | 'fontWeight'
+>

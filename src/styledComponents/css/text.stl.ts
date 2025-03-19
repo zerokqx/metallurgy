@@ -1,13 +1,13 @@
 import styled, { CSSProperties } from 'styled-components'
 import { baseFont } from '@/styledComponents/css/font.stl.ts'
-import { TBaseFontProps } from '@/types/styledComponents/font.types'
+import { TBaseFont } from '@/types/styledComponents/font.types'
 
-interface ExtendedSpanBlueProps extends TBaseFontProps {
+interface ExtendedSpanBlueProps extends TBaseFont {
     color?: CSSProperties['color']
     height?: CSSProperties['height']
 }
 
-interface CustomParagraphProps extends TBaseFontProps {
+interface CustomParagraphProps extends TBaseFont {
     color: CSSProperties['color']
 }
 

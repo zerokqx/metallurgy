@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { SizeProps } from '@/types/styledComponents/css/size.type.ts'
+import { TSize } from '@/types/styledComponents/css/size.type.ts'
 
 /**
  * Утилита для применения размеров в styled-components.
@@ -17,10 +17,10 @@ import { SizeProps } from '@/types/styledComponents/css/size.type.ts'
  * <Box height="100px" width="50%" maxWidth="200px" minHeight="50px" />;
  * ```
  *
- * @param {SizeProps} props - Свойства, связанные с размерами, которые применяются к элементу.
+ * @param {TSize} props - Свойства, связанные с размерами, которые применяются к элементу.
  * @returns {string} - Сгенерированный CSS для указанных свойств размеров.
  */
-export const size = css<Readonly<SizeProps>>`
+export const size = css<Readonly<TSize>>`
     ${(props) => props.height && `height: ${props.height};`}
     ${(props) => props.width && `width: ${props.width};`}
     ${(props) => props.maxWidth && `max-width: ${props.maxWidth};`}

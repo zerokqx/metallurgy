@@ -39,7 +39,7 @@ class Animation {
      * @getter
      * @returns {TAnimationProperties} Возвращает объект анимации.
      */
-    get animationProps() {
+    get animationProps(): TAnimationProperties {
         return this.animation
     }
 
@@ -48,7 +48,7 @@ class Animation {
      * @getter
      * @returns {TAnimationProperties['animationStyles'][]} Возвращает массив дополнительных ключевых кадров.
      */
-    get roadKeyframesProps() {
+    get roadKeyframesProps(): TAnimationProperties['animationStyles'][] {
         return this.keyframes
     }
 

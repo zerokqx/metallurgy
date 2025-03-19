@@ -1,6 +1,6 @@
 import { CSSProperties } from 'styled-components'
 
-export type TPositionProps = Pick<
+export type TPosition = Partial<Pick<
     CSSProperties,
     'position' | 'top' | 'right' | 'bottom' | 'left' | 'zIndex'
->
+>>

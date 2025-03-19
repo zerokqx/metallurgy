@@ -1,15 +1,9 @@
-import styled, { CSSProperties } from 'styled-components'
-import { position, TPositionProps } from '@/styledComponents/css/position.stl'
-import { size, SizeProps } from '@/styledComponents/css/size.stl'
+import styled from 'styled-components'
+import { position } from '@/styledComponents/css/position.stl'
+import { size } from '@/styledComponents/css/size.stl'
+import TGlassEffect from '@/types/styledComponents/blurPage.types'
 
-export type GlassEffectProps = Pick<CSSProperties, 'opacity' | 'display'> &
-    TPositionProps &
-    SizeProps & {
-        blur?: number
-        stateBlur?: boolean
-    }
-
-const GlassEffect = styled.div<GlassEffectProps>`
+const GlassEffect = styled.div<TGlassEffect>`
     ${position};
     ${size};
     pointer-events: none;

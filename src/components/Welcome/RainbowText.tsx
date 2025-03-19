@@ -1,22 +1,12 @@
 import { lightTheme } from '@/styledComponents/css/theme.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { SpanBlue } from '@/styledComponents/css/text.stl.ts'
-
-interface RainbowMap {
-    text: string
-    bold?: boolean
-}
-
-const rainbowMap: RainbowMap[] = [
-    { text: 'Мы создаём ', bold: true },
-    { text: 'будущее металлообработки — ' },
-    { text: 'инновации', bold: true },
-    { text: ', мастерство и качество в каждом изделии' },
-]
+import rainbowMap from '@/dataFile/rainbowText.data.ts'
+import TRainbowMap from '@/types/rainboxText.types.ts'
 
 const RainbowText = () => {
-    const contrast = lightTheme.text.accent
-    const night = lightTheme.text.primary
+    const contrast: string = lightTheme.text.accent
+    const night: string = lightTheme.text.primary
 
     // Отдельные компоненты с цветом
     const SpanBlueBoldContrast = ({ children }: { children: string }) => (
@@ -30,7 +20,7 @@ const RainbowText = () => {
     return (
         <>
             <ContainerFlex
-                direction="column"
+                flexDirection="column"
                 gap="0px"
                 justifyContent="center"
                 alignItems="start"
@@ -41,16 +31,17 @@ const RainbowText = () => {
                     Добро пожаловать
                 </SpanBlue>
                 <p>
-                    {rainbowMap.map((element, index) =>
-                        element.bold ? (
-                            <SpanBlueBoldContrast key={index}>
-                                {element.text}
-                            </SpanBlueBoldContrast>
-                        ) : (
-                            <SpanBlueUnContrast key={index}>
-                                {element.text}
-                            </SpanBlueUnContrast>
-                        )
+                    {rainbowMap.map(
+                        (element: Readonly<TRainbowMap>, index: number) =>
+                            element.bold ? (
+                                <SpanBlueBoldContrast key={index}>
+                                    {element.text}
+                                </SpanBlueBoldContrast>
+                            ) : (
+                                <SpanBlueUnContrast key={index}>
+                                    {element.text}
+                                </SpanBlueUnContrast>
+                            )
                     )}
                 </p>
             </ContainerFlex>

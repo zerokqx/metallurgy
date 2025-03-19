@@ -1,16 +1,16 @@
 import { CSSProperties } from 'styled-components'
 
 /**
- * @property {CSSProperties['margin']} [m] - General margin.
- * @property {CSSProperties['marginTop']} [mt] - Top margin.
- * @property {CSSProperties['marginBottom']} [mb] - Bottom margin.
- * @property {CSSProperties['marginLeft']} [ml] - Left margin.
- * @property {CSSProperties['marginRight']} [mr] - Right margin.
- * @property {CSSProperties['padding']} [p] - General padding.
- * @property {CSSProperties['paddingTop']} [pt] - Top padding.
- * @property {CSSProperties['paddingBottom']} [pb] - Bottom padding.
- * @property {CSSProperties['paddingLeft']} [pl] - Left padding.
- * @property {CSSProperties['paddingRight']} [pr] - Right padding.
+ * @property {CSSProperties['margin']} [margin] - General margin.
+ * @property {CSSProperties['marginTop']} [marginTop] - Top margin.
+ * @property {CSSProperties['marginBottom']} [marginBottom] - Bottom margin.
+ * @property {CSSProperties['marginLeft']} [marginLeft] - Left margin.
+ * @property {CSSProperties['marginRight']} [marginRight] - Right margin.
+ * @property {CSSProperties['padding']} [padding] - General padding.
+ * @property {CSSProperties['paddingTop']} [paddingTop] - Top padding.
+ * @property {CSSProperties['paddingBottom']} [paddingBottom] - Bottom padding.
+ * @property {CSSProperties['paddingLeft']} [paddingLeft] - Left padding.
+ * @property {CSSProperties['paddingRight']} [paddingRight] - Right padding.
  */
 export type TSpacing = Partial<
     Pick<

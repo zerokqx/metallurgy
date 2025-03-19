@@ -46,7 +46,7 @@ const Welcome = () => {
     return (
         <>
             <ContainerFlex
-                direction={'column'}
+                flexDirection={'column'}
                 background={theme.background.lowWhite}
                 gap={'10px'}
                 padding={'20px'}
@@ -67,7 +67,7 @@ const Welcome = () => {
                 />
                 <ContainerFlex
                     style={{ overflow: 'clip' }}
-                    direction="row"
+                    flexDirection="row"
                     width={'fit-content'}
                     justifyContent="center"
                     alignItems="center"

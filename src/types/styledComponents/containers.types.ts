@@ -1,7 +1,7 @@
 import { TFlexBox } from './flex.types'
 import { CSSProperties } from 'styled-components'
 
-export type TContainerFlex = Pick<
+export type TContainerFlex = Partial<Pick<
     CSSProperties,
     | 'background'
     | 'padding'
@@ -10,5 +10,5 @@ export type TContainerFlex = Pick<
     | 'maxHeight'
     | 'width'
     | 'height'
-> &
+>> &
     TFlexBox

@@ -9,13 +9,13 @@ import { TFlexBox } from '@/types/styledComponents/flex.types.ts'
  * @param {string} [gap] Растояние (Пробел) между flex элементами
  */
 const flexBox = ({
-    direction,
+    flexDirection,
     justifyContent,
     alignItems,
     gap,
-}: TFlexBox) => css`
+}: Readonly<TFlexBox>) => css`
     display: flex;
-    flex-direction: ${direction || 'inherit'};
+    flex-direction: ${flexDirection || 'inherit'};
     justify-content: ${justifyContent || 'inherit'};
     align-items: ${alignItems || 'inherit'};
     gap: ${gap || 'inherit'};
