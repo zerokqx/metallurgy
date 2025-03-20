@@ -11,16 +11,13 @@ import { Provider } from 'react-redux'
 import { store } from '@/redux/store.ts'
 import { useAppSelector } from '@/hooks/useRedux.ts'
 import { selectThemeState } from '@/redux/slices/theme.slice.ts'
-import { useEffect } from 'react'
 import useSwapTheme from '@/hooks/useSwapTheme.ts'
 
 function ThemeWrapper() {
     const themeSelector = useAppSelector(selectThemeState)
     const theme = themeSelector === 'dark' ? darkTheme : lightTheme
-    const [, syncThemeWithRedux] = useSwapTheme()
-    useEffect(() => {
-        syncThemeWithRedux()
-    }, [])
+    useSwapTheme(true)
+
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyles />
