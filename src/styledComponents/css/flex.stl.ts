@@ -5,10 +5,10 @@ import { TFlexBox } from '@/types/styledComponents/flex.types.ts'
  * @description Стили FlexBox
  * @param props
  */
-const flexBox = (props: Readonly<TFlexBox>) => css`
+const flexBox = css<Readonly<TFlexBox>>`
     display: flex;
-    flex-direction: ${props.flexDirection || 'inherit'};
-    gap: ${props.gap || 'inherit'};
+    flex-direction: ${(props) => props.flexDirection};
+    gap: ${(props) => props.gap};
 `
 
 export default flexBox

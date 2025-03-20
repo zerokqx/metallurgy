@@ -38,8 +38,6 @@ export const ContainerFlex = styled(motion.div)<
     ${size};
     ${spacing};
     background-color: ${(props) => props.background || 'transparent'};
-    padding: ${(props) => props.padding || '0px'};
-    margin: ${(props) => props.margin || '0px'};
 `
 
 /**
@@ -62,13 +60,11 @@ export const ContainerFlex = styled(motion.div)<
  * @returns {React.ComponentType} - A styled grid container component.
  */
 export const gridBox = css<Readonly<TContainerGrid>>`
-    ${alignStyles};
     display: grid;
+
     grid-template-columns: ${(props) => props.gridTemplateColumns};
     grid-template-rows: ${(props) => props.gridTemplateRows};
     grid-template-areas: ${(props) => props.gridTemplateAreas};
     column-gap: ${(props) => props.columnGap};
     row-gap: ${(props) => props.rowGap};
-    justify-items: ${(props) => props.justifyContent};
-    align-items: ${(props) => props.alignItems};
 `

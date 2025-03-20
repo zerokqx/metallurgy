@@ -3,7 +3,7 @@ import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import RainbowText from '@/components/Welcome/RainbowText.tsx'
 
 import { useTheme } from 'styled-components'
-import { Theme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
 import { useEffect, useState } from 'react'
 import { useAnimate } from 'motion/react'
@@ -17,9 +17,10 @@ import { useAnimate } from 'motion/react'
  *   <Welcome />
  * )
  */
+
 const Welcome = () => {
     // const [sc] = useMotionAnimation(gradient, true)
-    const theme = useTheme() as Theme
+    const theme = useTheme() as TTheme
     const [scope, animate] = useAnimate()
     const [pos, setPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
     useEffect(() => {

@@ -1,7 +1,7 @@
 import { useAnimate } from 'motion/react'
 import '@/animation'
 import { useCallback, useEffect } from 'react'
-import FUseMotionAnimation from '@/types/hooks/useMotionAnimation.types'
+import FUseMotionAnimation, { FVoid } from '@/types/hooks/useMotionAnimation.types'
 
 /**
  * @description Декларативный хук который может автоматически запустить анимацию,
@@ -24,40 +24,40 @@ import FUseMotionAnimation from '@/types/hooks/useMotionAnimation.types'
 const useMotionAnimation: FUseMotionAnimation = (
     animationObject,
     customRef,
-    effect = false,
+    effect = false
 ) => {
     const [scope, a] = useAnimate()
     const { animationStyles, controls } = animationObject.animationProps
-    const animate = () => {
+    const animate = useCallback(() => {
         a(
             customRef?.current ? customRef.current : scope?.current,
             animationStyles,
-            controls,
+            controls
         )
-    }
-    const animateKeyFrames = useCallback(() => {
+    }, [a, animationStyles, controls, customRef, scope])
+    const animateKeyFrames: FVoid = useCallback(() => {
         for (const [
             index,
             keyFrame,
         ] of animationObject.roadKeyframesProps.entries()) {
-            typeof keyFrame !== 'object' &&
-            console.error(`${index} элемент не является объектом`)
-            a(
-                customRef?.current ? customRef.current : scope?.current,
-                keyFrame,
-                controls,
-            )
+            if (typeof keyFrame !== 'object')
+                console.error(`${index} элемент не является объектом`)
+            else
+                a(
+                    customRef?.current ? customRef.current : scope?.current,
+                    keyFrame,
+                    controls
+                )
         }
-    }, [animationObject.roadKeyframesProps, a, customRef, scope])
+    }, [animationObject.roadKeyframesProps, a, customRef, scope, controls])
     useEffect(() => {
-        if (scope?.current && effect) {
+        if (scope?.current && effect)
             try {
                 animate()
             } catch (e) {
-                throw new Error('Произошла внутренняя ошибка `animate`')
+                throw new Error('Произошла внутренняя ошибка `animate`\n' + e)
             }
-        }
-    }, [effect])
+    }, [animate, effect, scope])
 
     return [animate, scope, animateKeyFrames]
 }

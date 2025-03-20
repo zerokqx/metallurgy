@@ -5,9 +5,9 @@ import { RefObject } from 'react'
 export type FVoid = () => void
 
 type FUseMotionAnimation = (
-    animationObject: Animation,
-    customRef?: AnimationScope<any> | RefObject<Element>,
-    effect?: boolean
+    animationObject: Readonly<Animation>,
+    customRef?: Readonly<AnimationScope<any> | RefObject<Element>>,
+    effect?: Readonly<boolean>,
 ) => [FVoid, AnimationScope<any>, FVoid]
 
 export default FUseMotionAnimation
