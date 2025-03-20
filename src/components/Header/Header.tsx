@@ -26,7 +26,7 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                     }}
                     alignItems={'center'}
                     justifyItems={'center'}
-                    gridTemplateColumns={'100px 1fr'}
+                    gridTemplateColumns={'max-content 1fr'}
                     gridTemplateRows={'1fr'}
                 >
                     <Logotype />

@@ -5,24 +5,35 @@ import { GlobalStyles } from './styledComponents/css/base.stl.ts'
 import Footer from '@/components/Footer/Footer.tsx'
 import Main from '@/components/Main/Main.tsx'
 import { ThemeProvider } from 'styled-components'
-import { lightTheme } from '@/styledComponents/css/theme.stl.ts'
+import { darkTheme, lightTheme } from '@/styledComponents/css/theme.stl.ts'
 import GlassEffectWrapper from '@/components/GlassEffectWrapper.tsx'
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store.ts'
+import { useAppSelector } from '@/hooks/useRedux.ts'
+import { selectThemeState } from '@/redux/slices/theme.slice.ts'
+import useSwapTheme from '@/hooks/useSwapTheme.ts'
+
+function ThemeWrapper() {
+    const themeSelector = useAppSelector(selectThemeState)
+    const theme = themeSelector === 'dark' ? darkTheme : lightTheme
+    useSwapTheme(true)
+
+    return (
+        <ThemeProvider theme={theme}>
+            <GlobalStyles />
+            <GlassEffectWrapper />
+            <Header data={dataHeader} />
+            <Main />
+            <Footer />
+        </ThemeProvider>
+    )
+}
 
 function App() {
     return (
-        <>
-            <ThemeProvider theme={lightTheme}>
-                <Provider store={store}>
-                    <GlobalStyles />
-                    <GlassEffectWrapper />
-                    <Header data={dataHeader} />
-                    <Main />
-                    <Footer />
-                </Provider>
-            </ThemeProvider>
-        </>
+        <Provider store={store}>
+            <ThemeWrapper />
+        </Provider>
     )
 }
 

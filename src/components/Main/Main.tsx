@@ -3,17 +3,12 @@ import Welcome from '@/components/Welcome/Welcome.tsx'
 
 const Main = () => {
     /** TODO исправить костыль с 200px */
-        // @ts-ignore
+    // @ts-ignore
     const [status, welcome] = useWelcome()
     return (
         <>
-            <main>
-                {status && (
-                    <Welcome />
-                )}
-            </main>
+            <main>{status && <Welcome />}</main>
         </>
-
     )
 }
 

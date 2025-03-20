@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import blurSlice  from '@/redux/slices/blurSlice.ts'
+import blurSlice from '@/redux/slices/blurSlice.ts'
+import themeSlice from '@/redux/slices/theme.slice'
 
 export const store = configureStore({
     reducer: {
-        blur:blurSlice
+        blur: blurSlice,
+        theme: themeSlice,
     },
 })
 

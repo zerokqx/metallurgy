@@ -18,6 +18,9 @@ export type TTheme = {
         accent: string
         platinum: string
     }
+    glass: {
+        accent: string
+    }
 }
 
 const accentColor = '#0075F2'
@@ -44,6 +47,7 @@ export const lightTheme: TTheme = {
         platinum: '#9A9A9A',
         accent: accentColor,
     },
+    glass: { accent: 'rgba(255, 255, 255, 0.27)' },
 } as const
 
 const accentColorDark = '#3BA6FF'
@@ -70,4 +74,5 @@ export const darkTheme: TTheme = {
         platinum: '#E2DFDB',
         accent: '#0058B6',
     },
+    glass: { accent: 'rgba(255,255,255,0)' },
 }
