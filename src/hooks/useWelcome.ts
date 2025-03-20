@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { FVoid } from '@/types/hooks/useMotionAnimation.types'
 import FUseWelcome from '@/types/hooks/useWelcome.types'
 
@@ -18,20 +18,23 @@ const useWelcome: Readonly<FUseWelcome> = (
     const keyName: string = 'welcome'
     const trigger: string | unknown = localStorage.getItem(keyName)
     const [status, setStatus] = useState<boolean>(true)
-    useEffect((): void => {
-        if (debug) return
-        else {
-            auto && setWelcome()
-            trigger ? setStatus(false) : setStatus(true)
-        }
-    }, [trigger])
+
     /**
      * @description Функция которая регистрирует юзера как не нового,
      * устанавливает ключ `welcome` в localStorage
      */
-    const setWelcome: FVoid = () => {
+    const setWelcome: FVoid = useCallback(() => {
         if (!trigger) localStorage.setItem(keyName, '1')
-    }
+    }, [trigger])
+
+    useEffect((): void => {
+        if (debug) return
+        else {
+            if (auto) setWelcome()
+            if (trigger) setStatus(false)
+            else setStatus(true)
+        }
+    }, [auto, debug, setWelcome, trigger])
 
     return auto ? status : [status, setWelcome]
 }
