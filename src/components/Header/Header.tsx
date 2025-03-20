@@ -24,13 +24,11 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                     onHoverEnd={() => {
                         dispatch(setBlur(false))
                     }}
-                    initial={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
-                    animate={{ gridTemplateColumns: '100px 1fr' }}
-                    justifyContent={'center'}
                     alignItems={'center'}
-                    columnGap={'100px 1fr'}
-                    gridTemplateRows={'1'}
-                    className="header header--flex"
+                    justifyItems={'center'}
+                    columnGap={'10px'}
+                    gridTemplateColumns={'100px 1fr'}
+                    gridTemplateRows={'1fr'}
                 >
                     <Logotype />
                     <ContainerFlex
@@ -43,6 +41,7 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                         justifyContent={'center'}
                         alignItems={'center'}
                         width={'max-content'}
+                        gap={'20px'}
                     >
                         {data.map(({ text, icon, link }, index) => (
                             <IconWithText key={index}>

@@ -17,6 +17,7 @@ import { useAnimate } from 'motion/react'
  *   <Welcome />
  * )
  */
+
 const Welcome = () => {
     // const [sc] = useMotionAnimation(gradient, true)
     const theme = useTheme() as Theme

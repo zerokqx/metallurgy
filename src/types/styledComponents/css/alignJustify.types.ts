@@ -8,6 +8,7 @@ type TAlignProperties = Partial<
         CSSProperties,
         | 'justifyContent'
         | 'alignItems'
+        | 'justifyItems'
         | 'alignContent'
         | 'justifySelf'
         | 'alignSelf'

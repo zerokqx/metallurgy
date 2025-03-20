@@ -1,7 +1,7 @@
 import { CSSProperties } from 'styled-components/dist/types'
 
 /**
- * Интерфейс для определения свойств размеров в styled-components.
+ * Интерфейс для определения свойств размеров в styledComponents.
  *
  * @property [height] - Высота элемента, например: "100px", "10%", "auto".
  * @property [width] - Ширина элемента, например: "100px", "80%", "inherit".
