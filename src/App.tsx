@@ -9,30 +9,34 @@ import { darkTheme, lightTheme } from '@/styledComponents/css/theme.stl.ts'
 import GlassEffectWrapper from '@/components/GlassEffectWrapper.tsx'
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store.ts'
-import useLocalVariable from '@/hooks/useLocalVariable.ts'
-import { useEffect } from 'react'
 import { useAppSelector } from '@/hooks/useRedux.ts'
 import { selectThemeState } from '@/redux/slices/theme.slice.ts'
+import { useEffect } from 'react'
+import useSwapTheme from '@/hooks/useSwapTheme.ts'
 
-function App() {
-    const [statusTheme, seter] = useLocalVariable('theme')
+function ThemeWrapper() {
     const themeSelector = useAppSelector(selectThemeState)
     const theme = themeSelector === 'dark' ? darkTheme : lightTheme
-
-    console.log(theme)
-    useEffect(() => {}, [])
+    const [, syncThemeWithRedux] = useSwapTheme()
+    useEffect(() => {
+        syncThemeWithRedux()
+    }, [])
     return (
-        <>
-            <Provider store={store}>
-                <ThemeProvider theme={theme}>
-                    <GlobalStyles />
-                    <GlassEffectWrapper />
-                    <Header data={dataHeader} />
-                    <Main />
-                    <Footer />
-                </ThemeProvider>
-            </Provider>
-        </>
+        <ThemeProvider theme={theme}>
+            <GlobalStyles />
+            <GlassEffectWrapper />
+            <Header data={dataHeader} />
+            <Main />
+            <Footer />
+        </ThemeProvider>
+    )
+}
+
+function App() {
+    return (
+        <Provider store={store}>
+            <ThemeWrapper />
+        </Provider>
     )
 }
 

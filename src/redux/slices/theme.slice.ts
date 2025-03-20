@@ -7,14 +7,14 @@ const initialState: TThemeDarkLight = {
     statusBoolean: true,
 }
 
-const themeSlice = createSlice({
+export const themeSlice = createSlice({
     name: 'theme',
     initialState,
     reducers: {
-        setStatus(state: TThemeDarkLight, action: PayloadAction<TStatus>) {
+        setStatus: (state: TThemeDarkLight, action: PayloadAction<TStatus>) => {
             console.log(action)
             state.status = action.payload
-            state.statusBoolean = !state.statusBoolean
+            state.statusBoolean = action.payload === 'dark'
         },
     },
 })

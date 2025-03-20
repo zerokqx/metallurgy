@@ -13,18 +13,18 @@ import { FVoid } from '@/types/hooks/useMotionAnimation.types.ts'
 const ThemeSwitch = () => {
     const theme = useTheme() as TTheme
     const selectorTheme = useAppSelector(selectThemeState)
-    const swapTheme = useSwapTheme()
+    const [swapTheme] = useSwapTheme()
 
     console.log(selectorTheme)
-    const [status, seter] = useLocalVariable('theme')
+    const [status, setter] = useLocalVariable('theme')
 
     const switchAbstract: FVoid = () => {
         if (status === 'dark') {
             swapTheme('light')
-            seter('light')
+            setter('light')
         } else {
             swapTheme('dark')
-            seter('dark')
+            setter('dark')
         }
     }
     return (
@@ -36,8 +36,7 @@ const ThemeSwitch = () => {
             )}
 
             <Switch
-                onCheckedChange={(e) => {
-                    const status = e.valueOf()
+                onCheckedChange={() => {
                     switchAbstract()
                 }}
                 checked={status === 'dark'}

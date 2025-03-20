@@ -1,12 +1,14 @@
-import { lightTheme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { SpanBlue } from '@/styledComponents/css/text.stl.ts'
 import rainbowMap from '@/dataFile/rainbowText.data.ts'
 import TRainbowMap from '@/types/rainboxText.types.ts'
+import { useTheme } from 'styled-components'
 
 const RainbowText = () => {
-    const contrast: string = lightTheme.text.accent
-    const night: string = lightTheme.text.primary
+    const theme: TTheme = useTheme() as TTheme
+    const contrast: string = theme.text.accent
+    const night: string = theme.text.primary
 
     // Отдельные компоненты с цветом
     const SpanBlueBoldContrast = ({ children }: { children: string }) => (
