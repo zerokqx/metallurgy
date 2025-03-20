@@ -1,11 +1,11 @@
 import styled, { useTheme } from 'styled-components'
-import { Theme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import logotype from '@/assets/Group 5.svg'
 import { size } from '@/styledComponents/css/size.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 
 const Logotype = () => {
-    const theme: Theme = useTheme() as Theme
+    const theme: TTheme = useTheme() as TTheme
     const LogotypeLocal = styled.img.attrs({ src: logotype })`
         ${size};
     `

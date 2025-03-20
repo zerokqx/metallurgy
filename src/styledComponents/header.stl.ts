@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { baseFont } from './css/font.stl.ts'
 import { gridBox } from '@/styledComponents/Containers.stl.ts'
-import { Theme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import { motion } from 'motion/react'
 import { alignStyles } from '@/styledComponents/css/alignJustify.stl'
 import { THeaderStyle } from '@/types/styledComponents/header.types'
@@ -17,7 +17,7 @@ export const HeaderStyle = styled(motion.header)<THeaderStyle>`
     z-index: 100;
 
     .header__text {
-        color: ${({ theme }) => (theme as Theme).text.accent};
+        color: ${({ theme }) => (theme as TTheme).text.accent};
 
         &--rubik-font {
             ${baseFont({ fontWeight: 500, fontFamily: 'Rubik' })}

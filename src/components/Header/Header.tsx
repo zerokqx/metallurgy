@@ -2,7 +2,7 @@ import { TDataNav } from '@/types/components/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import { useTheme } from 'styled-components'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
-import { Theme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import IconWithText from '@/styledComponents/IconWithText.tsx'
 import { MotionConfig } from 'motion/react'
 import { FC } from 'react'
@@ -11,7 +11,7 @@ import { setBlur } from '@/redux/slices/blurSlice.ts'
 import Logotype from '@/components/Header/Logotype.tsx'
 
 const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
-    const theme = useTheme() as Theme
+    const theme = useTheme() as TTheme
     const dispatch = useDispatch()
 
     return (
@@ -26,7 +26,6 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                     }}
                     alignItems={'center'}
                     justifyItems={'center'}
-                    columnGap={'10px'}
                     gridTemplateColumns={'100px 1fr'}
                     gridTemplateRows={'1fr'}
                 >
@@ -41,7 +40,7 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                         justifyContent={'center'}
                         alignItems={'center'}
                         width={'max-content'}
-                        gap={'20px'}
+                        gap={'10px'}
                     >
                         {data.map(({ text, icon, link }, index) => (
                             <IconWithText key={index}>

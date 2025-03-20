@@ -1,44 +1,32 @@
-export interface Theme {
+export type TTheme = {
     text: {
-        primary: string; // Новый основной цвет текста
-        accent: string;  // Новый акцентный цвет текста
-        // Устаревшие поля для обратной совместимости
-        textNight?: string;
-        textBlue?: string;
-    };
+        primary: string
+        accent: string
+    }
     background: {
-        lowWhite: string;
-        white: string;
-    };
+        lowWhite: string
+        white: string
+    }
     icon: {
-        primary: string;
-        accent: string;
-        // Устаревшие поля
-        iconNight?: string;
-        iconRISD_Blue?: string;
-    };
+        primary: string
+        accent: string
+    }
     contrast: {
-        accent: string;
-        // Устаревшие поля
-        contrastRISD_Blue?: string;
-    };
+        accent: string
+    }
     border: {
-        accent: string;
-        platinum: string;
-        // Устаревшие поля
-        borderPlatinum?: string;
-    };
+        accent: string
+        platinum: string
+    }
 }
-
 
 const accentColor = '#0075F2'
 const primaryColor = '#292F36'
-export const lightTheme: Theme = {
+
+export const lightTheme: TTheme = {
     text: {
         primary: primaryColor,
         accent: accentColor,
-        textNight: primaryColor,
-        textBlue: accentColor,
     },
     background: {
         lowWhite: '#F6F6F6',
@@ -47,17 +35,39 @@ export const lightTheme: Theme = {
     icon: {
         primary: primaryColor,
         accent: accentColor,
-        iconNight: primaryColor,
-        iconRISD_Blue: accentColor,
     },
     contrast: {
         accent: accentColor,
-        contrastRISD_Blue: accentColor,
     },
 
     border: {
         platinum: '#9A9A9A',
         accent: accentColor,
-        borderPlatinum: '#9A9A9A',
     },
 } as const
+
+const accentColorDark = '#3BA6FF'
+const primaryColorDark = '#CAC5BE'
+
+export const darkTheme: TTheme = {
+    text: {
+        primary: primaryColorDark,
+        accent: accentColorDark,
+    },
+    background: {
+        lowWhite: '#1D2021',
+        white: '#181A1B',
+    },
+    icon: {
+        primary: primaryColorDark,
+        accent: accentColorDark,
+    },
+    contrast: {
+        accent: accentColorDark,
+    },
+
+    border: {
+        platinum: '#E2DFDB',
+        accent: '#0058B6',
+    },
+}

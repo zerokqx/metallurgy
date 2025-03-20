@@ -12,6 +12,7 @@ const IconWithText = ({
         flexDirection="row"
         justifyContent="center"
         alignItems="center"
+        gap={'10px'}
     >
         {children[0]}
         {children[1]}
