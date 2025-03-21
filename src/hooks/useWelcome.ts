@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { FVoid } from '@/types/hooks/useMotionAnimation.types'
 import FUseWelcome from '@/types/hooks/useWelcome.types'
+import useLocalVariable from '@/hooks/useLocalVariable'
 
 /**
  * @description Отслеживает является ли пользователь новоприбывшем или уже был
@@ -11,12 +12,10 @@ import FUseWelcome from '@/types/hooks/useWelcome.types'
  * По умолчанию false
  *
  */
-const useWelcome: Readonly<FUseWelcome> = (
-    auto: boolean = false,
-    debug: boolean = false
-) => {
+const useWelcome: FUseWelcome = (auto = false, debug = false) => {
     const keyName: string = 'welcome'
-    const trigger: string | unknown = localStorage.getItem(keyName)
+    const [variable, setter] = useLocalVariable(keyName)
+    const trigger: string | unknown = variable
     const [status, setStatus] = useState<boolean>(true)
 
     /**
@@ -24,7 +23,7 @@ const useWelcome: Readonly<FUseWelcome> = (
      * устанавливает ключ `welcome` в localStorage
      */
     const setWelcome: FVoid = useCallback(() => {
-        if (!trigger) localStorage.setItem(keyName, '1')
+        if (!trigger) setter('1')
     }, [trigger])
 
     useEffect((): void => {
@@ -34,9 +33,9 @@ const useWelcome: Readonly<FUseWelcome> = (
             if (trigger) setStatus(false)
             else setStatus(true)
         }
-    }, [auto, debug, setWelcome, trigger])
+    }, [])
 
-    return auto ? status : [status, setWelcome]
+    return [status, setWelcome]
 }
 
 export default useWelcome

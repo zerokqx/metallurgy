@@ -5,6 +5,8 @@ import { FSetVariable, FUseLocalVariable } from '@/types/hooks/useLocalVariable.
  * @description Хук для декларативного управления переменной в localStorage.
  * @param variableName Название переменной в localStorage. Будет использоваться
  * для установки значений, удаления и тд.
+ * @returns {FUseLocalVariable} Возвращает массив из 3-х элементов: текущее состояние переменной,
+ * функцию для установки значения переменной и функцию для удаления
  * @hook
  */
 const useLocalVariable: FUseLocalVariable = (variableName) => {

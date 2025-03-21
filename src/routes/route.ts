@@ -1,23 +1,18 @@
-import {
-    index,
-    layout,
-    prefix,
-    route,
-    type RouteConfig,
-} from '@react-router/dev/routes'
+import { createBrowserRouter } from 'react-router'
+import HeaderFooter from '@/components/layouts/HeaderFooter'
+import WelcomePage from '@/pages/Welcome/Welcome.page'
 
-export default [
-    index('./home.tsx'),
-    route('about', './about.tsx'),
+const router = createBrowserRouter([
+    {
+        path: '/',
+        Component: HeaderFooter,
+        children: [
+            {
+                path: 'welcome/',
+                Component: WelcomePage,
+            },
+        ],
+    },
+])
 
-    layout('./auth/layout.tsx', [
-        route('login', './auth/login.tsx'),
-        route('register', './auth/register.tsx'),
-    ]),
-
-    ...prefix('concerts', [
-        index('./concerts/home.tsx'),
-        route(':city', './concerts/city.tsx'),
-        route('trending', './concerts/trending.tsx'),
-    ]),
-] satisfies RouteConfig
+export default router
