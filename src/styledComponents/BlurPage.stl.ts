@@ -12,7 +12,6 @@ const GlassEffect = styled.div<TGlassEffect>`
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 20px;
     background: ${({ theme }) => (theme as TTheme).glass.accent};
-    border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 `
 
