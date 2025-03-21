@@ -8,7 +8,7 @@ import { MotionConfig } from 'motion/react'
 import { FC } from 'react'
 import { useDispatch } from 'react-redux'
 import { setBlur } from '@/redux/slices/blurSlice.ts'
-import Logotype from '@/components/Header/Logotype.tsx'
+import HeaderLeftPanel from '@/components/Header/HeaderLeftPanel.tsx'
 
 const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
     const theme = useTheme() as TTheme
@@ -29,7 +29,7 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                     gridTemplateColumns={'max-content 1fr'}
                     gridTemplateRows={'1fr'}
                 >
-                    <Logotype />
+                    <HeaderLeftPanel />
                     <ContainerFlex
                         background={theme.background.lowWhite}
                         padding={'20px'}
