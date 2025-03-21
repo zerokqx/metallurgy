@@ -1,8 +1,7 @@
 import { useAnimate } from 'motion/react'
-import { AnimationScope } from 'motion'
 import '@/animation'
-import { RefObject, useCallback, useEffect } from 'react'
-import Animation from '@/animation/animationObj'
+import { useCallback, useEffect } from 'react'
+import FUseMotionAnimation, { FVoid } from '@/types/hooks/useMotionAnimation.types'
 
 /**
  * @description Декларативный хук который может автоматически запустить анимацию,
@@ -20,50 +19,46 @@ import Animation from '@/animation/animationObj'
  * @param customRef
  * @param effect Если true то автоматически запустить анимацию в `useEffect`
  * которые расположены по ключу `initialStyles`
- * @version 2.0.0
+ * @version 2.0.1
  */
-type voidFN = () => void
-const useMotionAnimation: (
-    animationObject: Animation,
-    customRef?: AnimationScope<any> | RefObject<Element>,
-    effect?: boolean
-) => [voidFN, AnimationScope<any>, voidFN] = (
+const useMotionAnimation: FUseMotionAnimation = (
     animationObject,
     customRef,
     effect = false
 ) => {
     const [scope, a] = useAnimate()
     const { animationStyles, controls } = animationObject.animationProps
-    const animate = () => {
+    const animate = useCallback(() => {
         a(
             customRef?.current ? customRef.current : scope?.current,
             animationStyles,
             controls
         )
-    }
-    const animateKeyFrames = useCallback(() => {
+    }, [a, animationStyles, controls, customRef, scope])
+    const animateKeyFrames: FVoid = useCallback(() => {
         for (const [
             index,
             keyFrame,
         ] of animationObject.roadKeyframesProps.entries()) {
-            typeof keyFrame !== 'object' &&
+            if (typeof keyFrame !== 'object')
                 console.error(`${index} элемент не является объектом`)
-            a(
-                customRef?.current ? customRef.current : scope?.current,
-                keyFrame,
-                controls
-            )
+            else
+                a(
+                    customRef?.current ? customRef.current : scope?.current,
+                    keyFrame,
+                    controls
+                )
         }
-    }, [animationObject.roadKeyframesProps, a, customRef, scope])
+    }, [animationObject.roadKeyframesProps, a, customRef, scope, controls])
+
     useEffect(() => {
-        if (scope?.current && effect) {
+        if (scope?.current && effect)
             try {
                 animate()
             } catch (e) {
-                throw new Error('Произошла внутренняя ошибка `animate`')
+                throw new Error('Произошла внутренняя ошибка `animate`\n' + e)
             }
-        }
-    }, [effect])
+    }, [animate, effect, scope])
 
     return [animate, scope, animateKeyFrames]
 }

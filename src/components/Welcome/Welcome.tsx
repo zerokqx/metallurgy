@@ -1,14 +1,14 @@
 'use client'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import RainbowText from '@/components/Welcome/RainbowText.tsx'
-import useMotionAnimation from '@/hooks/useMotionAnimation.ts'
-// import { gradient } from '@/animation'
-import { useTheme } from 'styled-components'
-import { Theme } from '@/styledComponents/css/theme.stl.ts'
-import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
-import { useEffect, useState } from 'react'
-import { useAnimate } from 'motion/react'
 
+import { useTheme } from 'styled-components'
+import { TTheme } from '@/styledComponents/css/theme.stl.ts'
+import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
+import { useEffect } from 'react'
+import useMousePosition from '@/hooks/useMousePosition'
+import { TUseMotionAnimationDynamicParam } from '@/types/hooks/useMotionAnimationDynamic.types'
+import useMotionAnimationDynamic from '@/hooks/useMotionAnimationDynamic'
 
 /**
  * Компонент Welcome, который отображает приветственное сообщение с анимированным фоном и текстом.
@@ -20,42 +20,29 @@ import { useAnimate } from 'motion/react'
  * )
  */
 const Welcome = () => {
-    // const [sc] = useMotionAnimation(gradient, true)
-    const theme = useTheme() as Theme
-    const [scope, animate] = useAnimate()
-    const [pos, setPos] = useState<{ x: number, y: number }>({ x: 0, y: 0 })
+    const theme = useTheme() as TTheme
+    const pos = useMousePosition()
+    const styles: TUseMotionAnimationDynamicParam = {
+        animationStyles: {
+            transform: `translate(${pos.x - 100}px, ${pos.y - 200}px)`,
+        },
+        controls: { duration: 0 },
+    }
+    const [scope, animate] = useMotionAnimationDynamic(styles)
     useEffect(() => {
-        animate(scope.current, { transform: `translate(${pos.x - 100}px, ${pos.y - 200}px)` }, { duration: 0.5 })
-    }, [pos])
-    useEffect(() => {
-        const handleMouseMove = (event: MouseEvent) => {
-            setPos({
-                x: event.clientX,
-                y: event.clientY,
-            })
-        }
-
-        document.addEventListener('mousemove', handleMouseMove)
-
-        return () => {
-            document.removeEventListener('mousemove', handleMouseMove)
-        }
-    }, [])
+        animate()
+    }, [animate, pos])
     return (
         <>
-
-
             <ContainerFlex
+                flexDirection={'column'}
                 background={theme.background.lowWhite}
-                direction={'column'}
                 gap={'10px'}
                 padding={'20px'}
-                x={'start'}
-                y={'start'}
+                justifyContent={'start'}
+                alignItems={'start'}
                 height={'max-content'}
                 width="100%"
-                // ref={sc}
-                // initial={gradient.initialStyles}
                 style={{ overflow: 'clip', position: 'relative' }}
             >
                 <BlurableBlock
@@ -69,10 +56,10 @@ const Welcome = () => {
                 />
                 <ContainerFlex
                     style={{ overflow: 'clip' }}
-                    direction="row"
+                    flexDirection="row"
                     width={'fit-content'}
-                    x="center"
-                    y="center"
+                    justifyContent="center"
+                    alignItems="center"
                 >
                     <RainbowText />
                 </ContainerFlex>

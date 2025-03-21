@@ -1,7 +1,6 @@
-import { CSSProperties } from "styled-components"
+import { CSSProperties } from 'styled-components'
 
-export interface BaseFontProps {
-    wg?: CSSProperties["fontWeight"],
-    fm?: CSSProperties["fontFamily"]
-    fs?: CSSProperties["fontSize"]
-}
+export type TBaseFont = Pick<
+    CSSProperties,
+    'fontFamily' | 'fontSize' | 'fontWeight'
+>

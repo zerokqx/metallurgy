@@ -1,12 +1,15 @@
-{ pkgs ? import <nixpkgs> { } }:
 
-pkgs.mkShell {
+let
+  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/archive/0f0e0f2e42655e55ca518f3b426ffe02083acb3a.tar.gz";
+  pkgs = import nixpkgs { config = {}; overlays = []; };
+in
+
+pkgs.mkShellNoCC {
   name = "react_vite";
   buildInputs = with pkgs; [ nodejs_22 yarn-berry typescript  ];
-
+    BROWSER = "chromium";
   shellHook = let pathInit = "./.init_metolorgy";
   in ''
-    export BROWSER=chromium
     alias rn="yarn run dev"
         push() {
             while [[ "$#" -gt 0 ]]; do
@@ -51,8 +54,8 @@ pkgs.mkShell {
           touch "${pathInit}"
           yarn run dev
         else 
-          yarn install
-#          yarn run dev
+          yarn install &
+#         yarn run dev &
         fi
   '';
 
