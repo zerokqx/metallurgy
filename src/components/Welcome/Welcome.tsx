@@ -5,8 +5,10 @@ import RainbowText from '@/components/Welcome/RainbowText.tsx'
 import { useTheme } from 'styled-components'
 import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
-import { useEffect, useState } from 'react'
-import { useAnimate } from 'motion/react'
+import { useEffect } from 'react'
+import useMousePosition from '@/hooks/useMousePosition'
+import { TUseMotionAnimationDynamicParam } from '@/types/hooks/useMotionAnimationDynamic.types'
+import useMotionAnimationDynamic from '@/hooks/useMotionAnimationDynamic'
 
 /**
  * Компонент Welcome, который отображает приветственное сообщение с анимированным фоном и текстом.
@@ -18,31 +20,18 @@ import { useAnimate } from 'motion/react'
  * )
  */
 const Welcome = () => {
-    // const [sc] = useMotionAnimation(gradient, true)
     const theme = useTheme() as TTheme
-    const [scope, animate] = useAnimate()
-    const [pos, setPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
+    const pos = useMousePosition()
+    const styles: TUseMotionAnimationDynamicParam = {
+        animationStyles: {
+            transform: `translate(${pos.x - 100}px, ${pos.y - 200}px)`,
+        },
+        controls: { duration: 0 },
+    }
+    const [scope, animate] = useMotionAnimationDynamic(styles)
     useEffect(() => {
-        animate(
-            scope.current,
-            { transform: `translate(${pos.x - 100}px, ${pos.y - 200}px)` },
-            { duration: 0.5 }
-        )
-    }, [pos])
-    useEffect(() => {
-        const handleMouseMove = (event: MouseEvent) => {
-            setPos({
-                x: event.clientX,
-                y: event.clientY,
-            })
-        }
-
-        document.addEventListener('mousemove', handleMouseMove)
-
-        return () => {
-            document.removeEventListener('mousemove', handleMouseMove)
-        }
-    }, [])
+        animate()
+    }, [animate, pos])
     return (
         <>
             <ContainerFlex

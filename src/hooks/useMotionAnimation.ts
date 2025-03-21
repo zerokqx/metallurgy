@@ -50,6 +50,7 @@ const useMotionAnimation: FUseMotionAnimation = (
                 )
         }
     }, [animationObject.roadKeyframesProps, a, customRef, scope, controls])
+
     useEffect(() => {
         if (scope?.current && effect)
             try {
