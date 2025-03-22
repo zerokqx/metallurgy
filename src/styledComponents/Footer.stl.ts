@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'motion/react'
-import { TTheme } from '@/styledComponents/css/theme/light.stl'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
 
 export const FooterStyled = styled(motion.footer)`
     padding: 10px;
