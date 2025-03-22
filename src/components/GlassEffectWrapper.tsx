@@ -10,12 +10,12 @@ const GlassEffectWrapper = () => {
     const blurRedux = useAppSelector(selectBlurState)
 
     useEffect(() => {
-        blurRedux ? startAnimation() : keyFrames()
+        if (blurRedux) startAnimation()
+        else keyFrames()
     }, [blurRedux, startAnimation, keyFrames])
 
     return (
         <GlassEffect
-            zIndex={99}
             position={'absolute'}
             width={'100%'}
             height={'100%'}

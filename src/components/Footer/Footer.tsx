@@ -4,7 +4,7 @@ import { CustomP } from '@/styledComponents/css/text.stl.ts'
 import IconWithText from '@/styledComponents/IconWithText.tsx'
 import ButtonShadcnWrapper from '@/styledComponents/ButtonShadcnWrapper.tsx'
 import { useTheme } from 'styled-components'
-import { TTheme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme/light.stl.ts'
 import mapFooter from '@/dataFile/footer.data.ts'
 import { TFooter } from '@/types/components/footer.types.ts'
 

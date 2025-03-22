@@ -24,7 +24,7 @@ const useWelcome: FUseWelcome = (auto = false, debug = false) => {
      */
     const setWelcome: FVoid = useCallback(() => {
         if (!trigger) setter('1')
-    }, [trigger])
+    }, [setter, trigger])
 
     useEffect((): void => {
         if (debug) return
@@ -33,7 +33,7 @@ const useWelcome: FUseWelcome = (auto = false, debug = false) => {
             if (trigger) setStatus(false)
             else setStatus(true)
         }
-    }, [])
+    }, [auto, debug, setWelcome, trigger])
 
     return [status, setWelcome]
 }

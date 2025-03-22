@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import { position } from '@/styledComponents/css/position.stl'
 import { size } from '@/styledComponents/css/size.stl'
 import TGlassEffect from '@/types/styledComponents/blurPage.types'
-import { TTheme } from '@/styledComponents/css/theme.stl'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
 
 const GlassEffect = styled.div<TGlassEffect>`
     ${position};
     ${size};
+    z-index: 99;
     pointer-events: none;
     opacity: ${(props) => props.opacity || 1};
     border: 1px solid rgba(255, 255, 255, 0.3);

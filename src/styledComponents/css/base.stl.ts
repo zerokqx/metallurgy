@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { baseFont } from './font.stl'
 
-
 export const GlobalStyles = createGlobalStyle`
 
 
@@ -24,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html, body {
-        background: ${props => props.theme.background.white};
+        background: ${(props) => props.theme.background.primary};
         height: 100%;
     }
 
@@ -35,15 +34,15 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .text-font--rubik-300 {
-        ${baseFont({ wg: 300, fm: 'Rubik', fs: '20px' })}
+        ${baseFont({ fontWeight: 300, fontFamily: 'Rubik', fontSize: '20px' })}
     }
 
     .text-font--rubik-400 {
-        ${baseFont({ wg: 400, fm: 'Rubik', fs: '20px' })}
+        ${baseFont({ fontWeight: 400, fontFamily: 'Rubik', fontSize: '20px' })}
     }
 
     .text-font--rubik-500 {
-        ${baseFont({ wg: 500, fm: 'Rubik', fs: '100px' })}
+        ${baseFont({ fontWeight: 500, fontFamily: 'Rubik', fontSize: '100px' })}
     }
 
 `

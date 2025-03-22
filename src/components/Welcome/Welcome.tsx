@@ -3,7 +3,7 @@ import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import RainbowText from '@/components/Welcome/RainbowText.tsx'
 
 import { useTheme } from 'styled-components'
-import { TTheme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme/light.stl.ts'
 import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
 import { useEffect } from 'react'
 import useMousePosition from '@/hooks/useMousePosition'
@@ -36,7 +36,7 @@ const Welcome = () => {
         <>
             <ContainerFlex
                 flexDirection={'column'}
-                background={theme.background.lowWhite}
+                background={theme.background.accent}
                 gap={'10px'}
                 padding={'20px'}
                 justifyContent={'start'}

@@ -26,15 +26,15 @@ const useMotionAnimation: FUseMotionAnimation = (
     customRef,
     effect = false
 ) => {
-    const [scope, a] = useAnimate()
+    const [scope, animateHook] = useAnimate()
     const { animationStyles, controls } = animationObject.animationProps
     const animate = useCallback(() => {
-        a(
+        animateHook(
             customRef?.current ? customRef.current : scope?.current,
             animationStyles,
             controls
         )
-    }, [a, animationStyles, controls, customRef, scope])
+    }, [animateHook, animationStyles, controls, customRef, scope])
     const animateKeyFrames: FVoid = useCallback(() => {
         for (const [
             index,
@@ -42,14 +42,21 @@ const useMotionAnimation: FUseMotionAnimation = (
         ] of animationObject.roadKeyframesProps.entries()) {
             if (typeof keyFrame !== 'object')
                 console.error(`${index} элемент не является объектом`)
-            else
-                a(
+            else {
+                animateHook(
                     customRef?.current ? customRef.current : scope?.current,
                     keyFrame,
                     controls
                 )
+            }
         }
-    }, [animationObject.roadKeyframesProps, a, customRef, scope, controls])
+    }, [
+        animationObject.roadKeyframesProps,
+        animateHook,
+        customRef,
+        scope,
+        controls,
+    ])
 
     useEffect(() => {
         if (scope?.current && effect)

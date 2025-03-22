@@ -1,4 +1,4 @@
-import { TTheme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme/light.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { SpanBlue } from '@/styledComponents/css/text.stl.ts'
 import rainbowMap from '@/dataFile/rainbowText.data.ts'

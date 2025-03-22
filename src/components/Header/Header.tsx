@@ -2,13 +2,13 @@ import { TDataNav } from '@/types/components/header/header.types'
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import { useTheme } from 'styled-components'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
-import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import IconWithText from '@/styledComponents/IconWithText.tsx'
 import { MotionConfig } from 'motion/react'
-import { FC } from 'react'
+import { cloneElement, FC } from 'react'
 import { useDispatch } from 'react-redux'
 import { setBlur } from '@/redux/slices/blurSlice.ts'
 import HeaderLeftPanel from '@/components/Header/HeaderLeftPanel.tsx'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
 
 const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
     const theme = useTheme() as TTheme
@@ -31,7 +31,7 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                 >
                     <HeaderLeftPanel />
                     <ContainerFlex
-                        background={theme.background.lowWhite}
+                        background={theme.background.accent}
                         padding={'20px'}
                         style={{
                             borderRadius: '20px',
@@ -44,7 +44,9 @@ const Header: FC<{ data: TDataNav[] }> = ({ data }) => {
                     >
                         {data.map(({ text, icon, link }, index) => (
                             <IconWithText key={index}>
-                                {icon}
+                                {cloneElement(icon, {
+                                    color: theme.icon.primary, // Устанавливаем динамический цвет
+                                })}
                                 <a
                                     key={index}
                                     href={link || ''}
