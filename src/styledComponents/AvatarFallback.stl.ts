@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { AvatarFallback } from '@/components/ui/avatar'
-import { TTheme } from '@/styledComponents/css/theme.stl'
+import { TTheme } from '@/styledComponents/css/theme/light.stl'
 
 const AvatarFallbackStyled = styled(AvatarFallback)`
     background: ${({ theme }) => (theme as TTheme).icon.accent};

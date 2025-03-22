@@ -2,11 +2,12 @@ import styled, { useTheme } from 'styled-components'
 import { size } from '@/styledComponents/css/size.stl'
 import { ContainerFlex } from '@/styledComponents/Containers.stl'
 import logotype from '@/assets/Group 5.svg'
-import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import ThemeSwitch from '@/components/Header/ThemeSwitch.tsx'
 import SeparatorStyled from '@/styledComponents/SeparatorStyled.stl'
 import { Avatar } from '@/components/ui/avatar'
 import AvatarFallbackStyled from '@/styledComponents/AvatarFallback.stl'
+import { NavLink } from 'react-router'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
 
 const HeaderLeftPanel = () => {
     const theme = useTheme() as TTheme
@@ -16,7 +17,7 @@ const HeaderLeftPanel = () => {
     `
     return (
         <ContainerFlex
-            background={theme.background.lowWhite}
+            background={theme.background.accent}
             width={'max-content'}
             style={{
                 borderRadius: '20px',
@@ -39,9 +40,11 @@ const HeaderLeftPanel = () => {
                 height={'20px'}
                 orientation={'vertical'}
             />
-            <Avatar>
-                <AvatarFallbackStyled>ZR</AvatarFallbackStyled>
-            </Avatar>
+            <NavLink to={'user/'} end>
+                <Avatar>
+                    <AvatarFallbackStyled>ZR</AvatarFallbackStyled>
+                </Avatar>
+            </NavLink>
         </ContainerFlex>
     )
 }

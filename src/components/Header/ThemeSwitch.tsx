@@ -1,5 +1,5 @@
 import { useTheme } from 'styled-components'
-import { TTheme } from '@/styledComponents/css/theme.stl.ts'
+import { TTheme } from '@/styledComponents/css/theme/light.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { FaMoon } from 'react-icons/fa'
 import { Switch } from '@/components/ui/switch.tsx'

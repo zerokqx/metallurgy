@@ -11,6 +11,10 @@ const router = createBrowserRouter([
                 path: 'welcome/',
                 Component: WelcomePage,
             },
+            {
+                path: 'user/',
+                children: [],
+            },
         ],
     },
 ])

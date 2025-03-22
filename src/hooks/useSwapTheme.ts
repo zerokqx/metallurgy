@@ -3,7 +3,7 @@ import { FSwapTheme, FUseSwapTheme } from '@/types/hooks/useSwapTheme'
 import useLocalVariable from '@/hooks/useLocalVariable'
 import { TStatus } from '@/types/redux/themeSlice.types'
 import { useAppDispatch } from '@/hooks/useRedux'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 
 /**
  * @description Хук для управления темой. Дает такой функционал как синхронизация
@@ -27,14 +27,14 @@ const useSwapTheme: FUseSwapTheme = (auto = false) => {
     /**
      * @description Функция синхронизации states redux и localStorage
      */
-    const synchronizeWithRedux = () => {
+    const synchronizeWithRedux = useCallback(() => {
         const st: TStatus = status as TStatus
         dispatch(setStatus(st))
-    }
+    }, [dispatch, status])
 
     useEffect(() => {
         if (auto) synchronizeWithRedux()
-    }, [])
+    }, [auto, synchronizeWithRedux])
     return [swapTheme, synchronizeWithRedux]
 }
 export default useSwapTheme
