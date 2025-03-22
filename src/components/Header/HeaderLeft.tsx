@@ -3,13 +3,13 @@ import { size } from '@/styledComponents/css/size.stl'
 import { ContainerFlex } from '@/styledComponents/Containers.stl'
 import logotype from '@/assets/Group 5.svg'
 import ThemeSwitch from '@/components/Header/ThemeSwitch.tsx'
-import SeparatorStyled from '@/styledComponents/SeparatorStyled.stl'
 import { Avatar } from '@/components/ui/avatar'
 import AvatarFallbackStyled from '@/styledComponents/AvatarFallback.stl'
 import { NavLink } from 'react-router'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
+import SeparatorWrapper from '@/components/Wrappers/SeparatorWrapper'
 
-const HeaderLeftPanel = () => {
+const HeaderLeft = () => {
     const theme = useTheme() as TTheme
 
     const LogotypeLocal = styled.img.attrs({ src: logotype })`
@@ -19,34 +19,24 @@ const HeaderLeftPanel = () => {
         <ContainerFlex
             background={theme.background.accent}
             width={'max-content'}
-            style={{
-                borderRadius: '20px',
-                border: `3px ${theme.border.accent}  solid`,
-            }}
             gap={'20px'}
             padding={'0 20px 0 10px'}
             justifyContent={'center'}
             alignItems={'center'}
         >
             <LogotypeLocal width={'70px'} height={'70px'} />
-            <SeparatorStyled
-                width={'1px'}
-                height={'20px'}
-                orientation={'vertical'}
-            />
+            <SeparatorWrapper />
             <ThemeSwitch />
-            <SeparatorStyled
-                width={'1px'}
-                height={'20px'}
-                orientation={'vertical'}
-            />
-            <NavLink to={'user/'} end>
+            <SeparatorWrapper />
+
+            <NavLink to={'user/profile'} end>
                 <Avatar>
-                    <AvatarFallbackStyled>ZR</AvatarFallbackStyled>
+                    <AvatarFallbackStyled>Z</AvatarFallbackStyled>
                 </Avatar>
             </NavLink>
+            <SeparatorWrapper />
         </ContainerFlex>
     )
 }
 
-export default HeaderLeftPanel
+export default HeaderLeft

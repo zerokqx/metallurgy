@@ -15,7 +15,7 @@ export const HeaderStyle = styled(motion.header)<THeaderStyle>`
     background-color: transparent;
     padding: ${toPx(spaceBase)};
     z-index: 100;
-
+    
     .header__text {
         color: ${({ theme }) => (theme as TTheme).text.accent};
 
