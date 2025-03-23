@@ -14,7 +14,8 @@ const initialState: TInitialStateUser = {
     isLoading: false,
     error: null,
     role: 'user',
-    profilePictureUrl: 'test',
+    profilePictureUrl:
+        'https://i.pinimg.com/736x/33/1b/bb/331bbb824bca82f0b5355beef9a1e674.jpg',
 }
 
 const userSlice = createSlice({

@@ -3,12 +3,15 @@ import { useTheme } from 'styled-components'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
 import { useAppDispatch, useAppSelector } from '@/hooks/useRedux'
 import { selectUser } from '@/redux/slices/userSlice'
+import TInitialStateUser from '@/types/redux/userSlice.types'
+import AvatarWrapper from '@/components/Wrappers/AvatarWrapper'
 
 const UserProfile = () => {
     const theme = useTheme() as TTheme
-    const user = useAppSelector(selectUser)
+    const { name, email, phone, profilePictureUrl }: TInitialStateUser =
+        useAppSelector(selectUser)
+    const firstTwoSymbolName = name.slice(0, 2)
     const dispath = useAppDispatch()
-    console.log(user)
     return (
         <main>
             <ContainerFlex
@@ -17,8 +20,30 @@ const UserProfile = () => {
                 width={'50%'}
                 style={{
                     borderRadius: '20px',
+                    border: `1px solid ${theme.border.muted}`,
                 }}
-            ></ContainerFlex>
+                padding={'20px'}
+            >
+                <ContainerFlex
+                    width={'100%'}
+                    justifyContent={'flex-start'}
+                    alignItems={'center'}
+                    height={'30%'}
+                    padding={'20px'}
+                    background={theme.background.primary}
+                    style={{
+                        border: `1px solid ${theme.border.muted}`,
+
+                        borderRadius: '20px',
+                    }}
+                >
+                    <AvatarWrapper
+                        w={'150px'}
+                        src={profilePictureUrl}
+                        nameFallback={firstTwoSymbolName}
+                    />
+                </ContainerFlex>
+            </ContainerFlex>
         </main>
     )
 }

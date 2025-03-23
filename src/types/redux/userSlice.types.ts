@@ -10,6 +10,6 @@ type TInitialStateUser = {
     isLoading: boolean
     error: string | null
     role: 'admin' | 'user' | null
-    profilePictureUrl: string | null
+    profilePictureUrl: string
 }
 export default TInitialStateUser
