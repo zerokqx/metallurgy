@@ -27,7 +27,7 @@ const HeaderCenter: FC<{ children?: ReactNode }> = ({ children }) => {
             {data.map(({ text, icon, link }, index) => (
                 <IconWithText key={index}>
                     {cloneElement(icon, {
-                        color: theme.icon.primary,
+                        color: theme.icon.accent,
                     })}
                     <a
                         key={index}

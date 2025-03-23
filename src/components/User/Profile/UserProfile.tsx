@@ -1,17 +1,18 @@
 import { ContainerFlex } from '@/styledComponents/Containers.stl'
 import { useTheme } from 'styled-components'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
-import { useAppDispatch, useAppSelector } from '@/hooks/useRedux'
+import { useAppSelector } from '@/hooks/useRedux'
 import { selectUser } from '@/redux/slices/userSlice'
 import TInitialStateUser from '@/types/redux/userSlice.types'
 import AvatarWrapper from '@/components/Wrappers/AvatarWrapper'
+import UserData from '@/components/User/Profile/UserData'
 
 const UserProfile = () => {
     const theme = useTheme() as TTheme
     const { name, email, phone, profilePictureUrl }: TInitialStateUser =
         useAppSelector(selectUser)
     const firstTwoSymbolName = name.slice(0, 2)
-    const dispath = useAppDispatch()
+    // const dispath = useAppDispatch()
     return (
         <main>
             <ContainerFlex
@@ -39,9 +40,10 @@ const UserProfile = () => {
                 >
                     <AvatarWrapper
                         w={'150px'}
-                        src={profilePictureUrl}
+                        profilePictureUrl={profilePictureUrl}
                         nameFallback={firstTwoSymbolName}
                     />
+                    <UserData name={name} email={email} phone={phone} />
                 </ContainerFlex>
             </ContainerFlex>
         </main>
