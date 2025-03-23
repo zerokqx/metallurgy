@@ -6,8 +6,8 @@ export type FVoid = () => void
 
 type FUseMotionAnimation = (
     animationObject: Readonly<Animation>,
-    customRef?: Readonly<AnimationScope<HTMLElement> | RefObject<Element>>,
+    customRef?: Readonly<AnimationScope<any> | RefObject<any>>,
     effect?: Readonly<boolean>
-) => [FVoid, AnimationScope<HTMLElement>, FVoid]
+) => [FVoid, AnimationScope<any>, FVoid]
 
 export default FUseMotionAnimation
