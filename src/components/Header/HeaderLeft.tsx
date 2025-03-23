@@ -25,7 +25,9 @@ const HeaderLeft = () => {
             justifyContent={'center'}
             alignItems={'center'}
         >
-            <LogotypeLocal width={'70px'} height={'70px'} />
+            <NavLink to={'/'}>
+                <LogotypeLocal width={'70px'} height={'70px'} />
+            </NavLink>
             <SeparatorWrapper />
             <ThemeSwitch />
             <SeparatorWrapper />
