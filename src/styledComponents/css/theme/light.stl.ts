@@ -21,7 +21,7 @@ const lightTheme: TTheme = {
         highContrast: '',
     },
     border: {
-        muted: '',
+        muted: '#d7d7d7',
         accent: '#0075F2',
     },
     glass: {
@@ -32,6 +32,7 @@ const lightTheme: TTheme = {
         dark: '',
     },
     button: {
+        accent: '#0075F2',
         primary: '',
         hover: '',
         disabled: '',

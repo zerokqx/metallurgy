@@ -17,7 +17,7 @@ export const HeaderStyle = styled(motion.header)<THeaderStyle>`
     z-index: 100;
 
     .header__text {
-        color: ${({ theme }) => (theme as TTheme).text.accent};
+        color: ${({ theme }) => (theme as TTheme).text.primary};
 
         &--rubik-font {
             ${baseFont({ fontWeight: 500, fontFamily: 'Rubik' })}

@@ -3,12 +3,12 @@ import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import RainbowText from '@/components/Welcome/RainbowText.tsx'
 
 import { useTheme } from 'styled-components'
-import { TTheme } from '@/styledComponents/css/theme/light.stl.ts'
 import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
 import { useEffect } from 'react'
 import useMousePosition from '@/hooks/useMousePosition'
 import { TUseMotionAnimationDynamicParam } from '@/types/hooks/useMotionAnimationDynamic.types'
 import useMotionAnimationDynamic from '@/hooks/useMotionAnimationDynamic'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
 
 /**
  * Компонент Welcome, который отображает приветственное сообщение с анимированным фоном и текстом.

@@ -1,5 +1,4 @@
-import GlassEffectWrapper from '@/components/GlassEffectWrapper.tsx'
-import { dataHeader } from '@/dataFile/header.data.tsx'
+import GlassEffectWrapper from '@/components/Wrappers/GlassEffectWrapper.tsx'
 import Footer from '@/components/Footer/Footer.tsx'
 import Header from '@/components/Header/Header.tsx'
 import { GlobalStyles } from '@/styledComponents/css/base.stl.ts'
@@ -10,7 +9,7 @@ const HeaderFooter = () => {
         <>
             <GlobalStyles />
             <GlassEffectWrapper />
-            <Header data={dataHeader} />
+            <Header />
             <Outlet />
             <Footer />
         </>

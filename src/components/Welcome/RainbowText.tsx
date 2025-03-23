@@ -1,16 +1,16 @@
-import { TTheme } from '@/styledComponents/css/theme/light.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { SpanBlue } from '@/styledComponents/css/text.stl.ts'
-import rainbowMap from '@/dataFile/rainbowText.data.ts'
 import TRainbowMap from '@/types/rainboxText.types.ts'
 import { useTheme } from 'styled-components'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
+import { useLoaderData } from 'react-router'
 
 const RainbowText = () => {
     const theme: TTheme = useTheme() as TTheme
     const contrast: string = theme.text.accent
     const night: string = theme.text.primary
-
-    // Отдельные компоненты с цветом
+    const rainbowMap = useLoaderData()
+    
     const SpanBlueBoldContrast = ({ children }: { children: string }) => (
         <SpanBlue color={contrast}>{children}</SpanBlue>
     )

@@ -31,6 +31,8 @@ export const GlobalStyles = createGlobalStyle`
         background-color: transparent;
         width: 100%;
         height: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .text-font--rubik-300 {
