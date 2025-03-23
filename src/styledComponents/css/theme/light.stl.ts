@@ -32,6 +32,7 @@ const lightTheme: TTheme = {
         dark: '',
     },
     button: {
+        accent: '#0075F2',
         primary: '',
         hover: '',
         disabled: '',

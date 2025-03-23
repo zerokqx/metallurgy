@@ -34,6 +34,7 @@ const darkTheme: TTheme = {
     },
     button: {
         primary: '',
+        accent: '#409FEF',
         hover: '',
         disabled: '',
     },

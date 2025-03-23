@@ -30,6 +30,7 @@ export type TTheme = {
         dark: string // Тени для тёмных элементов
     }
     button: {
+        accent: string
         primary: string // Основной цвет кнопок
         hover: string // Цвет при наведении
         disabled: string // Цвет для неактивных кнопок
