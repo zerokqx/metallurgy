@@ -1,15 +1,14 @@
 import { Avatar, AvatarImage } from '@/components/ui/avatar.tsx'
 import AvatarFallbackStl from '@/styledComponents/AvatarFallback.stl.ts'
-import { FC } from 'react'
 import { useTheme } from 'styled-components'
-import TInitialStateUser from '@/types/redux/userSlice.types'
+import { TAvatarWrapper } from '@/types/components/avatarWrapper.types'
 
-const AvatarWrapper: FC<
-    { nameFallback: string; w: string } & Pick<
-        TInitialStateUser,
-        'profilePictureUrl'
-    >
-> = ({ profilePictureUrl, nameFallback, w }) => {
+const AvatarWrapper: TAvatarWrapper = ({
+    profilePictureUrl,
+    nameFallback,
+    w,
+    ...props
+}) => {
     const theme = useTheme()
     return (
         <Avatar
@@ -18,6 +17,7 @@ const AvatarWrapper: FC<
                 height: w,
                 border: `10px solid ${theme.background.accent} `,
             }}
+            {...props}
         >
             <AvatarImage src={profilePictureUrl} />
             <AvatarFallbackStl>{nameFallback}</AvatarFallbackStl>
