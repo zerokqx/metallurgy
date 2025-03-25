@@ -13,10 +13,10 @@ const SeparatorWrapper: TSeparatorWrapper = ({
     backgroundColor,
     ...props
 }) => {
-    const theme = useTheme() as TTheme
-
+    const theme = (useTheme() as TTheme).icon.primary
+    console.log(orientation)
     const styledSeparator: TSeparatorWrapperStyled = {
-        backgroundColor: backgroundColor || theme.icon.primary,
+        backgroundColor: backgroundColor || theme,
         width: width || '1px',
         height: height || '20px',
     }
