@@ -1,7 +1,7 @@
 import { FVoid } from '@/types/hooks/useMotionAnimation.types'
 
-export type FUseLocalVariable = (
+export type FUseLocalVariable = <TVariable extends string>(
     variableName: Readonly<string>
-) => [string, FSetVariable, FVoid]
+) => [TVariable, FSetVariable<TVariable>, FVoid]
 
-export type FSetVariable = (value: string) => void
+export type FSetVariable<TValue> = (value: TValue) => ReturnType<FVoid>

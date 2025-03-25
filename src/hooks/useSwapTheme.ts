@@ -1,7 +1,7 @@
 import { setStatus } from '@/redux/slices/theme.slice'
 import { FSwapTheme, FUseSwapTheme } from '@/types/hooks/useSwapTheme'
 import useLocalVariable from '@/hooks/useLocalVariable'
-import { TStatus } from '@/types/redux/themeSlice.types'
+import { TStatusTheme } from '@/types/redux/themeSlice.types'
 import { useAppDispatch } from '@/hooks/useRedux'
 import { useCallback, useEffect } from 'react'
 
@@ -28,7 +28,7 @@ const useSwapTheme: FUseSwapTheme = (auto = false) => {
      * @description Функция синхронизации states redux и localStorage
      */
     const synchronizeWithRedux = useCallback(() => {
-        const st: TStatus = status as TStatus
+        const st: TStatusTheme = status as TStatusTheme
         dispatch(setStatus(st))
     }, [dispatch, status])
 
