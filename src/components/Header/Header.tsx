@@ -1,28 +1,32 @@
 import { HeaderStyle } from '@/styledComponents/header.stl'
 import { MotionConfig } from 'motion/react'
-import { useDispatch } from 'react-redux'
-import { setBlur } from '@/redux/slices/blurSlice.ts'
+import { selectBlurState, setBlur } from '@/redux/slices/blurSlice.ts'
 import HeaderCenter from '@/components/Header/HeaderCenter'
 import HeaderLeft from '@/components/Header/HeaderLeft'
+import { useAppDispatch, useAppSelector } from '@/hooks/useRedux'
+import { FC } from 'react'
+import { TCommonProps } from '@/types/components/header/header.types'
 
-const Header = () => {
-    const dispatch = useDispatch()
+const Header: FC = () => {
+    const dispatch = useAppDispatch()
+    const swapState = () => dispatch(setBlur(!blurState))
+    const blurState = useAppSelector(selectBlurState)
+    const { gridTemplate, center }: TCommonProps = {
+        center: 'center',
+        gridTemplate: '1fr',
+    }
 
     return (
         <>
             <MotionConfig transition={{ duration: 1 }}>
                 <HeaderStyle
-                    onHoverStart={() => {
-                        dispatch(setBlur(true))
-                    }}
-                    onHoverEnd={() => {
-                        dispatch(setBlur(false))
-                    }}
+                    onHoverStart={swapState}
+                    onHoverEnd={swapState}
                     columnGap={'10px'}
-                    alignItems={'center'}
-                    justifyItems={'center'}
-                    gridTemplateColumns={'1fr'}
-                    gridTemplateRows={'1fr'}
+                    alignItems={center}
+                    justifyItems={center}
+                    gridTemplateColumns={gridTemplate}
+                    gridTemplateRows={gridTemplate}
                 >
                     <HeaderCenter>
                         <HeaderLeft />

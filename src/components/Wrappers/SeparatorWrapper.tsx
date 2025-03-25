@@ -1,7 +1,33 @@
-import SeparatorStyled from '@/styledComponents/SeparatorStyled.stl.ts'
+import { useTheme } from 'styled-components'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
+import { Separator } from '@/components/ui/separator'
+import {
+    TSeparatorWrapper,
+    TSeparatorWrapperStyled,
+} from '@/types/components/sepparatorWrapper.types'
 
-const SeparatorWrapper = () => (
-    <SeparatorStyled width={'1px'} height={'20px'} orientation={'vertical'} />
-)
+const SeparatorWrapper: TSeparatorWrapper = ({
+    width,
+    height,
+    orientation,
+    backgroundColor,
+    ...props
+}) => {
+    const theme = (useTheme() as TTheme).icon.primary
+    console.log(orientation)
+    const styledSeparator: TSeparatorWrapperStyled = {
+        backgroundColor: backgroundColor || theme,
+        width: width || '1px',
+        height: height || '20px',
+    }
+
+    return (
+        <Separator
+            style={styledSeparator}
+            orientation={orientation || 'vertical'}
+            {...props}
+        />
+    )
+}
 
 export default SeparatorWrapper
