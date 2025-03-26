@@ -13,9 +13,7 @@ import { FVoid } from '@/types/hooks/useMotionAnimation.types'
 const useLocalVariable: FUseLocalVariable = <TVariable extends string>(
     variableName: Readonly<string>
 ) => {
-    const [variable, setVariableState] = useState<TVariable>(() => {
-        return (localStorage.getItem(variableName) || '') as TVariable
-    })
+    const [variable, setVariableState] = useState<TVariable>('')
     /**
      * @description Устанавливает значение переменной localStorage
      * @param value Значение которое необходимо установить в localStorage
@@ -23,6 +21,7 @@ const useLocalVariable: FUseLocalVariable = <TVariable extends string>(
     const setVariable: FSetVariable<TVariable> = (value) => {
         localStorage.setItem(variableName, value)
         setVariableState(value)
+        console.log(variable)
     }
     /**
      * @description Удаляет переменную из localStorage
@@ -31,7 +30,7 @@ const useLocalVariable: FUseLocalVariable = <TVariable extends string>(
         localStorage.removeItem(variableName)
         setVariableState('' as unknown as TVariable)
     }
-    
+
     useEffect((): ReturnType<FVoid> => {
         const storedValue = localStorage.getItem(variableName)
         if (storedValue !== variable) {

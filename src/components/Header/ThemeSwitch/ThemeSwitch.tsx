@@ -16,7 +16,7 @@ const ThemeSwitch = () => {
                 swapTheme('light')
                 setter('light')
                 break
-            case 'light':
+            default:
                 swapTheme('dark')
                 setter('dark')
                 break

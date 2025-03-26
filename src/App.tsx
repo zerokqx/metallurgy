@@ -13,6 +13,7 @@ import lightTheme from '@/styledComponents/css/theme/light.stl.ts'
 
 function ThemeWrapper() {
     const themeSelector = useAppSelector(selectThemeState)
+    console.log(themeSelector)
     const theme = themeSelector === 'dark' ? darkTheme : lightTheme
     useSwapTheme(true)
 

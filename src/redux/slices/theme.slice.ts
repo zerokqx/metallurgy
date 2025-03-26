@@ -16,6 +16,7 @@ export const themeSlice = createSlice({
             action: PayloadAction<TStatusTheme>
         ) => {
             console.log(action)
+            console.log(11)
             state.status = action.payload
             state.statusBoolean = action.payload === 'dark'
         },
