@@ -5,10 +5,10 @@ import RainbowText from '@/components/Welcome/RainbowText.tsx'
 import { useTheme } from 'styled-components'
 import BlurableBlock from '@/styledComponents/LightCircle.stl.ts'
 import { useEffect } from 'react'
-import useMousePosition from '@/hooks/useMousePosition'
 import { TUseMotionAnimationDynamicParam } from '@/types/hooks/useMotionAnimationDynamic.types'
 import useMotionAnimationDynamic from '@/hooks/useMotionAnimationDynamic'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
+import { useMouse } from "@uidotdev/usehooks";
 
 /**
  * Компонент Welcome, который отображает приветственное сообщение с анимированным фоном и текстом.
@@ -21,10 +21,10 @@ import TTheme from '@/types/styledComponents/css/theme/theme.types'
  */
 const Welcome = () => {
     const theme = useTheme() as TTheme
-    const pos = useMousePosition()
+    const [pos,ref] = useMouse<HTMLDivElement>()
     const styles: TUseMotionAnimationDynamicParam = {
         animationStyles: {
-            transform: `translate(${pos.x - 100}px, ${pos.y - 200}px)`,
+            transform: `translate(${pos.elementX }px, ${pos.elementY }px)`,
         },
         controls: { duration: 0 },
     }
@@ -43,6 +43,7 @@ const Welcome = () => {
                 alignItems={'start'}
                 height={'max-content'}
                 width="100%"
+                ref={ref}
                 style={{ overflow: 'clip', position: 'relative' }}
             >
                 <BlurableBlock

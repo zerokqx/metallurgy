@@ -1,33 +1,26 @@
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { Switch } from '@/components/ui/switch.tsx'
-import useLocalVariable from '@/hooks/useLocalVariable.ts'
-import useSwapTheme from '@/hooks/useSwapTheme.ts'
 import { FVoid } from '@/types/hooks/useMotionAnimation.types.ts'
 import ThemSwitchIcon from '@/components/Header/ThemeSwitch/ThemSwitchIcon'
-import { TStatusTheme } from '@/types/redux/themeSlice.types'
+import { useTheme } from '@/hooks/useTheme'
 
 const ThemeSwitch = () => {
-    const [swapTheme] = useSwapTheme()
-    const [status, setter] = useLocalVariable<TStatusTheme>('theme')
+    const [state,swapTheme]= useTheme()
 
     const switchAbstract: FVoid = () => {
-        switch (status) {
+        switch (state) {
             case 'dark':
-                swapTheme('light')
-                setter('light')
-                break
+                return swapTheme('light')
             default:
-                swapTheme('dark')
-                setter('dark')
-                break
+                return swapTheme('dark')
         }
     }
     return (
         <ContainerFlex paddingRight={'10px'} alignItems={'center'} gap={'5px'}>
-            <ThemSwitchIcon status={status} />
+            <ThemSwitchIcon status={state} />
             <Switch
                 onCheckedChange={switchAbstract}
-                checked={status === 'dark'}
+                checked={state === 'dark'}
             />
         </ContainerFlex>
     )
