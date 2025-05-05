@@ -4,13 +4,15 @@ import TRainbowMap from '@/types/rainboxText.types.ts'
 import { useTheme } from 'styled-components'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
 import { useLoaderData } from 'react-router'
+import { usePreferredLanguage } from "@uidotdev/usehooks";
 
 const RainbowText = () => {
     const theme: TTheme = useTheme() as TTheme
     const contrast: string = theme.text.accent
     const night: string = theme.text.primary
-    const rainbowMap = useLoaderData()
-    
+    const lang = usePreferredLanguage()
+    console.log(lang)
+    const rainbowMap = useLoaderData()[lang]
     const SpanBlueBoldContrast = ({ children }: { children: string }) => (
         <SpanBlue color={contrast}>{children}</SpanBlue>
     )
@@ -30,7 +32,7 @@ const RainbowText = () => {
                 padding="20px"
             >
                 <SpanBlue fontWeight={500} color={contrast} fontSize="70px">
-                    Добро пожаловать
+                    {lang === "en-US"? "Welcome": "Добро пожаловать"}
                 </SpanBlue>
                 <p>
                     {rainbowMap.map(
