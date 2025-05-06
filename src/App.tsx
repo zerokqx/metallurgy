@@ -17,10 +17,6 @@ function ThemeWrapper() {
     const [,,init,getTheme] = useTheme()
     const lang = usePreferredLanguage()
     const dispatch = useAppDispatch()
-    useEffect(() => {
-        dispatch((setLanguage(lang)))
-
-    }, [])
     init()
     return (
         <ThemeProvider theme={getTheme()}>

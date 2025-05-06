@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { RootState } from '@/redux/store'
 
 type TInitialStateApp = {
     language:string
@@ -21,5 +22,5 @@ export const appSlice = createSlice({
 })
 
 export const {setLanguage} = appSlice.actions;
-export const getCurrentLanguage = (state:TInitialStateApp) => state.language
+export const getCurrentLanguage = (state:RootState) => state.app.language
 export default appSlice.reducer
