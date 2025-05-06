@@ -13,8 +13,8 @@ const englishRainbowMap: Readonly<TRainbowMap[]> = [
     { text: ', craftsmanship, and quality in every product' }, // Перевод четвертого элемента
 ];
 export const unionLang = {
-    ru: rainbowMap,
-    "en-US": englishRainbowMap,
+    "ru": rainbowMap,
+    "en": englishRainbowMap,
 }
 
 

@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router'
 import { TDataNav } from '@/types/components/header/header.types.ts'
 import { useTheme } from 'styled-components'
 import TTheme from '@/types/styledComponents/css/theme/theme.types.ts'
+import { LangSelector } from '@/components/LanguageSelector/LangSelector'
 
 const HeaderCenter: FC<{ children?: ReactNode }> = ({ children }) => {
     const data = useLoaderData<TDataNav[]>()
@@ -38,6 +39,7 @@ const HeaderCenter: FC<{ children?: ReactNode }> = ({ children }) => {
                     </a>
                 </IconWithText>
             ))}
+            <LangSelector/>
         </ContainerFlex>
     )
 }

@@ -6,6 +6,7 @@ import HeaderLeft from '@/components/Header/HeaderLeft'
 import { useAppDispatch, useAppSelector } from '@/hooks/useRedux'
 import { FC } from 'react'
 import { TCommonProps } from '@/types/components/header/header.types'
+import { LangSelector } from '@/components/LanguageSelector/LangSelector'
 
 const Header: FC = () => {
     const dispatch = useAppDispatch()
@@ -29,8 +30,11 @@ const Header: FC = () => {
                     gridTemplateRows={gridTemplate}
                 >
                     <HeaderCenter>
+
                         <HeaderLeft />
+
                     </HeaderCenter>
+
                 </HeaderStyle>
             </MotionConfig>
         </>

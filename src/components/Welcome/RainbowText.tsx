@@ -11,6 +11,7 @@ const RainbowText = () => {
     const contrast: string = theme.text.accent
     const night: string = theme.text.primary
     const lang = usePreferredLanguage()
+
     console.log(lang)
     const rainbowMap = useLoaderData()[lang]
     const SpanBlueBoldContrast = ({ children }: { children: string }) => (
