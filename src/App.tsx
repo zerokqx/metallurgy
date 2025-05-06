@@ -2,7 +2,7 @@ import './App.css'
 import { ThemeProvider } from 'styled-components'
 
 import { Provider } from 'react-redux'
-import { store } from '@/redux/store.ts'
+import { persistor, store } from '@/redux/store.ts'
 import { RouterProvider } from 'react-router/dom'
 import router from '@/routes/route.ts'
 import { useTheme } from '@/hooks/useTheme.ts'
@@ -10,6 +10,7 @@ import { usePreferredLanguage } from '@uidotdev/usehooks'
 import { useAppDispatch } from '@/hooks/useRedux.ts'
 import { setLanguage } from '@/redux/slices/app.slice.ts'
 import { useEffect } from 'react'
+import { PersistGate } from 'redux-persist/integration/react'; // Импорт для React
 
 
 function ThemeWrapper() {
@@ -31,7 +32,9 @@ function ThemeWrapper() {
 function App() {
     return (
         <Provider store={store}>
-            <ThemeWrapper />
+            <PersistGate loading={null} persistor={persistor}>
+                <ThemeWrapper />
+            </PersistGate>
         </Provider>
     )
 }

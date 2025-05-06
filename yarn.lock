@@ -3664,6 +3664,7 @@ __metadata:
     react-icons: "npm:^5.5.0"
     react-redux: "npm:^9.2.0"
     react-router: "npm:^7.4.0"
+    redux-persist: "npm:^6.0.0"
     sass-embedded: "npm:^1.85.1"
     styled-components: "npm:^6.1.15"
     tailwind-merge: "npm:^3.0.2"
@@ -4279,6 +4280,15 @@ __metadata:
   version: 4.1.2
   resolution: "readdirp@npm:4.1.2"
   checksum: 10c0/60a14f7619dec48c9c850255cd523e2717001b0e179dc7037cfa0895da7b9e9ab07532d324bfb118d73a710887d1e35f79c495fa91582784493e085d18c72c62
+  languageName: node
+  linkType: hard
+
+"redux-persist@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "redux-persist@npm:6.0.0"
+  peerDependencies:
+    redux: ">4.0.0"
+  checksum: 10c0/8242d265ab8d28bbc95cf2dc2a05b869eb67aa309b1ed08163c926f3af56dd8eb1ea62118286083461b8ef2024d3b349fd264e5a62a70eb2e74d068c832d5bf2
   languageName: node
   linkType: hard
 

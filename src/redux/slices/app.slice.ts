@@ -5,7 +5,7 @@ type TInitialStateApp = {
 }
 
 const initialState:TInitialStateApp = {
-    language:"en"
+    language:'en',
 }
 
 
