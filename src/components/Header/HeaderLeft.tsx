@@ -35,7 +35,8 @@ const HeaderLeft = () => {
 
             <NavLink to={'user/profile'} end>
                 <AvatarWrapper
-                    profilePictureUrl={user.profilePictureUrl}
+                    // profilePictureUrl={user.profilePictureUrl}
+                    profilePictureUrl={''}
                     nameFallback={shortName}
                     w={'50px'}
                 />

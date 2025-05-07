@@ -1,10 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '@/redux/store'
 import TThemeDarkLight, { TStatusTheme } from '@/types/redux/themeSlice.types'
+import lightTheme from '@/styledComponents/css/theme/light.stl'
+import darkTheme from '@/styledComponents/css/theme/dark.stl'
 
 const initialState: TThemeDarkLight = {
     status: 'light',
     statusBoolean: true,
+    theme:lightTheme
 }
 
 export const themeSlice = createSlice({
@@ -15,16 +18,24 @@ export const themeSlice = createSlice({
             state: TThemeDarkLight,
             action: PayloadAction<TStatusTheme>
         ) => {
-            console.log(action)
-            console.log(11)
+
             state.status = action.payload
-            state.statusBoolean = action.payload === 'dark'
+            switch (action.payload) {
+                case 'light':
+                    state.theme = lightTheme
+                    break
+                case 'dark':
+                    state.theme = darkTheme
+                    break
+            }
         },
+
     },
 })
 
 export const { setStatus } = themeSlice.actions
 
 export const selectThemeState = (state: RootState) => state.theme.status
+export const selectTheme = (state: RootState) => state.theme.theme
 
 export default themeSlice.reducer

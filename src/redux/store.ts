@@ -24,11 +24,13 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist:['blur']
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store =  configureStore({
     reducer: persistedReducer, // Используй здесь persistedReducer
+
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {

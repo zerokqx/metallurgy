@@ -8,21 +8,22 @@ import {
 import { useAppDispatch, useAppSelector } from '@/hooks/useRedux'
 import { getCurrentLanguage, setLanguage } from '@/redux/slices/app.slice'
 import { useTheme } from '@/hooks/useTheme'
+import { selectTheme } from '@/redux/slices/theme.slice'
 
 export const LangSelector = () => {
     const lang = ['ru', 'en']
     const dispatch = useAppDispatch()
     const currentLanguage = useAppSelector(getCurrentLanguage)
     console.log(currentLanguage)
-    const [, , , theme] = useTheme()
+    const theme = useAppSelector(selectTheme)
     return (
         <Select
             onValueChange={(value) => dispatch(setLanguage(value))}
         >
             <SelectTrigger
                 style={{
-                    color: theme().text.primary,
-                    border: `2px solid ${theme().border.accent}`,
+                    color: theme.text.primary,
+                    border: `2px solid ${theme.border.accent}`,
                 }}
                 className="w-[max-content]"
             >
