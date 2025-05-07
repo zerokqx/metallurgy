@@ -1,41 +1,24 @@
-import { useCallback, useEffect, useState } from 'react'
-import { FVoid } from '@/types/hooks/useMotionAnimation.types'
-import FUseWelcome from '@/types/hooks/useWelcome.types'
-import useLocalVariable from '@/hooks/useLocalVariable'
+import { EIsNew } from '@/types/redux/userSlice.types'
+import { useLocalStorage } from '@uidotdev/usehooks'
+import { useNavigate } from 'react-router'
+import { useEffect } from 'react'
 
 /**
  * @description Отслеживает является ли пользователь новоприбывшем или уже был
  * на данном сайте.
- * @param auto Параметр который отвечает за автоматическую регистрацию юзера
- * как не нового. Не возвращать Function регистрации юзера
- * @param debug при debug true пользователь будет всегда новым и status true.
- * По умолчанию false
+ * @version 1.0.5
  *
  */
-const useWelcome: FUseWelcome = (auto = false, debug = false) => {
-    const keyName: string = 'welcome'
-    const [variable, setter] = useLocalVariable(keyName)
-    const trigger: string | unknown = variable
-    const [status, setStatus] = useState<boolean>(true)
-
-    /**
-     * @description Функция которая регистрирует юзера как не нового,
-     * устанавливает ключ `welcome` в localStorage
-     */
-    const setWelcome: FVoid = useCallback(() => {
-        if (!trigger) setter('1')
-    }, [trigger])
-
-    useEffect((): void => {
-        if (debug) return
-        else {
-            if (auto) setWelcome()
-            if (trigger) setStatus(false)
-            else setStatus(true)
+const useWelcome = () => {
+    const [state, setWelcome] = useLocalStorage<EIsNew>('welcome',EIsNew.isNew)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (!state){
+            setWelcome(EIsNew.isOld)
+            navigate("/welcome/")
         }
-    }, [])
+    },[])
 
-    return [status, setWelcome]
 }
 
 export default useWelcome

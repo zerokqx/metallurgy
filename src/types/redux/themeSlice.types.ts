@@ -1,7 +1,10 @@
-export type TStatus = 'light' | 'dark'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
+
+export type TStatusTheme = 'light' | 'dark'
 
 type TThemeDarkLight = {
-    status: TStatus
+    status: TStatusTheme
     statusBoolean: boolean
+    theme:TTheme,
 }
 export default TThemeDarkLight

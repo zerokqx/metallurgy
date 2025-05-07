@@ -1,18 +1,17 @@
 import './App.css'
 import { ThemeProvider } from 'styled-components'
-import { darkTheme, lightTheme } from '@/styledComponents/css/theme.stl.ts'
+
 import { Provider } from 'react-redux'
-import { store } from '@/redux/store.ts'
-import { useAppSelector } from '@/hooks/useRedux.ts'
-import { selectThemeState } from '@/redux/slices/theme.slice.ts'
-import useSwapTheme from '@/hooks/useSwapTheme.ts'
+import { persistor, store } from '@/redux/store.ts'
 import { RouterProvider } from 'react-router/dom'
 import router from '@/routes/route.ts'
+import { PersistGate } from 'redux-persist/integration/react';
+import { useAppSelector } from '@/hooks/useRedux.ts'
+import { selectTheme } from '@/redux/slices/theme.slice.ts' // Импорт для React
+
 
 function ThemeWrapper() {
-    const themeSelector = useAppSelector(selectThemeState)
-    const theme = themeSelector === 'dark' ? darkTheme : lightTheme
-    useSwapTheme(true)
+    const theme = useAppSelector(selectTheme)
 
     return (
         <ThemeProvider theme={theme}>
@@ -24,7 +23,9 @@ function ThemeWrapper() {
 function App() {
     return (
         <Provider store={store}>
-            <ThemeWrapper />
+            <PersistGate loading={null} persistor={persistor}>
+                <ThemeWrapper />
+            </PersistGate>
         </Provider>
     )
 }

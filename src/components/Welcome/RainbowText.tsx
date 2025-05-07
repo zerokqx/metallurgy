@@ -1,16 +1,21 @@
-import { TTheme } from '@/styledComponents/css/theme.stl.ts'
 import { ContainerFlex } from '@/styledComponents/Containers.stl.ts'
 import { SpanBlue } from '@/styledComponents/css/text.stl.ts'
-import rainbowMap from '@/dataFile/rainbowText.data.ts'
 import TRainbowMap from '@/types/rainboxText.types.ts'
 import { useTheme } from 'styled-components'
+import TTheme from '@/types/styledComponents/css/theme/theme.types'
+import { useLoaderData } from 'react-router'
+import { usePreferredLanguage } from "@uidotdev/usehooks";
+import { useAppSelector } from '@/hooks/useRedux'
+import { getCurrentLanguage } from '@/redux/slices/app.slice'
 
 const RainbowText = () => {
     const theme: TTheme = useTheme() as TTheme
     const contrast: string = theme.text.accent
     const night: string = theme.text.primary
+    const lang = useAppSelector(getCurrentLanguage)
 
-    // Отдельные компоненты с цветом
+    console.log(lang)
+    const rainbowMap = useLoaderData()[lang]
     const SpanBlueBoldContrast = ({ children }: { children: string }) => (
         <SpanBlue color={contrast}>{children}</SpanBlue>
     )
@@ -30,7 +35,7 @@ const RainbowText = () => {
                 padding="20px"
             >
                 <SpanBlue fontWeight={500} color={contrast} fontSize="70px">
-                    Добро пожаловать
+                    {lang === "en"? "Welcome": "Добро пожаловать"}
                 </SpanBlue>
                 <p>
                     {rainbowMap.map(
