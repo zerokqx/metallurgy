@@ -7,12 +7,11 @@ import { NavLink } from 'react-router'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
 import SeparatorWrapper from '@/components/Wrappers/SeparatorWrapper'
 import { useAppSelector } from '@/hooks/useRedux'
-import { selectShortUserName, selectUser } from '@/redux/slices/userSlice'
+import { selectShortUserName } from '@/redux/slices/userSlice'
 import AvatarWrapper from '@/components/Wrappers/AvatarWrapper'
 
 const HeaderLeft = () => {
     const theme = useTheme() as TTheme
-    const user = useAppSelector(selectUser)
     const LogotypeLocal = styled.img.attrs({ src: logotype })`
         ${size};
     `
