@@ -4,7 +4,6 @@ import TRainbowMap from '@/types/rainboxText.types.ts'
 import { useTheme } from 'styled-components'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
 import { useLoaderData } from 'react-router'
-import { usePreferredLanguage } from "@uidotdev/usehooks";
 import { useAppSelector } from '@/hooks/useRedux'
 import { getCurrentLanguage } from '@/redux/slices/app.slice'
 
@@ -14,7 +13,6 @@ const RainbowText = () => {
     const night: string = theme.text.primary
     const lang = useAppSelector(getCurrentLanguage)
 
-    console.log(lang)
     const rainbowMap = useLoaderData()[lang]
     const SpanBlueBoldContrast = ({ children }: { children: string }) => (
         <SpanBlue color={contrast}>{children}</SpanBlue>

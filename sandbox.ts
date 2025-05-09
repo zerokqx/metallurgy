@@ -1,0 +1,274 @@
+const x = [
+    {
+        "file": {
+            "path": "Раследования/dw.md",
+            "folder": "Раследования",
+            "name": "dw",
+            "link": {
+                "path": "Раследования/dw.md",
+                "embed": false,
+                "type": "file"
+            },
+            "outlinks": {
+                "values": [],
+                "settings": {
+                    "renderNullAs": "\\-",
+                    "taskCompletionTracking": true,
+                    "taskCompletionUseEmojiShorthand": false,
+                    "taskCompletionText": "completion",
+                    "taskCompletionDateFormat": "yyyy-MM-dd",
+                    "recursiveSubTaskCompletion": false,
+                    "warnOnEmptyResult": true,
+                    "refreshEnabled": true,
+                    "refreshInterval": 2500,
+                    "defaultDateFormat": "MMMM dd, yyyy",
+                    "defaultDateTimeFormat": "h:mm a - MMMM dd, yyyy",
+                    "maxRecursiveRenderDepth": 4,
+                    "tableIdColumnName": "File",
+                    "tableGroupColumnName": "Group",
+                    "showResultCount": true,
+                    "allowHtml": true,
+                    "inlineQueryPrefix": "=",
+                    "inlineJsQueryPrefix": "$=",
+                    "inlineQueriesInCodeblocks": true,
+                    "enableInlineDataview": true,
+                    "enableDataviewJs": true,
+                    "enableInlineDataviewJs": true,
+                    "prettyRenderInlineFields": true,
+                    "prettyRenderInlineFieldsInLivePreview": true,
+                    "dataviewJsKeyword": "dataviewjs"
+                },
+                "length": 0
+            },
+            "inlinks": {
+                "values": [
+                    {
+                        "path": "Раследования/Раследования.md",
+                        "embed": false,
+                        "type": "file"
+                    }
+                ],
+                "settings": {
+                    "renderNullAs": "\\-",
+                    "taskCompletionTracking": true,
+                    "taskCompletionUseEmojiShorthand": false,
+                    "taskCompletionText": "completion",
+                    "taskCompletionDateFormat": "yyyy-MM-dd",
+                    "recursiveSubTaskCompletion": false,
+                    "warnOnEmptyResult": true,
+                    "refreshEnabled": true,
+                    "refreshInterval": 2500,
+                    "defaultDateFormat": "MMMM dd, yyyy",
+                    "defaultDateTimeFormat": "h:mm a - MMMM dd, yyyy",
+                    "maxRecursiveRenderDepth": 4,
+                    "tableIdColumnName": "File",
+                    "tableGroupColumnName": "Group",
+                    "showResultCount": true,
+                    "allowHtml": true,
+                    "inlineQueryPrefix": "=",
+                    "inlineJsQueryPrefix": "$=",
+                    "inlineQueriesInCodeblocks": true,
+                    "enableInlineDataview": true,
+                    "enableDataviewJs": true,
+                    "enableInlineDataviewJs": true,
+                    "prettyRenderInlineFields": true,
+                    "prettyRenderInlineFieldsInLivePreview": true,
+                    "dataviewJsKeyword": "dataviewjs"
+                },
+                "length": 1
+            },
+            "etags": {
+                "values": [
+                    "#Заметка"
+                ],
+                "settings": {
+                    "renderNullAs": "\\-",
+                    "taskCompletionTracking": true,
+                    "taskCompletionUseEmojiShorthand": false,
+                    "taskCompletionText": "completion",
+                    "taskCompletionDateFormat": "yyyy-MM-dd",
+                    "recursiveSubTaskCompletion": false,
+                    "warnOnEmptyResult": true,
+                    "refreshEnabled": true,
+                    "refreshInterval": 2500,
+                    "defaultDateFormat": "MMMM dd, yyyy",
+                    "defaultDateTimeFormat": "h:mm a - MMMM dd, yyyy",
+                    "maxRecursiveRenderDepth": 4,
+                    "tableIdColumnName": "File",
+                    "tableGroupColumnName": "Group",
+                    "showResultCount": true,
+                    "allowHtml": true,
+                    "inlineQueryPrefix": "=",
+                    "inlineJsQueryPrefix": "$=",
+                    "inlineQueriesInCodeblocks": true,
+                    "enableInlineDataview": true,
+                    "enableDataviewJs": true,
+                    "enableInlineDataviewJs": true,
+                    "prettyRenderInlineFields": true,
+                    "prettyRenderInlineFieldsInLivePreview": true,
+                    "dataviewJsKeyword": "dataviewjs"
+                },
+                "length": 1
+            },
+            "tags": {
+                "values": [
+                    "#Заметка"
+                ],
+                "settings": {
+                    "renderNullAs": "\\-",
+                    "taskCompletionTracking": true,
+                    "taskCompletionUseEmojiShorthand": false,
+                    "taskCompletionText": "completion",
+                    "taskCompletionDateFormat": "yyyy-MM-dd",
+                    "recursiveSubTaskCompletion": false,
+                    "warnOnEmptyResult": true,
+                    "refreshEnabled": true,
+                    "refreshInterval": 2500,
+                    "defaultDateFormat": "MMMM dd, yyyy",
+                    "defaultDateTimeFormat": "h:mm a - MMMM dd, yyyy",
+                    "maxRecursiveRenderDepth": 4,
+                    "tableIdColumnName": "File",
+                    "tableGroupColumnName": "Group",
+                    "showResultCount": true,
+                    "allowHtml": true,
+                    "inlineQueryPrefix": "=",
+                    "inlineJsQueryPrefix": "$=",
+                    "inlineQueriesInCodeblocks": true,
+                    "enableInlineDataview": true,
+                    "enableDataviewJs": true,
+                    "enableInlineDataviewJs": true,
+                    "prettyRenderInlineFields": true,
+                    "prettyRenderInlineFieldsInLivePreview": true,
+                    "dataviewJsKeyword": "dataviewjs"
+                },
+                "length": 1
+            },
+            "aliases": {
+                "values": [],
+                "settings": {
+                    "renderNullAs": "\\-",
+                    "taskCompletionTracking": true,
+                    "taskCompletionUseEmojiShorthand": false,
+                    "taskCompletionText": "completion",
+                    "taskCompletionDateFormat": "yyyy-MM-dd",
+                    "recursiveSubTaskCompletion": false,
+                    "warnOnEmptyResult": true,
+                    "refreshEnabled": true,
+                    "refreshInterval": 2500,
+                    "defaultDateFormat": "MMMM dd, yyyy",
+                    "defaultDateTimeFormat": "h:mm a - MMMM dd, yyyy",
+                    "maxRecursiveRenderDepth": 4,
+                    "tableIdColumnName": "File",
+                    "tableGroupColumnName": "Group",
+                    "showResultCount": true,
+                    "allowHtml": true,
+                    "inlineQueryPrefix": "=",
+                    "inlineJsQueryPrefix": "$=",
+                    "inlineQueriesInCodeblocks": true,
+                    "enableInlineDataview": true,
+                    "enableDataviewJs": true,
+                    "enableInlineDataviewJs": true,
+                    "prettyRenderInlineFields": true,
+                    "prettyRenderInlineFieldsInLivePreview": true,
+                    "dataviewJsKeyword": "dataviewjs"
+                },
+                "length": 0
+            },
+            "lists": {
+                "values": [],
+                "settings": {
+                    "renderNullAs": "\\-",
+                    "taskCompletionTracking": true,
+                    "taskCompletionUseEmojiShorthand": false,
+                    "taskCompletionText": "completion",
+                    "taskCompletionDateFormat": "yyyy-MM-dd",
+                    "recursiveSubTaskCompletion": false,
+                    "warnOnEmptyResult": true,
+                    "refreshEnabled": true,
+                    "refreshInterval": 2500,
+                    "defaultDateFormat": "MMMM dd, yyyy",
+                    "defaultDateTimeFormat": "h:mm a - MMMM dd, yyyy",
+                    "maxRecursiveRenderDepth": 4,
+                    "tableIdColumnName": "File",
+                    "tableGroupColumnName": "Group",
+                    "showResultCount": true,
+                    "allowHtml": true,
+                    "inlineQueryPrefix": "=",
+                    "inlineJsQueryPrefix": "$=",
+                    "inlineQueriesInCodeblocks": true,
+                    "enableInlineDataview": true,
+                    "enableDataviewJs": true,
+                    "enableInlineDataviewJs": true,
+                    "prettyRenderInlineFields": true,
+                    "prettyRenderInlineFieldsInLivePreview": true,
+                    "dataviewJsKeyword": "dataviewjs"
+                },
+                "length": 0
+            },
+            "tasks": {
+                "values": [],
+                "settings": {
+                    "renderNullAs": "\\-",
+                    "taskCompletionTracking": true,
+                    "taskCompletionUseEmojiShorthand": false,
+                    "taskCompletionText": "completion",
+                    "taskCompletionDateFormat": "yyyy-MM-dd",
+                    "recursiveSubTaskCompletion": false,
+                    "warnOnEmptyResult": true,
+                    "refreshEnabled": true,
+                    "refreshInterval": 2500,
+                    "defaultDateFormat": "MMMM dd, yyyy",
+                    "defaultDateTimeFormat": "h:mm a - MMMM dd, yyyy",
+                    "maxRecursiveRenderDepth": 4,
+                    "tableIdColumnName": "File",
+                    "tableGroupColumnName": "Group",
+                    "showResultCount": true,
+                    "allowHtml": true,
+                    "inlineQueryPrefix": "=",
+                    "inlineJsQueryPrefix": "$=",
+                    "inlineQueriesInCodeblocks": true,
+                    "enableInlineDataview": true,
+                    "enableDataviewJs": true,
+                    "enableInlineDataviewJs": true,
+                    "prettyRenderInlineFields": true,
+                    "prettyRenderInlineFieldsInLivePreview": true,
+                    "dataviewJsKeyword": "dataviewjs"
+                },
+                "length": 0
+            },
+            "ctime": "2025-05-07T23:59:04.178+03:00",
+            "cday": "2025-05-07T00:00:00.000+03:00",
+            "mtime": "2025-05-07T23:59:15.741+03:00",
+            "mday": "2025-05-07T00:00:00.000+03:00",
+            "size": 95,
+            "starred": false,
+            "frontmatter": {
+                "tags": [
+                    "Заметка"
+                ],
+                "created": "2025-05-07 23:59",
+                "Money": "200"
+            },
+            "ext": "md"
+        },
+        "tags": [
+            "Заметка"
+        ],
+        "created": "2025-05-07 23:59",
+        "Money": "200",
+        "money": "200"
+    },
+
+
+]
+const q = x.reduce((acc, obj) => {
+    const key = obj.created.split(" ")[0]
+    if (key in acc){
+        acc.key.push(obj.Money)
+    }else{
+        acc[key] = [obj.Money]
+
+    }
+    return acc
+},{})
+console.log(Object.values(q))

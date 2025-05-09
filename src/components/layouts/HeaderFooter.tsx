@@ -13,7 +13,9 @@ const HeaderFooter = () => {
             <GlobalStyles />
             <GlassEffectWrapper />
             <Header />
-            <Outlet />
+            <main>
+                <Outlet />
+            </main>
             <Footer />
         </>
     )

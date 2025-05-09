@@ -4,6 +4,7 @@ import WelcomePage from '@/pages/Welcome/Welcome.page'
 import  { unionLang } from '@/dataFile/rainbowText.data'
 import { dataHeader } from '@/dataFile/header.data'
 import UserPage from '@/pages/User/User.page'
+import { StankiPage } from '@/pages/Stanki/Stanki'
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,15 @@ const router = createBrowserRouter([
                 loader: async () => {
                     return unionLang
                 },
+            },
+            {
+                path: 'shop/',
+                children:[
+                    {
+                        Component: StankiPage,
+                        path: "stanki/"
+                    }
+                ]
             },
             {
                 path: 'user/',
