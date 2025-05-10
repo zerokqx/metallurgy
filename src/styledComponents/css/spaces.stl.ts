@@ -15,7 +15,7 @@ export const spacing = css<Readonly<TSpacing>>`
     ${(props) => props.padding && `padding: ${props.padding};`}
     ${(props) => props.paddingTop && `padding-top: ${props.paddingTop};`}
     ${(props) =>
-            props.paddingBottom && `padding-bottom: ${props.paddingBottom};`}
+        props.paddingBottom && `padding-bottom: ${props.paddingBottom};`}
     ${(props) => props.paddingLeft && `padding-left: ${props.paddingLeft};`}
     ${(props) => props.paddingRight && `padding-right: ${props.paddingRight};`};
 `

@@ -22,7 +22,7 @@ export const dataHeader: TDataNav[] = [
     },
     {
         text: 'Станки',
-        link: '#',
+        link: 'shop/stanki/',
         icon: <IoSettingsSharp color={lightTheme.icon.primary} />,
     },
 ] as TDataNav[]

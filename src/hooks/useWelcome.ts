@@ -10,15 +10,14 @@ import { useEffect } from 'react'
  *
  */
 const useWelcome = () => {
-    const [state, setWelcome] = useLocalStorage<EIsNew>('welcome',EIsNew.isNew)
+    const [state, setWelcome] = useLocalStorage<EIsNew>('welcome', EIsNew.isNew)
     const navigate = useNavigate()
     useEffect(() => {
-        if (!state){
+        if (!state) {
             setWelcome(EIsNew.isOld)
-            navigate("/welcome/")
+            navigate('/welcome/')
         }
-    },[])
-
+    }, [])
 }
 
 export default useWelcome

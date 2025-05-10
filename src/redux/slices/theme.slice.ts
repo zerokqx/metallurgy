@@ -7,7 +7,7 @@ import darkTheme from '@/styledComponents/css/theme/dark.stl'
 const initialState: TThemeDarkLight = {
     status: 'light',
     statusBoolean: true,
-    theme:lightTheme
+    theme: lightTheme,
 }
 
 export const themeSlice = createSlice({
@@ -18,7 +18,6 @@ export const themeSlice = createSlice({
             state: TThemeDarkLight,
             action: PayloadAction<TStatusTheme>
         ) => {
-
             state.status = action.payload
             switch (action.payload) {
                 case 'light':
@@ -29,7 +28,6 @@ export const themeSlice = createSlice({
                     break
             }
         },
-
     },
 })
 

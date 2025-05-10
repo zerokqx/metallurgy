@@ -11,11 +11,10 @@ const englishRainbowMap: Readonly<TRainbowMap[]> = [
     { text: 'the future of metalworking — ' }, // Созданный второй элемент
     { text: 'innovation', bold: true }, // Перевод третьего элемента
     { text: ', craftsmanship, and quality in every product' }, // Перевод четвертого элемента
-];
+]
 export const unionLang = {
-    "ru": rainbowMap,
-    "en": englishRainbowMap,
+    ru: rainbowMap,
+    en: englishRainbowMap,
 }
-
 
 export default rainbowMap

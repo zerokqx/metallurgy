@@ -30,11 +30,8 @@ const Header: FC = () => {
                     gridTemplateRows={gridTemplate}
                 >
                     <HeaderCenter>
-
                         <HeaderLeft />
-
                     </HeaderCenter>
-
                 </HeaderStyle>
             </MotionConfig>
         </>

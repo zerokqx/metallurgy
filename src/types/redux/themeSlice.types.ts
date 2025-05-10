@@ -5,6 +5,6 @@ export type TStatusTheme = 'light' | 'dark'
 type TThemeDarkLight = {
     status: TStatusTheme
     statusBoolean: boolean
-    theme:TTheme,
+    theme: TTheme
 }
 export default TThemeDarkLight
