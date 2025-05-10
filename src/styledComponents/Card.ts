@@ -3,9 +3,10 @@ import TTheme from '@/types/styledComponents/css/theme/theme.types'
 
 
 export const CardStyled = styled.div`
-    min-width: 280px;
+    width: max-content;
     padding: 15px;
-    height: 330px;
+    max-height: 400px;
+    
     column-gap: 10px;
     row-gap: 10px;
     display: grid;

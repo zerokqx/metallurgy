@@ -7,13 +7,16 @@ import useWelcome from '@/hooks/useWelcome'
 
 const HeaderFooter = () => {
     useWelcome()
-
     return (
         <>
             <GlobalStyles />
             <GlassEffectWrapper />
             <Header />
-            <main>
+            <main style={{
+                flexWrap:'wrap',
+                gap:"20px",
+                height:'max-content'
+            }}>
                 <Outlet />
             </main>
             <Footer />
