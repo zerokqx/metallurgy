@@ -12,7 +12,7 @@ const UserProfile = () => {
     const { name, email, phone, profilePictureUrl }: TInitialStateUser =
         useAppSelector(selectUser)
     const shortName = useAppSelector(selectShortUserName)
-    
+
     return (
         <main>
             <ContainerFlex

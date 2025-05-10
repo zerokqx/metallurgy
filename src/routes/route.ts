@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router'
 import HeaderFooter from '@/components/layouts/HeaderFooter'
 import WelcomePage from '@/pages/Welcome/Welcome.page'
-import  { unionLang } from '@/dataFile/rainbowText.data'
+import { unionLang } from '@/dataFile/rainbowText.data'
 import { dataHeader } from '@/dataFile/header.data'
 import UserPage from '@/pages/User/User.page'
 import { StankiPage } from '@/pages/Stanki/Stanki'
@@ -23,12 +23,12 @@ const router = createBrowserRouter([
             },
             {
                 path: 'shop/',
-                children:[
+                children: [
                     {
                         Component: StankiPage,
-                        path: "stanki/"
-                    }
-                ]
+                        path: 'stanki/',
+                    },
+                ],
             },
             {
                 path: 'user/',
@@ -44,4 +44,3 @@ const router = createBrowserRouter([
 ])
 
 export default router
-

@@ -5,7 +5,6 @@ import { glass } from '@/animation'
 import { selectBlurState } from '@/redux/slices/blurSlice.ts'
 import { useAppSelector } from '@/hooks/useRedux.ts'
 
-
 const GlassEffectWrapper = () => {
     const [startAnimation, setRef, keyFrames] = useMotionAnimation(glass)
     const blurRedux = useAppSelector(selectBlurState)

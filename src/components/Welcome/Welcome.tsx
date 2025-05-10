@@ -8,7 +8,7 @@ import { useEffect, useMemo } from 'react' // Импортируем useMemo
 import { TUseMotionAnimationDynamicParam } from '@/types/hooks/useMotionAnimationDynamic.types'
 import useMotionAnimationDynamic from '@/hooks/useMotionAnimationDynamic'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
-import { useMouse } from "@uidotdev/usehooks";
+import { useMouse } from '@uidotdev/usehooks'
 
 /**
  * Компонент Welcome, который отображает приветственное сообщение с анимированным фоном и текстом.
@@ -22,16 +22,19 @@ import { useMouse } from "@uidotdev/usehooks";
 const Welcome = () => {
     const theme = useTheme() as TTheme
     // Указываем тип для ref, чтобы TypeScript понимал, что это div
-    const [pos,ref] = useMouse<HTMLDivElement>()
+    const [pos, ref] = useMouse<HTMLDivElement>()
 
     // Мемоизируем объект styles, чтобы он не создавался заново на каждом рендере,
     // если только не изменились pos.elementX или pos.elementY
-    const styles: TUseMotionAnimationDynamicParam = useMemo(() => ({
-        animationStyles: {
-            transform: `translate(${pos.elementX }px, ${pos.elementY }px)`,
-        },
-        controls: { duration: 0 },
-    }), [pos.elementX, pos.elementY]); // Зависимости useMemo
+    const styles: TUseMotionAnimationDynamicParam = useMemo(
+        () => ({
+            animationStyles: {
+                transform: `translate(${pos.elementX}px, ${pos.elementY}px)`,
+            },
+            controls: { duration: 0 },
+        }),
+        [pos.elementX, pos.elementY]
+    ) // Зависимости useMemo
 
     // useMotionAnimationDynamic, вероятно, принимает стабильные options или handle их
     const [scope, animate] = useMotionAnimationDynamic(styles)

@@ -33,7 +33,7 @@ const RainbowText = () => {
                 padding="20px"
             >
                 <SpanBlue fontWeight={500} color={contrast} fontSize="70px">
-                    {lang === "en"? "Welcome": "Добро пожаловать"}
+                    {lang === 'en' ? 'Welcome' : 'Добро пожаловать'}
                 </SpanBlue>
                 <p>
                     {rainbowMap.map(

@@ -8,33 +8,39 @@ export default [
     {
         price: '1200$',
         img: im1,
-    },    {
-        price: '1200$',
-        img: im1,
-    },    {
-        price: '1200$',
-        img: im1,
-    },    {
-        price: '1200$',
-        img: im1,
-    },    {
-        price: '1200$',
-        img: im1,
-    },    {
-        price: '1200$',
-        img: im1,
-    },    {
-        price: '1200$',
-        img: im1,
-    },    {
-        price: '1200$',
-        img: im1,
-    },    {
+    },
+    {
         price: '1200$',
         img: im1,
     },
-
-
+    {
+        price: '1200$',
+        img: im1,
+    },
+    {
+        price: '1200$',
+        img: im1,
+    },
+    {
+        price: '1200$',
+        img: im1,
+    },
+    {
+        price: '1200$',
+        img: im1,
+    },
+    {
+        price: '1200$',
+        img: im1,
+    },
+    {
+        price: '1200$',
+        img: im1,
+    },
+    {
+        price: '1200$',
+        img: im1,
+    },
 
     {
         price: '3200$',

@@ -12,13 +12,9 @@ const HeaderFooter = () => {
             <GlobalStyles />
             <GlassEffectWrapper />
             <Header />
-            <main style={{
-                flexWrap:'wrap',
-                gap:"20px",
-                height:'max-content'
-            }}>
-                <Outlet />
-            </main>
+
+            <Outlet />
+
             <Footer />
         </>
     )

@@ -6,7 +6,11 @@ import {
     SelectValue,
 } from '@/components/ui/select'
 import { useAppDispatch, useAppSelector } from '@/hooks/useRedux'
-import { getCurrentLanguage, isDirtyLang, setLanguage } from '@/redux/slices/app.slice'
+import {
+    getCurrentLanguage,
+    isDirtyLang,
+    setLanguage,
+} from '@/redux/slices/app.slice'
 import { selectTheme } from '@/redux/slices/theme.slice'
 import { usePreferredLanguage } from '@uidotdev/usehooks'
 import { useEffect, useMemo } from 'react'
@@ -17,7 +21,7 @@ export const LangSelector = () => {
     const currentLanguage = useAppSelector(getCurrentLanguage)
     const dirty = useAppSelector(isDirtyLang)
     const theme = useAppSelector(selectTheme)
-    const lang = useMemo(()=>['ru', 'en'],[])
+    const lang = useMemo(() => ['ru', 'en'], [])
     useEffect(() => {
         if (lang.includes(langOnBrowser) && !dirty) {
             dispatch(setLanguage(langOnBrowser))
@@ -35,7 +39,7 @@ export const LangSelector = () => {
                 }}
                 className="w-[max-content]"
             >
-                <SelectValue  />
+                <SelectValue />
             </SelectTrigger>
             <SelectContent
                 style={{

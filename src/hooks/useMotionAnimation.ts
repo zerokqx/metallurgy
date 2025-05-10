@@ -1,7 +1,9 @@
 import { useAnimate } from 'motion/react'
 import '@/animation'
 import { useCallback, useEffect } from 'react'
-import FUseMotionAnimation, { FVoid } from '@/types/hooks/useMotionAnimation.types'
+import FUseMotionAnimation, {
+    FVoid,
+} from '@/types/hooks/useMotionAnimation.types'
 
 /**
  * @description Декларативный хук который может автоматически запустить анимацию,

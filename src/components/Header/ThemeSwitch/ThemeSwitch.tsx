@@ -9,7 +9,7 @@ import { selectThemeState } from '@/redux/slices/theme.slice'
 const ThemeSwitch = () => {
     const stateTheme = useAppSelector(selectThemeState)
 
-    const [state,swapTheme]= useTheme()
+    const [state, swapTheme] = useTheme()
     console.log(state)
     const switchAbstract: FVoid = () => {
         switch (stateTheme) {

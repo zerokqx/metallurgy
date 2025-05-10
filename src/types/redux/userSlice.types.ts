@@ -12,8 +12,8 @@ type TInitialStateUser = {
     role: 'admin' | 'user' | null
     profilePictureUrl: string
 }
-export enum EIsNew  {
+export enum EIsNew {
     isNew,
-    isOld
+    isOld,
 }
 export default TInitialStateUser

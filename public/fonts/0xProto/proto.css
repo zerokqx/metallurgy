@@ -1,7 +1,6 @@
 @font-face {
     font-family: 'Proto';
-    src:
-        url('/public/fonts/0xProto/0xProtoNerdFont-Regular.ttf') format('ttf');
+    src: url('/public/fonts/0xProto/0xProtoNerdFont-Regular.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 }

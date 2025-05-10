@@ -30,11 +30,16 @@ const HeaderCenter: FC<{ children?: ReactNode }> = ({ children }) => {
                     {cloneElement(icon, {
                         color: theme.icon.accent,
                     })}
-                    <NavLink key={index} to={link|| ''} className={"header__text header__text--rubik-font"}>{text}</NavLink>
-
+                    <NavLink
+                        key={index}
+                        to={link || ''}
+                        className={'header__text header__text--rubik-font'}
+                    >
+                        {text}
+                    </NavLink>
                 </IconWithText>
             ))}
-            <LangSelector/>
+            <LangSelector />
         </ContainerFlex>
     )
 }
