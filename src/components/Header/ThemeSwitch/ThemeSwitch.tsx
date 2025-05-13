@@ -9,8 +9,7 @@ import { selectThemeState } from '@/redux/slices/theme.slice'
 const ThemeSwitch = () => {
     const stateTheme = useAppSelector(selectThemeState)
 
-    const [state, swapTheme] = useTheme()
-    console.log(state)
+    const [swapTheme] = useTheme()
     const switchAbstract: FVoid = () => {
         switch (stateTheme) {
             case 'dark':
@@ -21,10 +20,10 @@ const ThemeSwitch = () => {
     }
     return (
         <ContainerFlex paddingRight={'10px'} alignItems={'center'} gap={'5px'}>
-            <ThemSwitchIcon status={state} />
+            <ThemSwitchIcon />
             <Switch
                 onCheckedChange={switchAbstract}
-                checked={state === 'dark'}
+                // checked={state === 'dark'}
             />
         </ContainerFlex>
     )

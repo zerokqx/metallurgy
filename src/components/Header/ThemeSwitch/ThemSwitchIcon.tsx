@@ -7,6 +7,7 @@ import TThemeSwitchIcon from '@/types/components/switch.types'
 
 const ThemSwitchIcon: TThemeSwitchIcon = ({ status, sizePx }) => {
     const theme = (useTheme() as TTheme).icon.primary
+
     const size: TSizeCss<'px'> = sizePx || '20px'
     return status === 'dark' ? (
         <FaMoon fill={theme} size={size} />
