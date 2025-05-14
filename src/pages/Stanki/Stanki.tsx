@@ -5,6 +5,7 @@ export const StankiPage = () => {
     return (
         <main
             style={{
+                display: 'flex',
                 flexWrap: 'wrap',
                 gap: '20px',
                 height: 'max-content',

@@ -11,6 +11,7 @@ type TInitialStateUser = {
     error: string | null
     role: 'admin' | 'user' | null
     profilePictureUrl: string
+    isOld: EIsNew,
 }
 export enum EIsNew {
     isNew,

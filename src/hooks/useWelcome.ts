@@ -1,7 +1,8 @@
 import { EIsNew } from '@/types/redux/userSlice.types'
-import { useLocalStorage } from '@uidotdev/usehooks'
 import { useNavigate } from 'react-router'
 import { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '@/hooks/useRedux'
+import { selectUser, setOld } from '@/redux/slices/userSlice'
 
 /**
  * @description Отслеживает является ли пользователь новоприбывшем или уже был
@@ -10,14 +11,14 @@ import { useEffect } from 'react'
  *
  */
 const useWelcome = () => {
-    const [state, setWelcome] = useLocalStorage<EIsNew>('welcome', EIsNew.isNew)
+    const {isOld} = useAppSelector(selectUser)
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
     useEffect(() => {
-        if (!state) {
-            setWelcome(EIsNew.isOld)
+        if (isOld === EIsNew.isNew) {
+            dispatch(setOld())
             navigate('/welcome/')
         }
-    }, [])
+    }, [dispatch, isOld, navigate])
 }
-
 export default useWelcome

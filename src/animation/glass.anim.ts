@@ -12,7 +12,7 @@ const glass = new Animation({
 
         backdropFilter: 'blur(10px)',
     },
-    controls: { duration: 0.2 },
+    controls: { duration: 0.9 },
     twoState: {
         opacity: '0%',
         backdropFilter: 'blur(0px)',
