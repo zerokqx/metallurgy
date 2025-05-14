@@ -12,7 +12,7 @@ export const dataHeader: TDataNav[] = [
     },
     {
         text: 'Сотрудники',
-        link: '#',
+        link: 'sotrudniki/',
         icon: <FaUserGroup color={lightTheme.icon.primary} />,
     },
     {

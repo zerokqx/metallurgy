@@ -1,2 +1,7 @@
 @import url('/public/fonts/Golos-Text/Golos-Text_Regular.css');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+html, body, #root {
+    height: 100vh !important; /* Используй viewport height */
+    width: 100vw !important;  /* Используй viewport width */
+}

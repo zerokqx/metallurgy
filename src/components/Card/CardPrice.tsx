@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { ComponentProps, FC } from 'react'
 import { useTheme } from 'styled-components'
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
 

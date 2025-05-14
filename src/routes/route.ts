@@ -5,6 +5,7 @@ import { unionLang } from '@/dataFile/rainbowText.data'
 import { dataHeader } from '@/dataFile/header.data'
 import UserPage from '@/pages/User/User.page'
 import { StankiPage } from '@/pages/Stanki/Stanki'
+import { Sotrudniki } from '@/pages/Sotrudniki/Sotrudniki'
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
                     },
                 ],
             },
+            {
+                path:"sotrudniki/",
+                Component:Sotrudniki,
+
+            }
         ],
     },
 ])
