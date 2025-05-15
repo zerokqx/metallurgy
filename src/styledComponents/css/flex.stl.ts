@@ -10,5 +10,4 @@ const flexBox = css<Readonly<TFlexBox>>`
     flex-direction: ${(props) => props.flexDirection};
     gap: ${(props) => props.gap};
 `
-
 export default flexBox
