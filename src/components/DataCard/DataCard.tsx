@@ -1,45 +1,62 @@
 import {
-    DataCardRabota,
+    CardName,
     DataCardStyled,
-    DataCardText,
-    DataCardTitle, LightText, Price,
+    LightText,
+    Price,
     UserPersonality,
 } from '@/styledComponents/DataCardStyled.ts'
-import { Avatar } from '@/components/ui/avatar'
-import AvatarFallbackStl from '@/styledComponents/AvatarFallback.stl'
 import AvatarWrapper from '@/components/Wrappers/AvatarWrapper'
-import gen from "@/assets/Screenshot_2025-05-14-15-25-00_3840x1080.png"
 import TTheme from '@/types/styledComponents/css/theme/theme.types'
 import { useTheme } from 'styled-components'
+import { FC } from 'react'
 
-export const DataCard = ({image})=>{
+export const DataCard: FC<{
+    image?: Parameters<typeof AvatarWrapper>[0]['profilePictureUrl']
+    name:string,
+    role:string,
+    price:number,
+    description:string,
+}> = ({ image,name,role,price,description }) => {
     const theme = useTheme() as TTheme
+
+    const getReserve = (name:string):string=>{
+        const getWord = (str:string)=> str.slice(0,1)
+        const reserveName = name.split(" ")
+        return `${getWord(reserveName[0])}${getWord(reserveName[1])}`
+    }
     return (
         <DataCardStyled>
-<UserPersonality>
-    <AvatarWrapper profilePictureUrl={gen} nameFallback={"Жп"} w={"80px"}/>
-    <div style={{
-        justifyContent: 'center',
-        display: 'flex',
-        alignItems: 'start',
-        flexDirection: 'column',
-    }}>
-    <h1>Баранов Евгений Павлович</h1>
-    <LightText>Уборщик</LightText>
-
-    </div>
-
-</UserPersonality>
-            <Price>Зарплата: 800Rub</Price>
-            <h3 style={{
-                width: 'max-content',
-                color: theme.text.primary,
-                opacity:1,
-            }}>Описание:</h3>
-            <LightText >
-                Супер премиальный уборщик, каждый туалет будет чист при виде Евгения
+            <UserPersonality>
+                <AvatarWrapper
+                    profilePictureUrl={image||''}
+                    nameFallback={getReserve(name)}
+                    w={'80px'}
+                />
+                <div
+                    style={{
+                        justifyContent: 'center',
+                        display: 'flex',
+                        alignItems: 'start',
+                        flexDirection: 'column',
+                    }}
+                >
+                    <CardName>{name}</CardName>
+                    <LightText>{role}</LightText>
+                </div>
+            </UserPersonality>
+            <Price>Зарплата: {price}</Price>
+            <h3
+                style={{
+                    width: 'max-content',
+                    color: theme.text.primary,
+                    opacity: 1,
+                }}
+            >
+                Описание:
+            </h3>
+            <LightText>
+                {description}
             </LightText>
         </DataCardStyled>
-
     )
 }
