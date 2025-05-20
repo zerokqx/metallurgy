@@ -14,7 +14,7 @@ export const DataCard: FC<{
     image?: Parameters<typeof AvatarWrapper>[0]['profilePictureUrl']
     name:string,
     role:string,
-    price:number,
+    price:number|string,
     description:string,
 }> = ({ image,name,role,price,description }) => {
     const theme = useTheme() as TTheme

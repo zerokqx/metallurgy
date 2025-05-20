@@ -6,3 +6,10 @@ html, body, #root {
     height: 100vh !important; /* Используй viewport height */
     width: 100vw !important;  /* Используй viewport width */
 }
+* {
+    transition:
+            background-color 0.7s ease,
+            color 0.7s ease,
+            border-color 0.7s ease,
+            box-shadow 0.7s ease;
+}

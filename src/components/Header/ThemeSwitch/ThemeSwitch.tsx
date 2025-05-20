@@ -8,7 +8,7 @@ import { selectThemeState } from '@/redux/slices/theme.slice'
 
 const ThemeSwitch = () => {
     const stateTheme = useAppSelector(selectThemeState)
-
+    console.log(stateTheme)
     const [swapTheme] = useTheme()
     const switchAbstract: FVoid = () => {
         switch (stateTheme) {
@@ -20,10 +20,10 @@ const ThemeSwitch = () => {
     }
     return (
         <ContainerFlex paddingRight={'10px'} alignItems={'center'} gap={'5px'}>
-            <ThemSwitchIcon />
+            <ThemSwitchIcon status={stateTheme} />
             <Switch
+                checked={stateTheme === 'dark'}
                 onCheckedChange={switchAbstract}
-                // checked={state === 'dark'}
             />
         </ContainerFlex>
     )
