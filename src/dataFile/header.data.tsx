@@ -14,7 +14,7 @@ export const dataHeader: TDataNav[] = [
 
     {
         text: 'Станки',
-        link: 'shop/stanki/',
+        link: '/',
         icon: <IoSettingsSharp color={lightTheme.icon.primary} />,
     },
 ] as TDataNav[]

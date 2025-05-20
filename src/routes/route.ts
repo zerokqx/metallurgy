@@ -22,15 +22,11 @@ const router = createBrowserRouter([
                     return unionLang
                 },
             },
-            {
-                path: 'shop/',
-                children: [
+
                     {
                         Component: StankiPage,
-                        path: 'stanki/',
+                        path: '/',
                     },
-                ],
-            },
             {
                 path: 'user/',
                 children: [
